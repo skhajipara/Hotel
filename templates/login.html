@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Login</title>
+        <link rel="stylesheet" href="../static/style.css">
+    </head>
+
+    <body style="background-color: #e0d4c0" data-flash-message="{{ flash_message }}">
+
+        <!-- Javascript link code -->
+        <script src="{{ url_for('static', filename='alert.js') }}"></script>
+    
+
+        <a href="{{ url_for('home') }}"><img src="../static/Logo.png"  class="booking-logo" alt="S.K.Restautrant"></a><br><br><br>  <!-- click logo for go back to home page -->
+        
+        <div class="login-name">
+            <form action="/login" method="POST">
+                <h2>Login</h2></br>
+                <h4>Welcome Back In S.K.Restaurant</h4>
+                <label >Email</label><br><input type="email" name="Email"  ><br>        
+                <label>Password</label><br> <input type="text" name="Password" ><br>
+                <h6 class="forgot-password"><a href="/forget"><u>Forget Password</u></a></h6>
+                <button type="submit">Sign In</button>
+                <h5>Don't have an account? <a href="/signup"><u>Sign up</u></a></h5>
+
+            </form>
+        </div>
+    </body>
+</html>

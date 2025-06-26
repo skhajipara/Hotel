@@ -1,0 +1,747 @@
+/* Header bar */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 60px; 
+    background-color: rgb(174, 239, 198);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 30px;
+    border-radius: 0 0 8px 8px;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+/* Logo - fixed size and position */
+.top-left-image {
+    position: fixed;
+    top: 0.2rem;       
+    left: 0rem;
+    width: 80px;     
+    height: 60px;
+    object-fit: contain;
+    z-index: 1000;
+}
+
+/* Login Button - fixed position, non-scaling */
+.login button {
+    position: fixed;
+    top: 1rem;
+    left: 88vw;  
+    width: 80px;
+    padding: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #0db112;
+    border-radius: 5px;
+    font-weight: bold;
+    z-index: 1000;
+    font-size: 14px;
+}
+
+
+
+/* Make scrollable content inside a container */
+.scroll-container {
+    margin-top: 0px; 
+    padding: 20px;    
+  
+    
+   
+}
+
+/* Restaurant photo */
+#slider {
+    position: absolute;
+    top: 110px;
+    left:25px;
+    width: 600px;
+    height: 450px;
+    object-fit: cover;
+    border-radius: 8px;
+    }
+
+    /*Welcome to S.K. Restaurant*/
+    .slider-text {
+        position: absolute;
+        top: 110px;
+        left: 42rem;
+        right: 0px;
+        color: rgb(0, 0, 0);
+        font-family: Arial, Helvetica, sans-serif;
+        font-size: 24px;
+        font-weight: bold;
+        padding: 10px 5px 2px 0px;
+        background-color: #DEB26A;
+        border-radius: 90px 0px 0px 90px;
+        width: auto;  
+        text-align: center;
+    }
+    
+    
+    /* Menu button */
+    .button-menu{
+        position: absolute;
+        left: 770px;
+        top: 400px;
+        width:150px;
+        padding: 2px;
+        font-family: Arial;
+        font-weight: bold;
+        font-size: 14px;
+        border-radius: 8px;
+        border: 2px solid #69543172;
+        background-color: #DEB26A;
+    }
+    /* table booking */
+    .button-table{
+        position: absolute;
+        left: 770px;
+        top: 450px;
+        width:150px;
+        padding: 2px;
+        font-family: Arial;
+        font-weight: bold;
+        font-size: 14px;
+        border-radius: 8px;
+        border: 2px solid #69543172;
+        background-color: #DEB26A;
+    }
+    /* food order */
+    .button-order{
+        position: absolute;
+        left: 770px;
+        top: 500px;
+        width:150px;
+        padding: 2px;
+        font-family: Arial;
+        font-weight: bold;
+        font-size: 14px;
+        border-radius: 8px;
+        border: 2px solid #69543172;
+        background-color: #DEB26A;
+    }
+    /* Home Delivery */
+    .button-delivery{
+        position: absolute;
+        left: 770px;
+        top: 550px;
+        width:150px;
+        padding: 2px;
+        font-family: Arial;
+        font-weight: bold;
+        font-size: 14px;
+        border-radius: 8px;
+        border: 2px solid #69543172;
+        background-color: #DEB26A;
+    }
+
+    /* first food photo */
+    .photo1{
+        position: absolute;
+        left: 670px;
+        top: 170px;
+        width: 140px;
+        border-radius: 8px;
+    }
+    /* second food photo */
+    .photo2{
+        position: absolute;
+        left: 820px;
+        top: 170px;
+        width: 100px;
+        border-radius: 8px;
+    }
+    /* third food photo */
+    .photo3{
+        position: absolute;
+        left: 930px;
+        top: 170px;
+        width: 140px;
+        border-radius: 8px;
+    }
+    /* fourth food photo */
+    .photo4{
+        position: absolute;
+        left: 820px;
+        top: 280px;
+        width: 100px;
+        border-radius: 8px;
+    }
+
+    /* home page bottom content */
+    .personality-h2{
+        position: absolute;
+        top: 580px;
+        color: #d59226;
+    }
+    .personality-h31{
+        position:absolute;
+        top :620px;
+        color: #d59226;
+        font-weight: bold;
+        
+    }
+    .personality-pre1{
+        position: absolute;
+        top: 650px;
+        font-family: 'Times New Roman', Times, serif;
+        font-size:large;
+        font-weight: bold;
+    }
+    .personality-h32{
+        position:absolute;
+        top :750px;
+        color: #d59226;
+        font-weight: bold;
+    }
+
+    .personality-pre2{
+        position: absolute;
+        top: 780px;
+        font-family: 'Times New Roman', Times, serif;
+        font-size:large;
+        font-weight: bold;
+    }
+    .personality-h33{
+        position:absolute;
+        top :860px;
+        color: #d59226;
+        font-weight: bold;  
+    }
+    .personality-pre3{
+        position: absolute;
+        top: 890px;
+        font-family: 'Times New Roman', Times, serif;
+        font-size:large;
+        font-weight: bold;
+    }
+
+    /* Thank you */
+    .abhar{
+        position: absolute;
+        top: 1111px;
+        left:410px;
+        color: #dd8800;
+        text-align: center;
+
+    }
+    /* quotes */
+    .abhar1{
+        position: absolute;
+        top: 1050px;
+        left:310px;
+        color: #dd8800;
+        font-size:medium;
+        font-weight: bold;
+        text-align: center;
+
+    }
+
+    /* botton page manage */
+    .fix-bottom {
+        position:absolute;
+        top: 1200px;
+        left: 0;
+        bottom: 0px;
+        width: 100%;
+        height: 150px; 
+        background-color:  rgb(174, 239, 198);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 30px;
+        border-radius: 8px 8px 0px 0px;
+        z-index: 100;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        box-sizing: border-box;
+    }
+
+    .fix-bottom h3{
+        position: absolute;
+        top: 0px;
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size:large;
+        font-weight: bold;
+    }
+
+    .fix-bottom pre{
+        position: absolute;
+        top: 30px;
+        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size:small;
+        font-weight: bold;
+    }
+
+    
+
+
+
+
+
+    /* booking page css */
+
+    .booking-logo{
+        position: absolute;
+        left:500px;
+        top:4px;
+        width: 100px; 
+        height: 100px;
+        text-align: center;
+    }
+
+    .booking-wel{
+        position: absolute;
+        left:460px;
+        top:95px;
+        color: #DEB26A;
+        text-align: center;
+    }
+
+    .booking-name {
+        position: absolute;
+        top: 200px;        
+        left: 350px;       
+        background-color: #a8e6f5;
+        padding: 30px 50px;
+        padding-left: 50 px;
+        padding-right: 50px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        width: 300px;
+        text-align: center;
+    }
+    .booking-name input{
+        resize: vertical; 
+        padding: 5px;       
+        border: 2px solid #000000;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        border-radius: 5px;
+        padding-bottom: 5px;
+        position: static;
+        width: 240px;
+    }
+
+    
+    .booking-name button {
+        width: 100%;
+        padding: 5px;
+        background-color: #4CAF50;
+        color: white;
+        border: 2px solid #0db112;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+
+    .booking-name label {
+        font-weight: bold;
+        margin-top: 20px;
+        text-align: center
+    }
+
+   
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* Order Page */
+
+    .order-wel{
+        position: absolute;
+        left:480px;
+        top:95px;
+        color: #DEB26A;
+        text-align: center;
+    }
+
+    .order-name {
+        position: absolute;
+        top: 200px;        
+        left: 350px;       
+        background-color: #99aaaf;
+        padding: 30px 50px;
+        padding-left: 50 px;
+        padding-right: 50px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        width: 300px;
+        text-align: center;
+        
+    }
+
+    .order-name label {
+        margin-top: 20px;
+        font-weight: bold;
+        text-align: center
+    }
+
+    .order-name input{
+        resize: vertical; 
+        padding: 5px;       
+        border: 2px solid #000000;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        border-radius: 5px;
+        padding-bottom: 5px;
+        position: static;
+        width: 240px;
+    }
+
+    .order-name textarea {
+        resize: vertical; 
+        padding: 5px;       
+        border: 2px solid #000000;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        border-radius: 5px;
+        padding-bottom: 5px;
+        position: static;
+    }
+
+    .order-name button {
+        width: 100%;
+        margin-top: 20px;
+        padding: 5px;
+        background-color: #4CAF50;
+        color: white;
+        border: 2px solid #0db112;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+    /* Food delivery page */
+    .delivery-wel{
+        position: absolute;
+        left:440px;
+        top:95px;
+        color: #DEB26A;
+        text-align: center;
+    }
+
+    .delivery-name{
+        position: absolute;
+        top: 200px;        
+        left: 350px;       
+        background-color: #daae67;
+        padding: 30px 50px;
+        padding-left: 50 px;
+        padding-right: 50px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        width: 300px;
+        text-align: center;
+    }
+    
+    .delivery-name label {
+        margin-top: 20px;
+        font-weight: bold;
+        text-align: center
+    }
+
+    .delivery-name input{
+        resize: vertical; 
+        padding: 5px;       
+        border: 2px solid #000000;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        border-radius: 5px;
+        padding-bottom: 5px;
+        position: static;
+        width: 240px;
+    }
+
+    .delivery-name button {
+        width: 100%;
+        margin-top: 20px;
+        padding: 5px;
+        background-color: #4CAF50;
+        color: white;
+        border: 2px solid #0db112;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+
+    .delivery-name textarea {
+        resize: vertical; 
+        padding: 5px;       
+        border: 2px solid #000000;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        border-radius: 5px;
+        padding-bottom: 5px;
+        position: static;
+    }
+
+
+
+
+
+
+
+
+    /* Login page */
+    .login-name h2{
+        position: absolute;
+        left:170px;
+        top:5px;
+        color: #000000;
+        text-align: center;
+
+    }
+
+    .login-name{
+        position: absolute;
+        top: 150px;        
+        left: 350px;       
+        background-color: #daae67;
+        padding: 30px 50px;
+        padding-left: 50 px;
+        padding-right: 50px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        width: 300px;
+        text-align: center;
+    }
+
+    .login-name label {
+        margin-top: 20px;
+        font-weight: bold;
+        text-align: center
+    }
+
+    .login-name input{
+        resize: vertical;  
+        padding: 5px;       
+        border: 2px solid #000000;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        border-radius: 5px;
+        padding-bottom: 5px;
+        position: static;
+        width: 240px;
+    }
+
+    .login-name button {
+        width: 85%;
+        margin-top: 30px;
+        padding: 5px;
+        background-color: #4CAF50;
+        color: white;
+        border: 2px solid #0db112;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+
+    .login-name textarea {
+        resize: vertical; 
+        padding: 5px;       
+        border: 2px solid #000000;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        border-radius: 5px;
+        padding-bottom: 5px;
+        position: static;
+    }
+
+    /* forget button */
+    .forgot-password {
+        position: absolute;
+        left: 210px;
+        bottom: 130px;
+        margin-top: 5px;
+        margin-bottom: 0px;
+        text-align: center;
+        font-size: 14px;
+    }
+    
+
+    .login-name form h5 button {
+        top: 40px;
+        background: none;    
+        border: none;        
+        color: blue;         
+        padding: 0;          
+        cursor: pointer;     
+        font-size: inherit;  
+      }
+    
+
+
+
+
+
+
+
+
+    
+      /* forget -password page */
+      .forget-name{
+        position: absolute;
+        top: 150px;        
+        left: 350px;       
+        background-color: #daae67;
+        padding: 30px 50px;
+        padding-left: 50 px;
+        padding-right: 50px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        width: 300px;
+        text-align: center;
+    }
+
+    .forget-name label {
+        margin-top: 20px;
+        font-weight: bold;
+        text-align: center
+    }
+
+    .forget-name input{
+        resize: vertical;  
+        padding: 5px;       
+        border: 2px solid #000000;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        border-radius: 5px;
+        padding-bottom: 5px;
+        position: static;
+        width: 240px;
+    }
+
+    .forget-name button {
+        width: 85%;
+        margin-top: 30px;
+        padding: 5px;
+        background-color: #4CAF50;
+        color: white;
+        border: 2px solid #0db112;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+
+    .forget-name textarea {
+        resize: vertical; 
+        padding: 5px;       
+        border: 2px solid #000000;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        border-radius: 5px;
+        padding-bottom: 5px;
+        position: static;
+    }  
+    
+
+
+
+
+
+
+
+
+
+      /* Signup page */
+      .signup-name h2{
+        position: absolute;
+        left: 85px;
+        top:5px;
+        color: #000000;
+        text-align: center;
+
+    }
+
+    .signup-name{
+        position: absolute;
+        top: 150px;        
+        left: 350px;       
+        background-color: #daae67;
+        padding: 30px 50px;
+        padding-left: 50 px;
+        padding-right: 50px;
+        margin-bottom: 15px;
+        border-radius: 10px;
+        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+        width: 300px;
+        text-align: center;
+    }
+
+    .signup-name label {
+        margin-top: 20px;
+        font-weight: bold;
+        text-align: center
+    }
+
+    .signup-name input{
+        resize: vertical; 
+        padding: 5px;       
+        border: 2px solid #000000;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        border-radius: 5px;
+        padding-bottom: 5px;
+        position: static;
+        width: 240px;
+    }
+
+    .signup-name button {
+        width: 85%;
+        margin-top: 20px;
+        padding: 5px;
+        background-color: #4CAF50;
+        color: white;
+        border: 2px solid #0db112;
+        border-radius: 5px;
+        font-weight: bold;
+    }
+
+    .signup-name textarea {
+        resize: vertical; 
+        padding: 5px;       
+        border: 2px solid #000000;
+        margin-top: 10px;
+        margin-bottom: 10px;
+        padding-bottom: 5px;
+        border-radius: 5px;
+        padding-bottom: 5px;
+        position: static;
+    }

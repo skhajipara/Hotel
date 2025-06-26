@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title> S.K.Restautrant </title>
+        <link rel="stylesheet" href="../static/style.css">
+    </head>
+
+    <body data-flash-message="{{ flash_message }}">
+        <!-- Logo -->
+        <div class="fixed-header">
+            <img src="../static/Logo.png" class="top-left-image" alt="S.K.Restaurant">
+            <div class="login">
+                <form action="/login">
+                    <button type="submit">Login</button>
+                </form>
+            </div>
+        </div>
+        <div class="scroll-container">
+            <img id="slider" src="../static/In 1.png" alt="Slideshow">
+
+                <script>
+                    const images = [
+                        // First image
+                        
+                        "../static/In 1.png",
+
+                        // Second image
+                        
+                        "../static/In 2.png",
+                        
+                        // Third image
+                        
+                        "../static/Out.png"
+                    ]
+            
+                    let currentIndex = 0;
+                    const imgElement = document.getElementById("slider");
+                    
+                    function changeImage() {
+                        currentIndex = (currentIndex + 1) % images.length; 
+                        imgElement.src = images[currentIndex];
+                    }
+                    
+                    setInterval(changeImage, 3000);
+                </script>
+            <div class="slider-text">Welcome to S.K. Restaurant</div>
+            <!-- food photo -->
+            <img src="../static/Photo 01.png" class="photo1">
+            <img src="../static/Photo 02.png" class="photo2">
+            <img src="../static/Photo 03.png" class="photo3">
+            <img src="../static/Photo 04.png" class="photo4">
+            
+            <!-- Javascript link code -->
+            <script src="{{ url_for('static', filename='alert.js') }}"></script>
+
+            <!-- Menu button  -->
+            <a href="../static/Gujarati menu.pdf" target="_blank">
+                <button class="button-menu">Menu</button>
+            </a>                
+            
+            <!-- table booking -->
+            <a href="/booking">                    
+                <button class="button-table">Table Booking</button>
+            </a>    
+
+            <!-- Food order -->
+            <a href="/order">
+                <button class="button-order">Order Food</button>
+            </a>
+
+            <!-- Delivery -->
+            <a href="/delivery">
+                <button class="button-delivery">Home Delivery</button>
+            </a>
+
+            <!-- bottom page content -->
+            <div>
+            <h2 class="personality-h2" >* Our Uniqueness</h2>
+            <h3 class="personality-h31">~ In Food</h3>
+            <pre class="personality-pre1">
+       - Our restaurant uses directly farmed vegetables. 
+       - Our restaurant uses pure peanut oil, which is extracted directly from peanuts grown by farmers. 
+       - Pulses and other items that depend on agriculture are supplied directly from farmers. 
+       - Dairy products like ghee and milk are provided by our buffalo stable. 
+            </pre>
+            <h3 class="personality-h32">~ Serving Style</h3>            
+            <pre class="personality-pre2">
+       - We are using brass utensils to serve food, just like in the past.
+       - We are using a traditional way of serving food, just like in the past.
+       - All dishes are prepared in clay pots.
+            </pre>
+            <h3 class="personality-h33">~ Dining arrangements</h3>
+            <pre class="personality-pre3">
+       - We have a traditional dining area with a seating capacity of 50 people.
+       - We have a separate dining area for special occasions and events.
+       - We have a separate dining area for children.
+       - And there is also an arrangement to eat in the perfect Kathiawadi style, just like in the village.
+            </pre>
+
+            <h2 class="abhar">Thank You 🙏 Visit again</h2>
+            <pre class="abhar1">રાધા વીના કાન નહીં,
+                    એસ.કે. વીના જમવા નુ નહીં.....</pre>
+        </div>
+        <div class="fix-bottom">
+            <h3>S.K.Restuarant</br></br></br></h3>
+            <pre>
+            
+        ~ Menu                                    ~ Food Quality
+        ~ Table-Booking                       ~ Serving Speciality
+        ~ Order Food                           ~ Dining arrangements
+        ~ Home Delivery
+    
+        </pre>
+        </div>
+    </div>    
+    </body>
+</html>
