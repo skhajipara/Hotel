@@ -1,29 +1,41 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Food Delivery</title>
-        <link rel="stylesheet" href="../static/style.css">
-    </head>
+<head>
+    <title>Food Delivery</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
 
-    <body style="background-color: #e0d4c0" data-flash-message="{{ flash_message }}">
-        
-        <!-- Javascript link code -->
-        <script src="{{ url_for('static', filename='alert.js') }}"></script>
-    
-        <a href="{{ url_for('home') }}">  <!-- click logo for go back to home page -->
-            <img src="../static/Logo.png"  class="booking-logo" alt="S.K.Restautrant">
-        </a><br><br><br>
-        <h2 style="font-family:Arial, Helvetica, sans-serif" class="delivery-wel">Order Delivery Here</h2>
-        <div class="delivery-name">
-            <form action="/submit" method="POST">
-                <label >Name</label><br><input type="text" name="Customer_Name"  ><br>        
-                <label>Mobile Number</label><br> <input type="number" name="Mobile_Number"><br>
-                <label >Email</label><br><input type="email" name="Email"  ><br>                                    
-                <label>Order</label><br><textarea name="Order" rows="4" cols="30" style="padding-bottom: 200px;"></textarea><br>
-                <label>Address</label><br><textarea  name="Address" rows="4" cols="30" style="padding-bottom: 100px;"></textarea><br>
+<body style="background-color: #e0d4c0" data-flash-message="{{ flash_message }}">
 
-                <button type="submit">Confirm Order</button>
-            </form>
-        </div>
-    </body>
+    <!-- JS Alert -->
+    <script src="{{ url_for('static', filename='alert.js') }}"></script>
+
+    <!-- Logo - Click to go Home -->
+    <a href="{{ url_for('home') }}">
+        <img src="../static/Logo.png" class="booking-logo" alt="S.K.Restaurant">
+    </a>
+
+    <h2 class="delivery-wel">Order Delivery Here</h2>
+
+    <div class="delivery-name">
+        <form action="/submit" method="POST">
+            <label>Name</label>
+            <input type="text" name="Customer_Name" class="delivery-input-field">
+
+            <label>Mobile Number</label>
+            <input type="number" name="Mobile_Number" class="delivery-input-field">
+
+            <label>Email</label>
+            <input type="email" name="Email" class="delivery-input-field">
+
+            <label>Order</label>
+            <textarea name="Order" rows="4" class="delivery-textarea-field"></textarea>
+
+            <label>Address</label>
+            <textarea name="Address" rows="4" class="delivery-textarea-field"></textarea>
+
+            <button type="submit">Confirm Order</button>
+        </form>
+    </div>
+</body>
 </html>

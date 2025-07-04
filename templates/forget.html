@@ -1,30 +1,35 @@
 <!DOCTYPE html>
 <html>
-    <head>
-        <title>Forget Password</title>
-        <link rel="stylesheet" href="../static/style.css">
-    </head>
+<head>
+    <title>Forget Password</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
 
-    <body style="background-color: #e0d4c0" data-flash-message="{{ flash_message }}">
+<body style="background-color: #e0d4c0" data-flash-message="{{ flash_message }}">
 
-        <!-- Javascript link code -->
-        <script src="{{ url_for('static', filename='alert.js') }}"></script>
-    
+    <!-- JS Alert -->
+    <script src="{{ url_for('static', filename='alert.js') }}"></script>
 
-        <a href="{{ url_for('home') }}"><img src="../static/Logo.png"  class="booking-logo" alt="S.K.Restautrant"></a><br><br><br>  <!-- click logo for go back to home page -->
-    
-        <div class="forget-name">
-            <form action="/forget" method="POST">
-                <h2>Forget Password</h2></br>
-                <h4>Welcome Back In S.K.Restaurant</h4>
-                <label>Email</label><br>
-                <input type="email" name="Email"><br>
-                
-                <label>Mobile Number</label><br>
-                <input type="number" name="Mobile_No"><br>                 <button type="submit">Forget</button>
-                <h5>Don't have an account? <a href="/signup"><u>Sign up</u></a></h5>
+    <!-- Click logo to go home -->
+    <a href="{{ url_for('home') }}">
+        <img src="../static/Logo.png" class="booking-logo" alt="S.K.Restaurant">
+    </a>
 
-            </form>
-        </div>
-    </body>
+    <div class="forget-name">
+        <form action="/forget" method="POST">
+            <h2>Forget Password</h2>
+            <h4>Welcome Back In S.K.Restaurant</h4>
+
+            <label>Email</label>
+            <input type="email" name="Email">
+
+            <label>Mobile Number</label>
+            <input type="number" name="Mobile_No">
+
+            <button type="submit">Forget</button>
+
+            <h5>Don't have an account? <a href="/signup"><u>Sign up</u></a></h5>
+        </form>
+    </div>
+</body>
 </html>

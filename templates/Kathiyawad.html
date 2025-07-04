@@ -18,21 +18,41 @@
             </div>
         </div>
         <div class="scroll-container">
-            <img id="slider" src="../static/In 1.png" alt="Slideshow">
+            <img id="slider" src="../static/Hotel outside.png" alt="Slideshow">
 
                 <script>
                     const images = [
                         // First image
                         
-                        "../static/In 1.png",
+                        "../static/Hotel outside.png",
 
                         // Second image
-                        
-                        "../static/In 2.png",
-                        
+                        "../static/reception.png",
+                                              
                         // Third image
                         
-                        "../static/Out.png"
+                        "../static/Dining.png",
+                        
+                        // fourth image
+                        
+                        "../static/room outside.png",
+                        
+                        // fifth image
+                        
+                        "../static/room 1.png",
+                        
+                        // sixth image
+                        
+                        "../static/room 2.png",
+
+                        // seventh image
+                        
+                        "../static/D room.png",
+
+                         // eighth image
+                        
+                         "../static/D dining.png",
+                        
                     ]
             
                     let currentIndex = 0;
@@ -45,7 +65,7 @@
                     
                     setInterval(changeImage, 3000);
                 </script>
-            <div class="slider-text">Welcome to S.K. Restaurant</div>
+            <div class="slider-text">Welcome to S.K. Hotels Group</div>
             <!-- food photo -->
             <img src="../static/Photo 01.png" class="photo1">
             <img src="../static/Photo 02.png" class="photo2">
@@ -55,10 +75,11 @@
             <!-- Javascript link code -->
             <script src="{{ url_for('static', filename='alert.js') }}"></script>
 
-            <!-- Menu button  -->
-            <a href="../static/Gujarati menu.pdf" target="_blank">
+            
+            
+            <a href="/menu">                    
                 <button class="button-menu">Menu</button>
-            </a>                
+            </a>
             
             <!-- table booking -->
             <a href="/booking">                    
@@ -75,44 +96,42 @@
                 <button class="button-delivery">Home Delivery</button>
             </a>
 
+            <!-- Room Booking -->
+            <a href="/room">
+                <button class="button-room">Room Booking</button>
+            </a>
+
             <!-- bottom page content -->
             <div>
             <h2 class="personality-h2" >* Our Uniqueness</h2>
             <h3 class="personality-h31">~ In Food</h3>
             <pre class="personality-pre1">
-       - Our restaurant uses directly farmed vegetables. 
-       - Our restaurant uses pure peanut oil, which is extracted directly from peanuts grown by farmers. 
-       - Pulses and other items that depend on agriculture are supplied directly from farmers. 
-       - Dairy products like ghee and milk are provided by our buffalo stable. 
+            - Our restaurant uses directly farmed vegetables. </br>            - Our restaurant uses pure peanut oil, which is extracted directly from peanuts grown by farmers. </br>            - Pulses and other items that depend on agriculture are supplied directly from farmers. </br>            - Dairy products like ghee and milk are provided by our buffalo stable.</br> 
             </pre>
-            <h3 class="personality-h32">~ Serving Style</h3>            
-            <pre class="personality-pre2">
-       - We are using brass utensils to serve food, just like in the past.
-       - We are using a traditional way of serving food, just like in the past.
-       - All dishes are prepared in clay pots.
+            <h3 class="personality-h32">~ Serving Style (Only Avilable in Village Vibe)</h3>            
+            <pre class="personality-pre2">            - We are using brass utensils to serve food, just like in the past.</br>            - We are using a traditional way of serving food, just like in the past.</br>            - All dishes are prepared in clay pots.</br>
             </pre>
-            <h3 class="personality-h33">~ Dining arrangements</h3>
+            <h3 class="personality-h33">~ Dining Arrangements</h3>
             <pre class="personality-pre3">
-       - We have a traditional dining area with a seating capacity of 50 people.
-       - We have a separate dining area for special occasions and events.
-       - We have a separate dining area for children.
-       - And there is also an arrangement to eat in the perfect Kathiawadi style, just like in the village.
+            - We have a traditional dining area with a seating capacity of 550 people.</br>            - We have a separate dining area for special occasions and events.</br>            - We have a separate dining area for children.</br>            - And there is also an arrangement to eat in the perfect Kathiawadi style, just like in the village.</br>            - We have a separate dining area for people with disabilities.</br>
             </pre>
 
             <h2 class="abhar">Thank You 🙏 Visit again</h2>
-            <pre class="abhar1">રાધા વીના કાન નહીં,
-                    એસ.કે. વીના જમવા નુ નહીં.....</pre>
+            <pre class="abhar1">                રાધા વીના કાન નહીં,</br>                    એસ.કે. વીના જમવા નુ નહીં.....</pre>
         </div>
         <div class="fix-bottom">
-            <h3>S.K.Restuarant</br></br></br></h3>
-            <pre>
+            <h3>S.K.Hotels Group</br></br></br></h3>
             
-        ~ Menu                                    ~ Food Quality
-        ~ Table-Booking                       ~ Serving Speciality
-        ~ Order Food                           ~ Dining arrangements
-        ~ Home Delivery
-    
-        </pre>
+            <div class="fix-bottom-d1"><a href="/menu" target="_blank">~ Menu</a></div>
+            <div class="fix-bottom-d2"><a href="/booking"> ~ Table Booking</a></div>
+            <div class="fix-bottom-d3"><a href="/order">~ Order Food</a></div>
+            <div class="fix-bottom-d4"><a href="/delivery">~ Home Delivery</a></div>
+            <div class="fix-bottom-d8"><a href="/room">~ Room Booking</a></div>
+            <div class="fix-bottom-d5">~ Food Quality</div>
+            <div class="fix-bottom-d6">~ Serving Speciality</div>
+            <div class="fix-bottom-d7">~ Dining Arrangements</div>
+        </div>
+        
         </div>
     </div>    
     </body>

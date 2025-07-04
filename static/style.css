@@ -4,7 +4,7 @@
     top: 0;
     left: 0;
     width: 100%;
-    height: 60px; 
+    height: 70px;
     background-color: rgb(174, 239, 198);
     display: flex;
     align-items: center;
@@ -19,9 +19,9 @@
 /* Logo - fixed size and position */
 .top-left-image {
     position: fixed;
-    top: 0.2rem;       
+    top: 0.3rem;
     left: 0rem;
-    width: 80px;     
+    width: 80px;
     height: 60px;
     object-fit: contain;
     z-index: 1000;
@@ -31,7 +31,7 @@
 .login button {
     position: fixed;
     top: 1rem;
-    left: 88vw;  
+    right: 4vw;
     width: 80px;
     padding: 5px;
     background-color: #4CAF50;
@@ -47,211 +47,1435 @@
 
 /* Make scrollable content inside a container */
 .scroll-container {
-    margin-top: 0px; 
-    padding: 20px;    
-  
-    
-   
+    margin-top: 0px;
+    padding: 20px;
+
+
+
 }
 
 /* Restaurant photo */
 #slider {
     position: absolute;
     top: 110px;
-    left:25px;
-    width: 600px;
-    height: 450px;
+    left: 25px;
+    width: 750px;
+    height: 600px;
     object-fit: cover;
     border-radius: 8px;
+}
+
+
+/*Welcome to S.K. Restaurant*/
+.slider-text {
+    position: absolute;
+    top: 110px;
+    left: 50rem;
+    right: 0rem;
+    color: rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 5px 2px 0px;
+    background-color: #DEB26A;
+    border-radius: 90px 90px 90px 90px;
+    width: 535px;
+    text-align: center;
+}
+
+
+/* Menu button */
+.button-menu {
+    position: absolute;
+    left: 980px;
+    top: 480px;
+    width: 150px;
+    padding: 2px;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 2px solid #69543172;
+    background-color: #DEB26A;
+}
+
+/* table booking */
+.button-table {
+    position: absolute;
+    left: 980px;
+    top: 530px;
+    width: 150px;
+    padding: 2px;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 2px solid #69543172;
+    background-color: #DEB26A;
+}
+
+/* food order */
+.button-order {
+    position: absolute;
+    left: 980px;
+    top: 580px;
+    width: 150px;
+    padding: 2px;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 2px solid #69543172;
+    background-color: #DEB26A;
+}
+
+/* Home Delivery */
+.button-delivery {
+    position: absolute;
+    left: 980px;
+    top: 630px;
+    width: 150px;
+    padding: 2px;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 2px solid #69543172;
+    background-color: #DEB26A;
+}
+/* room booking */
+.button-room{
+    position: absolute;
+    left: 980px;
+    top: 680px;
+    width: 150px;
+    padding: 2px;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 2px solid #69543172;
+    background-color: #DEB26A;
+}
+
+/* first food photo */
+.photo1 {
+    position: absolute;
+    left: 810px;
+    top: 170px;
+    width: 180px;
+    border-radius: 8px;
+}
+
+/* second food photo */
+.photo2 {
+    position: absolute;
+    left: 1000px;
+    top: 170px;
+    width: 140px;
+    height: 130px;
+    border-radius: 8px;
+}
+
+/* third food photo */
+.photo3 {
+    position: absolute;
+    left: 1150px;
+    top: 170px;
+    width: 180px;
+
+    border-radius: 8px;
+}
+
+/* fourth food photo */
+.photo4 {
+    position: absolute;
+    left: 1000px;
+    top: 310px;
+    width: 140px;
+    height: 130px;
+    border-radius: 8px;
+}
+
+/* home page bottom content */
+.personality-h2 {
+    position: absolute;
+    top: 710px;
+    color: #d59226;
+}
+
+.personality-h31 {
+    position: absolute;
+    top: 740px;
+    color: #d59226;
+    font-weight: bold;
+
+}
+
+.personality-pre1 {
+    position: absolute;
+    top: 770px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    font-weight: bold;
+}
+
+.personality-h32 {
+    position: absolute;
+    top: 860px;
+    color: #d59226;
+    font-weight: bold;
+}
+
+.personality-pre2 {
+    position: absolute;
+    top: 890px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    font-weight: bold;
+}
+
+.personality-h33 {
+    position: absolute;
+    top: 960px;
+    color: #d59226;
+    font-weight: bold;
+}
+
+.personality-pre3 {
+    position: absolute;
+    top: 990px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    font-weight: bold;
+}
+
+/* Thank you */
+.abhar {
+    position: absolute;
+    top: 1350px;
+    left: 550px;
+    color: #dd8800;
+    width: auto;
+    text-align: center;
+
+}
+
+/* quotes */
+.abhar1 {
+    position: absolute;
+    top: 1300px;
+    left: 380px;
+    color: #dd8800;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+/* botton page manage */
+.fix-bottom {
+    position: absolute;
+    top: 1600px;
+    left: 0;
+    bottom: 0px;
+    width: 100%;
+    height: 200px;
+    background-color: rgb(174, 239, 198);
+    /* display: flex; */
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 30px;
+    border-radius: 8px 8px 0px 0px;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+.fix-bottom h3 {
+    position: absolute;
+    top: 0px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size:25px;
+    font-weight: bold;
+}
+
+.fix-bottom-d1{
+    position: absolute;
+    top: 70px;
+    left: 50px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: medium;
+    font-weight: bold;
+    
+}
+.fix-bottom-d2{
+    position: absolute;
+    top: 90px;
+    left: 50px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: medium;
+    font-weight: bold;
+}
+.fix-bottom-d3{
+    position: absolute;
+    top: 110px;
+    left: 50px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: medium;
+    font-weight: bold;
+}
+.fix-bottom-d4{
+    position: absolute;
+    top: 130px;
+    left: 50px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: medium;
+    font-weight: bold;
+}
+.fix-bottom-d5{
+    position: absolute;
+    top: 70px;
+    left: 270px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: medium;
+    font-weight: bold;
+}
+.fix-bottom-d6{
+    position: absolute;
+    top: 90px;
+    left: 270px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: medium;
+    font-weight: bold;
+}
+.fix-bottom-d7{
+    position: absolute;
+    top: 110px;
+    left: 270px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: medium;
+    font-weight: bold;
+}
+.fix-bottom-d8{
+position: absolute;
+    top: 150px;
+    left: 50px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: medium;
+    font-weight: bold;
+}
+.fix-bottom div a {
+    color: black;
+    text-decoration: none;
+  }
+
+
+
+
+
+
+
+/* booking page css */
+/* 
+.booking-logo {
+    position: absolute;
+    left: 630px;
+    top: 4px;
+    width: 100px;
+    height: 100px;
+    text-align: center;
+}
+
+.booking-wel {
+    position: absolute;
+    left: 590px;
+    top: 95px;
+    color: #DEB26A;
+    text-align: center;
+}
+
+.booking-name {
+    position: absolute;
+    top: 200px;
+    left: 480px;
+    background-color: #a8e6f5;
+    padding: 30px 50px;
+    padding-left: 50 px;
+    padding-right: 50px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 300px;
+    text-align: center;
+}
+
+.booking-name input {
+    resize: vertical;
+    padding: 5px;
+    border: 2px solid #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    padding-bottom: 5px;
+    position: static;
+    width: 240px;
+}
+
+
+.booking-name button {
+    width: 100%;
+    padding: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #0db112;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.booking-name label {
+    font-weight: bold;
+    margin-top: 20px;
+    text-align: center
+} */
+
+.booking-logo {
+    width: 100px;
+    height: 100px;
+    display: block;
+    margin: 10px auto;
+}
+
+.booking-wel {
+    margin-top: 1500px;
+    left: 590px;
+    color: #faae34;
+    text-align: center;
+    width: 200px;
+    height: 100px;
+    display: block;
+    margin: 10px auto;
+}
+
+.booking-name {
+    top: 200px;
+    left: 480px;
+    background-color: #a8e6f5;
+    padding: 30px 50px;
+    padding-left: 50 px;
+    padding-right: 50px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 300px;
+    text-align: center;
+    width: 250px;
+    height: 550px;
+    display: block;
+    margin: 10px auto;
+    font-size: 36px;
+
+}
+
+.booking-name label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.booking-input-field {
+    resize: vertical;
+    padding: 5px;
+    border: 2px solid #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    padding-bottom: 5px;
+    position: static;
+    width: 240px;
+    font-size: 24px;
+
+}
+
+.booking-name button {
+    width: 100%;
+    margin-top: 30px;
+    padding: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #0db112;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 28px;
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* room page */
+.room-logo {
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin: 10px auto;
+}
+
+.room-wel {
+    color: #D4AF37;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 10px;
+    font-size: 32px; 
+}
+.room-name {
+    background-color: #daae67;
+    padding: 20px;
+    margin: 10px auto;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    width: 440px;
+}
+
+.room-name label {
+    margin-top: 20px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 28px;
+}
+
+.room-input-field {
+    resize: vertical;
+    padding: 5px;
+    border: 2px solid #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    padding-bottom: 5px;
+    position: static;
+    width: 330px;
+    height: 30px;
+    font-size: 20px;
+}
+
+
+.room-name button {
+    width: 80%;
+    margin-top: 40px;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #0db112;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Order Page */
+
+.order-wel {
+    left: 560px;
+    top: 95px;
+    color: #DEB26A;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 10px;
+
+}
+
+.order-name {
+    top: 100px;
+    left: 480px;
+    background-color: #99aaaf;
+    padding: 30px 50px;
+    padding-left: 50 px;
+    padding-right: 50px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 300px;
+    text-align: center;
+    width: 250px;
+    height: 600px auto;
+    display: block;
+    margin: 10px auto;
+
+}
+
+.order-name label {
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center
+}
+
+.order-name input {
+    resize: vertical;
+    padding: 5px;
+    border: 2px solid #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    padding-bottom: 5px;
+    position: static;
+    width: 240px;
+}
+
+.order-name textarea {
+    resize: vertical;
+    padding: 5px;
+    border: 2px solid #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    padding-bottom: 5px;
+    position: static;
+}
+
+.order-name button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #0db112;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+/* Menu button */
+.menu-name{
+    background-color: #daae67;
+    padding: 20px;
+    margin: 10px auto;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    width: 440px;
+}
+.menu-Gujarati{
+    top:200px;
+    width: 50%;
+    margin-top: 20px;
+    padding: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #0db112;
+    border-radius: 5px;
+    font-weight: bold;
+}
+.menu-English{
+    top:250px;
+    width: 50%;
+    margin-top: 40px;
+    padding: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #0db112;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* Food delivery page */
+/* .delivery-wel {
+    position: absolute;
+    left: 560px;
+    top: 95px;
+    color: #DEB26A;
+    text-align: center;
+}
+
+.delivery-name {
+    position: absolute;
+    top: 200px;
+    left: 480px;
+    background-color: #daae67;
+    padding: 30px 50px;
+    padding-left: 50 px;
+    padding-right: 50px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 300px;
+    text-align: center;
+}
+
+.delivery-name label {
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center
+}
+
+.delivery-name input {
+    resize: vertical;
+    padding: 5px;
+    border: 2px solid #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    padding-bottom: 5px;
+    position: static;
+    width: 240px;
+}
+
+.delivery-name button {
+    width: 100%;
+    margin-top: 20px;
+    padding: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #0db112;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.delivery-name textarea {
+    resize: vertical;
+    padding: 5px;
+    border: 2px solid #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    padding-bottom: 5px;
+    position: static;
+} */
+
+/* Delivery Page Styles (default desktop) */
+
+.delivery-wel {
+    left: 560px;
+    top: 95px;
+    color: #DEB26A;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.delivery-name {
+    top: 200px;
+    left: 480px;
+    background-color: #daae67;
+    padding: 30px 50px;
+    padding-left: 50 px;
+    padding-right: 50px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 350px;
+    margin: 30px auto;
+    padding: 30px;
+    background-color: #f5f5dc;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+}
+
+.delivery-name label {
+    margin-top: 20px;
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+}
+
+.delivery-input-field {
+    resize: vertical;
+    padding: 5px;
+    border: 2px solid #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    padding-bottom: 5px;
+    position: static;
+    width: 240px;
+    height: 20px;
+}
+.delivery-textarea-field{
+    resize: vertical;
+    padding: 5px;
+    border: 2px solid #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    padding-bottom: 5px;
+    position: static;
+    width: 240px;
+    height: 180px;
+}
+
+.delivery-name button {
+    width: 100%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #0db112;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+/* Login page */
+/* .login-name h2 {
+    position: absolute;
+    left: 170px;
+    top: 5px;
+    color: #000000;
+    text-align: center;
+
+}
+
+.login-name {
+    position: absolute;
+    top: 150px;
+    left: 480px;
+    background-color: #daae67;
+    padding: 30px 50px;
+    padding-left: 50 px;
+    padding-right: 50px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 300px;
+    text-align: center;
+}
+
+.login-name label {
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center
+}
+
+.login-name input {
+    resize: vertical;
+    padding: 5px;
+    border: 2px solid #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    padding-bottom: 5px;
+    position: static;
+    width: 240px;
+}
+
+.login-name button {
+    width: 85%;
+    margin-top: 30px;
+    padding: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #0db112;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.login-name textarea {
+    resize: vertical;
+    padding: 5px;
+    border: 2px solid #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    padding-bottom: 5px;
+    position: static;
+}*/
+
+/* forget button */
+/* .forgot-password {
+    position: absolute;
+    left: 210px;
+    bottom: 130px;
+    margin-top: 5px;
+    margin-bottom: 0px;
+    text-align: center;
+    font-size: 14px;
+}
+
+
+.login-name form h5 button {
+    top: 40px;
+    background: none;
+    border: none;
+    color: blue;
+    padding: 0;
+    cursor: pointer;
+    font-size: inherit;
+} */ 
+
+.login-name {
+    top: 10px;
+    left: 480px;
+    background-color: #daae67;
+    padding: 30px 50px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    font-family: system-ui, sans-serif;
+    width: 300px;
+    text-align: center;
+    display: block;
+    margin: 10px auto;
+}
+
+.login-name h2 {
+    top: 5px;
+    color: #000000;
+    text-align: center;
+}
+
+.login-name label {
+    margin-top: 10px;
+    font-weight: bold;
+    display: block;
+    text-align: center;
+}
+
+.login-name input {
+    resize: vertical;
+    padding: 5px;
+    border: 2px solid #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    padding-bottom: 5px;
+    position: static;
+    width: 260px;
+    height: 20px;
+}
+
+.login-name button {
+    width: 90%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #0db112;
+    border-radius: 5px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.forgot-password {
+    margin: 8px 20px 20px;
+    font-size: 14px;
+    text-align: right;
+}
+
+.login-name h5 {
+    font-size: 16px;
+    margin-top: 20px;
+}
+
+
+
+
+
+
+
+
+
+/* forget -password page */
+/* .forget-name {
+    position: absolute;
+    top: 150px;
+    left: 480px;
+    background-color: #daae67;
+    padding: 30px 50px;
+    padding-left: 50 px;
+    padding-right: 50px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 300px;
+    text-align: center;
+}
+
+.forget-name label {
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.forget-name input {
+    resize: vertical;
+    padding: 5px;
+    border: 2px solid #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    padding-bottom: 5px;
+    position: static;
+    width: 240px;
+}
+
+.forget-name button {
+    width: 85%;
+    margin-top: 30px;
+    padding: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #0db112;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.forget-name textarea {
+    resize: vertical;
+    padding: 5px;
+    border: 2px solid #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    padding-bottom: 5px;
+    position: static;
+} */
+.forget-name {
+    top: 150px;
+    left: 480px;
+    background-color: #daae67;
+    padding: 30px 50px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    font-family: system-ui, sans-serif;
+    width: 300px;
+    text-align: center;
+    height: 400px;
+    display: block;
+    margin: 10px auto;
+}
+
+.forget-name label {
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+}
+
+.forget-name input {
+    resize: vertical;
+    padding: 5px;
+    border: 2px solid #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    padding-bottom: 5px;
+    position: static;
+    width: 270px;
+    height: 20px;
+}
+
+.forget-name button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #0db112;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+
+
+
+
+
+
+
+
+/* Signup page */
+.signup-name h2 {
+    left: 85px;
+    top: 5px;
+    color: #000000;
+    text-align: center;
+    display: block;
+    margin: 10px auto;
+
+}
+
+.signup-name {
+    top: 150px;
+    left: 350px;
+    background-color: #daae67;
+    padding: 30px 50px;
+    padding-left: 50 px;
+    padding-right: 50px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    width: 300px;
+    text-align: center;
+    display: block;
+    margin: 10px auto;
+}
+
+.signup-name label {
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center
+}
+
+.signup-name input {
+    resize: vertical;
+    padding: 5px;
+    border: 2px solid #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    padding-bottom: 5px;
+    position: static;
+    width: 240px;
+}
+
+.signup-name button {
+    width: 85%;
+    margin-top: 20px;
+    padding: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #0db112;
+    border-radius: 5px;
+    font-weight: bold;
+}
+
+.signup-name textarea {
+    resize: vertical;
+    padding: 5px;
+    border: 2px solid #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    padding-bottom: 5px;
+    position: static;
+    
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Media Queries 320px*/
+
+@media only screen and (max-width:  320px) {
+
+    /* Logo size */
+    .top-left-image {
+        width: 70px;
+        position: fixed;
+        top: 5px;
+
     }
 
-    /*Welcome to S.K. Restaurant*/
-    .slider-text {
-        position: absolute;
-        top: 110px;
-        left: 42rem;
-        right: 0px;
-        color: rgb(0, 0, 0);
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 24px;
-        font-weight: bold;
-        padding: 10px 5px 2px 0px;
-        background-color: #DEB26A;
-        border-radius: 90px 0px 0px 90px;
-        width: auto;  
+    /* Login button */
+    .login button {
+        font-size: 12px;
+        padding: 4px 8px;
+        position: fixed;
+        top: 20px;
+        right: 20px;
+    }
+
+    /* Slideshow image */
+    #slider {
+        width: 280px;
+        height: 400px;
+        margin-top: 10px;
+        left: 21px;
         text-align: center;
     }
-    
-    
-    /* Menu button */
-    .button-menu{
-        position: absolute;
-        left: 770px;
-        top: 400px;
-        width:150px;
-        padding: 2px;
-        font-family: Arial;
-        font-weight: bold;
-        font-size: 14px;
-        border-radius: 8px;
-        border: 2px solid #69543172;
-        background-color: #DEB26A;
-    }
-    /* table booking */
-    .button-table{
-        position: absolute;
-        left: 770px;
-        top: 450px;
-        width:150px;
-        padding: 2px;
-        font-family: Arial;
-        font-weight: bold;
-        font-size: 14px;
-        border-radius: 8px;
-        border: 2px solid #69543172;
-        background-color: #DEB26A;
-    }
-    /* food order */
-    .button-order{
-        position: absolute;
-        left: 770px;
-        top: 500px;
-        width:150px;
-        padding: 2px;
-        font-family: Arial;
-        font-weight: bold;
-        font-size: 14px;
-        border-radius: 8px;
-        border: 2px solid #69543172;
-        background-color: #DEB26A;
-    }
-    /* Home Delivery */
-    .button-delivery{
-        position: absolute;
-        left: 770px;
-        top: 550px;
-        width:150px;
-        padding: 2px;
-        font-family: Arial;
-        font-weight: bold;
-        font-size: 14px;
-        border-radius: 8px;
-        border: 2px solid #69543172;
-        background-color: #DEB26A;
+
+    /* Slider text */
+    .slider-text {
+        top: 80px;
+        left: 40px;
+        width: 70%;
+        font-size: 12px;
+        text-align: center;
+        padding: 10px;
     }
 
-    /* first food photo */
-    .photo1{
+    /* Food photos */
+    .photo1 {
         position: absolute;
-        left: 670px;
-        top: 170px;
-        width: 140px;
-        border-radius: 8px;
-    }
-    /* second food photo */
-    .photo2{
-        position: absolute;
-        left: 820px;
-        top: 170px;
-        width: 100px;
-        border-radius: 8px;
-    }
-    /* third food photo */
-    .photo3{
-        position: absolute;
-        left: 930px;
-        top: 170px;
-        width: 140px;
-        border-radius: 8px;
-    }
-    /* fourth food photo */
-    .photo4{
-        position: absolute;
-        left: 820px;
-        top: 280px;
-        width: 100px;
-        border-radius: 8px;
-    }
-
-    /* home page bottom content */
-    .personality-h2{
-        position: absolute;
-        top: 580px;
-        color: #d59226;
-    }
-    .personality-h31{
-        position:absolute;
-        top :620px;
-        color: #d59226;
-        font-weight: bold;
+        top: 530px;
+        left: 48px;
+        width: 33%;
+        height: 130px;
         
     }
-    .personality-pre1{
+
+    .photo3 {
         position: absolute;
-        top: 650px;
-        font-family: 'Times New Roman', Times, serif;
-        font-size:large;
-        font-weight: bold;
-    }
-    .personality-h32{
-        position:absolute;
-        top :750px;
-        color: #d59226;
-        font-weight: bold;
+        top: 530px;
+        left: 168px;
+        width: 33%;
+        height: 130px;
     }
 
-    .personality-pre2{
+    .photo2 {
         position: absolute;
-        top: 780px;
-        font-family: 'Times New Roman', Times, serif;
-        font-size:large;
-        font-weight: bold;
+        top: 670px;
+        left: 48px;
+        width: 33%;
     }
-    .personality-h33{
-        position:absolute;
-        top :860px;
+
+    .photo4 {
+        position: absolute;
+        top: 670px;
+        left: 168px;
+        width: 33%;
+    }
+
+    /* All buttons */
+    .button-menu {
+        position: absolute;
+        top: 820px;
+        left: 82px;
+        display: block;
+        width: 50%;
+        font-size: 10px;
+        margin: 10px auto;
+        padding: 8px;
+    }
+
+    .button-table {
+        position: absolute;
+        top: 870px;
+        left: 82px;
+        display: block;
+        width: 50%;
+        font-size: 10px;
+        margin: 10px auto;
+        padding: 8px;
+    }
+
+    .button-order {
+        position: absolute;
+        top: 920px;
+        left: 82px;
+        display: block;
+        width: 50%;
+        font-size: 10px;
+        margin: 10px auto;
+        padding: 8px;
+    }
+
+    .button-delivery {
+        position: absolute;
+        top: 970px;
+        left: 82px;
+        display: block;
+        width: 50%;
+        font-size: 10px;
+        margin: 10px auto;
+        padding: 8px;
+    }
+    .button-room {
+        position: absolute;
+        top: 1020px;
+        left: 82px;
+        display: block;
+        width: 50%;
+        font-size: 10px;
+        margin: 10px auto;
+        padding: 8px;
+    }
+    
+
+    /* Text sections */
+    .personality-h2 {
+        position: absolute;
+        top: 1100px;
         color: #d59226;
-        font-weight: bold;  
+        padding: 0 10px;
+        font-size: 14px;
+        text-align: left;
     }
-    .personality-pre3{
+
+    .personality-h31 {
         position: absolute;
-        top: 890px;
-        font-family: 'Times New Roman', Times, serif;
-        font-size:large;
+        top: 1120px;
+        color: #d59226;
         font-weight: bold;
+        padding: 0 10px;
+        font-size: 14px;
+        text-align: left;
+
+    }
+
+    .personality-pre1 {
+        position: absolute;
+        top: 1140px;
+        width: 10;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: large;
+        font-weight: bold;
+        white-space: normal;
+        word-wrap: break-word;
+        font-size: 14px;
+        padding: 0 10px;
+    }
+
+    .personality-h32 {
+        position: absolute;
+        top: 1320px;
+        color: #d59226;
+        font-weight: bold;
+        padding: 0 10px;
+        font-size: 14px;
+        text-align: left;
+    }
+
+    .personality-pre2 {
+        position: absolute;
+        top: 1340px;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: large;
+        font-weight: bold;
+        white-space: normal;
+        word-wrap: break-word;
+        font-size: 14px;
+        padding: 0 10px;
+    }
+
+    .personality-h33 {
+        position: absolute;
+        top: 1440px;
+        color: #d59226;
+        font-weight: bold;
+        padding: 0 10px;
+        font-size: 14px;
+        text-align: left;
+    }
+
+    .personality-pre3 {
+        position: absolute;
+        top: 1460px;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: large;
+        font-weight: bold;
+        white-space: normal;
+        word-wrap: break-word;
+        font-size: 14px;
+        padding: 0 10px;
+    }
+
+    /* Footer section */
+    .fix-bottom {
+        font-size: 12px;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .fix-bottom pre {
+        white-space: pre-wrap;
+        text-align: left;
+        padding: 0 10px;
     }
 
     /* Thank you */
-    .abhar{
+    .abhar {
         position: absolute;
-        top: 1111px;
-        left:410px;
+        top: 1800px;
+        left: 30px;
         color: #dd8800;
-        text-align: center;
-
-    }
-    /* quotes */
-    .abhar1{
-        position: absolute;
-        top: 1050px;
-        left:310px;
-        color: #dd8800;
-        font-size:medium;
-        font-weight: bold;
+        width: auto;
         text-align: center;
 
     }
 
-    /* botton page manage */
+    .abhar1 {
+        position: absolute;
+        top: 1750px;
+        left: 0px;
+        /* right: px; */
+        color: #dd8800;
+        text-align: center;
+        font-size: 14px;
+        line-height: 1.5;
+        padding: 2px;
+        font-family: 'Gujarati Saral 1', serif;
+
+    }
+
     .fix-bottom {
-        position:absolute;
-        top: 1200px;
+        position: absolute;
+        top: 1900px;
         left: 0;
         bottom: 0px;
         width: 100%;
-        height: 150px; 
-        background-color:  rgb(174, 239, 198);
-        display: flex;
+        height: 180px;
+        background-color: rgb(174, 239, 198);
+        /* display: flex; */
         align-items: center;
         justify-content: space-between;
         padding: 10px 30px;
@@ -260,488 +1484,3233 @@
         box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
         box-sizing: border-box;
     }
-
-    .fix-bottom h3{
+    
+    .fix-bottom h3 {
         position: absolute;
         top: 0px;
-        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        font-size:large;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size:20px;
         font-weight: bold;
     }
-
-    .fix-bottom pre{
-        position: absolute;
-        top: 30px;
-        font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-        font-size:small;
-        font-weight: bold;
-    }
-
     
-
-
-
-
-
-    /* booking page css */
-
-    .booking-logo{
+    .fix-bottom-d1{
         position: absolute;
-        left:500px;
-        top:4px;
-        width: 100px; 
-        height: 100px;
-        text-align: center;
-    }
-
-    .booking-wel{
-        position: absolute;
-        left:460px;
-        top:95px;
-        color: #DEB26A;
-        text-align: center;
-    }
-
-    .booking-name {
-        position: absolute;
-        top: 200px;        
-        left: 350px;       
-        background-color: #a8e6f5;
-        padding: 30px 50px;
-        padding-left: 50 px;
-        padding-right: 50px;
-        margin-bottom: 15px;
-        border-radius: 10px;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        width: 300px;
-        text-align: center;
-    }
-    .booking-name input{
-        resize: vertical; 
-        padding: 5px;       
-        border: 2px solid #000000;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        padding-bottom: 5px;
-        border-radius: 5px;
-        padding-bottom: 5px;
-        position: static;
-        width: 240px;
-    }
-
-    
-    .booking-name button {
-        width: 100%;
-        padding: 5px;
-        background-color: #4CAF50;
-        color: white;
-        border: 2px solid #0db112;
-        border-radius: 5px;
+        top: 60px;
+        left: 50px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 12.5px;
         font-weight: bold;
-    }
-
-    .booking-name label {
-        font-weight: bold;
-        margin-top: 20px;
-        text-align: center
-    }
-
-   
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /* Order Page */
-
-    .order-wel{
-        position: absolute;
-        left:480px;
-        top:95px;
-        color: #DEB26A;
-        text-align: center;
-    }
-
-    .order-name {
-        position: absolute;
-        top: 200px;        
-        left: 350px;       
-        background-color: #99aaaf;
-        padding: 30px 50px;
-        padding-left: 50 px;
-        padding-right: 50px;
-        margin-bottom: 15px;
-        border-radius: 10px;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        width: 300px;
-        text-align: center;
         
     }
-
-    .order-name label {
-        margin-top: 20px;
-        font-weight: bold;
-        text-align: center
-    }
-
-    .order-name input{
-        resize: vertical; 
-        padding: 5px;       
-        border: 2px solid #000000;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        padding-bottom: 5px;
-        border-radius: 5px;
-        padding-bottom: 5px;
-        position: static;
-        width: 240px;
-    }
-
-    .order-name textarea {
-        resize: vertical; 
-        padding: 5px;       
-        border: 2px solid #000000;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        padding-bottom: 5px;
-        border-radius: 5px;
-        padding-bottom: 5px;
-        position: static;
-    }
-
-    .order-name button {
-        width: 100%;
-        margin-top: 20px;
-        padding: 5px;
-        background-color: #4CAF50;
-        color: white;
-        border: 2px solid #0db112;
-        border-radius: 5px;
-        font-weight: bold;
-    }
-
-
-
-
-
-
-
-
-
-
-
-
-
-    /* Food delivery page */
-    .delivery-wel{
+    .fix-bottom-d2{
         position: absolute;
-        left:440px;
-        top:95px;
-        color: #DEB26A;
+        top: 80px;
+        left: 50px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 12.5px;
+        font-weight: bold;
+    }
+    .fix-bottom-d3{
+        position: absolute;
+        top: 100px;
+        left: 50px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 12.5px;
+        font-weight: bold;
+    }
+    .fix-bottom-d4{
+        position: absolute;
+        top: 120px;
+        left: 50px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 12.5px;
+        font-weight: bold;
+    }
+    .fix-bottom-d5{
+        position: absolute;
+        top: 60px;
+        left: 185px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 12.5px;
+        font-weight: bold;
+    }
+    .fix-bottom-d6{
+        position: absolute;
+        top: 80px;
+        left: 185px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 12.5px;
+        font-weight: bold;
+    }
+    .fix-bottom-d7{
+        position: absolute;
+        top: 100px;
+        left: 185px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 12.5px;
+        font-weight: bold;
+    }
+    .fix-bottom-d8{
+        position: absolute;
+        top: 140px;
+        left: 50px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 12.5px;
+        font-weight: bold;
+    }
+    .fix-bottom div a {
+        color: black;
+        text-decoration: none;
+      }
+      
+    /* room booking page   */
+    .room-logo {
+        width: 100px;
+        height: 100px;
+        display: block;
+        margin: 10px auto;
+    }
+
+    .room-wel {
+        color: #D4AF37;
         text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        margin-top: 10px;
+        font-size: 24px;
     }
 
-    .delivery-name{
-        position: absolute;
-        top: 200px;        
-        left: 350px;       
+    .room-name {
         background-color: #daae67;
-        padding: 30px 50px;
-        padding-left: 50 px;
-        padding-right: 50px;
-        margin-bottom: 15px;
+        padding: 20px;
+        margin: 10px auto;
         border-radius: 10px;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        width: 300px;
+        font-family: Arial, sans-serif;
         text-align: center;
+        width: 250px;
+        height: 730px;
     }
-    
-    .delivery-name label {
-        margin-top: 20px;
+
+    .room-name label {
         font-weight: bold;
-        text-align: center
+        display: block;
+        margin-bottom: 5px;
+        font-size: 18px;
     }
 
-    .delivery-name input{
-        resize: vertical; 
-        padding: 5px;       
-        border: 2px solid #000000;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        padding-bottom: 5px;
-        border-radius: 5px;
-        padding-bottom: 5px;
-        position: static;
-        width: 240px;
-    }
-
-    .delivery-name button {
-        width: 100%;
-        margin-top: 20px;
+    .room-input-field {
         padding: 5px;
-        background-color: #4CAF50;
-        color: white;
-        border: 2px solid #0db112;
-        border-radius: 5px;
-        font-weight: bold;
-    }
-
-    .delivery-name textarea {
-        resize: vertical; 
-        padding: 5px;       
-        border: 2px solid #000000;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        padding-bottom: 5px;
-        border-radius: 5px;
-        padding-bottom: 5px;
-        position: static;
-    }
-
-
-
-
-
-
-
-
-    /* Login page */
-    .login-name h2{
-        position: absolute;
-        left:170px;
-        top:5px;
-        color: #000000;
-        text-align: center;
-
-    }
-
-    .login-name{
-        position: absolute;
-        top: 150px;        
-        left: 350px;       
-        background-color: #daae67;
-        padding: 30px 50px;
-        padding-left: 50 px;
-        padding-right: 50px;
-        margin-bottom: 15px;
-        border-radius: 10px;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        width: 300px;
-        text-align: center;
-    }
-
-    .login-name label {
-        margin-top: 20px;
-        font-weight: bold;
-        text-align: center
-    }
-
-    .login-name input{
-        resize: vertical;  
-        padding: 5px;       
-        border: 2px solid #000000;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        padding-bottom: 5px;
-        border-radius: 5px;
-        padding-bottom: 5px;
-        position: static;
-        width: 240px;
-    }
-
-    .login-name button {
-        width: 85%;
-        margin-top: 30px;
-        padding: 5px;
-        background-color: #4CAF50;
-        color: white;
-        border: 2px solid #0db112;
-        border-radius: 5px;
-        font-weight: bold;
-    }
-
-    .login-name textarea {
-        resize: vertical; 
-        padding: 5px;       
-        border: 2px solid #000000;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        padding-bottom: 5px;
-        border-radius: 5px;
-        padding-bottom: 5px;
-        position: static;
-    }
-
-    /* forget button */
-    .forgot-password {
-        position: absolute;
-        left: 210px;
-        bottom: 130px;
+        border: 2px solid #000;
         margin-top: 5px;
-        margin-bottom: 0px;
+        margin-bottom: 5px;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 260px;
+        height: 20px;
+        font-size: 18px;
+    }
+
+    .room-name button {
+        width: 95%;
+        height: 40px;
+        margin-top: 40px;
+        padding: 5px;
+        background-color: #4CAF50;
+        color: white;
+        border: 2px solid #0db112;
+        border-radius: 10px;
+        font-weight: bold;
+        font-size: 20px;
+    }
+}
+
+@media only screen and (min-width:  320px) {
+/* Menu button */
+.menu-name{
+    background-color: #daae67;
+    padding: 20px;
+    margin: 10px auto;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    width: 300px;
+    height: 200px;
+}
+.menu-Gujarati{
+    width: 80%;
+    height: 40px;
+    margin-top: 40px;
+    padding: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #0db112;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+.menu-English{
+    width: 80%;
+    height: 40px;
+    margin-top: 40px;
+    padding: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #0db112;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/* Bookinig page */
+.booking-logo {
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin: 10px auto;
+}
+
+.booking-wel {
+    top: 1500px;
+    left: 590px;
+    color: #D4AF37;
+    text-align: center;
+    width: 300px;
+    height: 200px;
+    display: block;
+    margin: 10px auto;
+    font-size: 46px;
+    
+}
+
+.booking-name {
+    top: 200px;
+    left: 480px;
+    background-color: #daae67;
+    padding: 30px 50px;
+    padding-left: 50 px;
+    padding-right: 50px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 650px;
+    height: 850px;
+    display: block;
+    margin: 10px auto;
+}
+
+.booking-name label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 24px;
+}
+
+.booking-input-field {
+    resize: vertical;
+    padding: 5px;
+    border: 2px solid #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    padding-bottom: 5px;
+    position: static;
+    width: 440px;
+    height: 40px;
+    font-size: 24px;
+}
+
+.booking-name button {
+    width: 70%;
+    height: 60px;
+    margin-top: 70px;
+    padding: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #0db112;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 30px;
+}
+
+/* room booking page */
+
+/* .room-logo{
+    left: 150px;
+    width: 200px;
+    height: 200px;
+    display: block;
+    margin: 10px auto;
+    text-align: center;
+}
+.room-wel{
+    left: 560px;
+    top: 95px;
+    color: #D4AF37;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 46px;
+    text-align: center;
+}
+.room-name{
+    top: 200px;
+    left: 80px;
+    background-color: #daae67;
+    padding: 30px 50px;
+    padding-left: 50 px;
+    padding-right: 50px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 550px;
+    height: 1050px;
+    display: block;
+    margin: 10px auto;
+}
+
+.room-name label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 24px;
+}
+.room-input-field {
+    resize: vertical;
+    padding: 5px;
+    border: 2px solid #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    padding-bottom: 5px;
+    position: static;
+    width: 440px;
+    height: 40px;
+    font-size: 24px;
+}
+
+.room-name button {
+    width: 70%;
+    height: 60px;
+    margin-top: 70px;
+    padding: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #0db112;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 30px;
+} */
+
+/* Delivery page */
+
+.delivery-wel {
+    left: 560px;
+    top: 95px;
+    color: #DEB26A;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 46px;
+}
+
+.delivery-name {
+    top: 200px;
+    left: 480px;
+    padding: 30px 50px;
+    padding-left: 50 px;
+    padding-right: 50px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 550px;
+    height: 1050px;
+    display: block;
+    margin: 10px auto;
+}
+
+.delivery-input-field{
+    resize: vertical;
+    padding: 5px;
+    border: 2px solid #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    padding-bottom: 5px;
+    position: static;
+    width: 440px;
+    height: 40px;
+    font-size: 24px;
+}
+.delivery-textarea-field {
+    resize: vertical;
+    padding: 5px;
+    border: 2px solid #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    padding-bottom: 5px;
+    position: static;
+    width: 440px;
+    height: 180px auto;
+    font-size: 24px;
+}
+
+.delivery-name button {
+    font-size: 26px;
+    padding: 8px;
+    margin-top: 30px;
+    width: 440px;
+    border-radius: 10px;
+}
+
+.delivery-name label {
+    font-size: 26px;
+}
+
+/* forget password page */
+.forget-name {
+    top: 150px;
+    left: 480px;
+    background-color: #daae67;
+    padding: 30px 50px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    font-family: system-ui, sans-serif;
+    width: 500px;
+    text-align: center;
+    height: 600px;
+    display: block;
+    margin: 10px auto;
+}
+
+.forget-name label {
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center;
+    display: block;
+    font-size: 24px;
+}
+.forget-name h2 {
+    font-size: 35px;
+}
+
+.forget-name h4,
+.forget-name h5 {
+    font-size: 25px;
+}
+
+
+
+.forget-name input {
+    resize: vertical;
+    padding: 5px;
+    border: 2px solid #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    padding-bottom: 5px;
+    position: static;
+    width: 470px;
+    height: 40px;
+    font-size: 24px;
+}
+
+.forget-name button {
+    width: 100%;
+    padding: 10px;
+    margin-top: 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #0db112;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 24px;
+}
+/* login page */
+.login-name {
+    top: 20px;
+    left: 0;
+    background-color: #daae67;
+    padding: 30px 50px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    font-family: system-ui, sans-serif;
+    width: 600px;
+    text-align: center;
+    display: block;
+    margin: 10px auto;
+}
+
+.login-name h2 {
+    font-size: 34px;
+}
+
+.login-name h4{
+    margin-top: 10px;
+    font-size: 34px;
+}
+.login-name h5 {
+    margin-top: 30px;
+    font-size: 20px;
+}
+
+.login-name label {
+    font-size: 28px;
+}
+
+.login-name input {
+    resize: vertical;
+    padding: 5px;
+    border: 2px solid #000000;
+    margin-top: 5px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    padding-bottom: 5px;
+    position: static;
+    width: 460px;
+    height: 40px;
+    font-size: 24px;
+}
+
+.login-name button {
+    width: 80%;
+    padding: 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #0db112;
+    border-radius: 10px;
+    font-size: 30px;
+    font-weight: bold;
+}
+
+.forgot-password {
+    text-align: center;
+    font-size: 20px;
+}
+/* order page */
+.order-wel {
+    left: 560px;
+    top: 95px;
+    color: #DEB26A;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 40px;
+
+}
+
+/* Order form container */
+.order-name {
+    top: 100px;
+    left: 480px;
+    background-color: #99aaaf;
+    padding: 30px 50px;
+    padding-left: 50 px;
+    padding-right: 50px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 450px;
+    height: 600px auto;
+    display: block;
+    margin: 10px auto;
+}
+
+.order-name label {
+    font-size: 26px;
+    margin-top: 20px;
+    font-weight: bold;
+    text-align: center
+}
+
+.order-name input{
+    resize: vertical;
+    padding: 5px;
+    border: 2px solid #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    padding-bottom: 5px;
+    position: static;
+    width: 390px;
+    height: 40px;
+    font-size: 24px;
+}
+
+.order-name textarea {
+    resize: vertical;
+    padding: 5px;
+    border: 2px solid #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    padding-bottom: 5px;
+    width: 390px;
+    position: static;
+    font-size: 24px;
+}
+
+.order-name button {
+    width: 90%;
+    height:60px;
+    margin-top: 20px;
+    padding: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #0db112;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+/* signup page */
+.signup-name {
+    top: 200px;
+    background-color: #daae67;
+    padding: 30px 50px;
+    padding-left: 50 px;
+    padding-right: 50px;
+    margin-bottom: 15px;
+    border-radius: 10px;
+    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+    text-align: center;
+    width: 450px;
+    height: 600px auto;
+    display: block;
+    margin: 10px auto;
+}
+
+.signup-name h2 {
+    top: 5px;
+    color: #000000;
+    text-align: center;
+    display: block;
+    margin: 10px auto;
+    font-size: 34px;
+}
+
+.signup-name h4 {
+    font-size: 24px;
+    margin-top: 0px;
+}
+
+.signup-name label {
+    display: block;
+    font-weight: bold;
+    text-align: center;
+    margin-top: 10px;
+    font-size: 24px;
+}
+
+.signup-name input{
+    resize: vertical;
+    padding: 5px;
+    border: 2px solid #000000;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+    border-radius: 10px;
+    padding-bottom: 5px;
+    position: static;
+    width: 400px;
+    height: 40px;
+    font-size: 24px;
+
+}
+.signup-name textarea {
+    resize: vertical;
+    padding: 5px;
+    border: 2px solid #000000;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-radius: 5px;
+    padding-bottom: 5px;
+    position: static;
+    font-size: 24px;
+}
+
+.signup-name button {
+    width: 410px;
+    height: 60px auto;
+    font-size: 24px;
+    padding: 10px;
+    margin-top: 40px;
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #0db112;
+    border-radius: 10px;
+    font-weight: bold;
+}
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Media Queries 375px*/
+
+@media only screen and (min-width: 321px)and (max-width: 375px) {
+
+    /* Logo size */
+    .top-left-image {
+        width: 80px;
+        position: fixed;
+        top: 5px;
+
+    }
+
+    /* Login button */
+    .login button {
+        font-size: 12px;
+        padding: 4px 8px;
+        position: fixed;
+        top: 20px;
+
+        right: 20px;
+    }
+
+    /* Slideshow image */
+    #slider {
+        margin-top: 20px;
+        width: 325px;
+        height: 400px;
+    }
+
+    /* Slider text */
+    .slider-text {
+        position: absolute;
+        top: 80px;
+        left: 48px;
+        width: 70%;
+        font-size: 16px;
+        text-align: center;
+        padding: 10px;
+    }
+
+    /* Food photos */
+    .photo1 {
+        position: absolute;
+        top: 550px;
+        left: 53px;
+        width: 34%;
+        height: 130px;
+    }
+
+    .photo3 {
+        position: absolute;
+        top: 550px;
+        left: 195px;
+        width: 34%;
+        height: 130px;
+    }
+
+    .photo2 {
+        position: absolute;
+        top: 690px;
+        left: 53px;
+        width: 34%;
+    }
+
+    .photo4 {
+        position: absolute;
+        top: 690px;
+        left: 195px;
+        width: 34%;
+    }
+
+    /* All buttons */
+    .button-menu {
+        top: 840px;
+        left: 95px;
+        display: block;
+        width: 50%;
+        font-size: 12px;
+        margin: 10px auto;
+        padding: 8px;
+    }
+
+    .button-table {
+        position: absolute;
+        top: 890px;
+        left: 95px;
+        display: block;
+        width: 50%;
+        font-size: 12px;
+        margin: 10px auto;
+        padding: 8px;
+    }
+
+    .button-order {
+        position: absolute;
+        top: 940px;
+        left: 95px;
+        display: block;
+        width: 50%;
+        font-size: 12px;
+        margin: 10px auto;
+        padding: 8px;
+    }
+
+    .button-delivery {
+        position: absolute;
+        top: 990px;
+        left: 95px;
+        display: block;
+        width: 50%;
+        font-size: 12px;
+        margin: 10px auto;
+        padding: 8px;
+    }
+    .button-room {
+        position: absolute;
+        top: 1040px;
+        left: 95px;
+        display: block;
+        width: 50%;
+        font-size: 12px;
+        margin: 10px auto;
+        padding: 8px;
+    }
+
+    /* Text sections */
+    .personality-h2 {
+        position: absolute;
+        top: 1100px;
+        color: #d59226;
+        padding: 0 10px;
+        font-size: 14px;
+        text-align: left;
+    }
+
+    .personality-h31 {
+        position: absolute;
+        top: 1120px;
+        color: #d59226;
+        font-weight: bold;
+        padding: 0 10px;
+        font-size: 14px;
+        text-align: left;
+
+    }
+
+    .personality-pre1 {
+        position: absolute;
+        top: 1140px;
+        width: 10;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: large;
+        font-weight: bold;
+        white-space: normal;
+        word-wrap: break-word;
+        font-size: 14px;
+        padding: 0 10px;
+    }
+
+    .personality-h32 {
+        position: absolute;
+        top: 1320px;
+        color: #d59226;
+        font-weight: bold;
+        padding: 0 10px;
+        font-size: 14px;
+        text-align: left;
+    }
+
+    .personality-pre2 {
+        position: absolute;
+        top: 1340px;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: large;
+        font-weight: bold;
+        white-space: normal;
+        word-wrap: break-word;
+        font-size: 14px;
+        padding: 0 10px;
+    }
+
+    .personality-h33 {
+        position: absolute;
+        top: 1440px;
+        color: #d59226;
+        font-weight: bold;
+        padding: 0 10px;
+        font-size: 14px;
+        text-align: left;
+    }
+
+    .personality-pre3 {
+        position: absolute;
+        top: 1460px;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: large;
+        font-weight: bold;
+        white-space: normal;
+        word-wrap: break-word;
+        font-size: 14px;
+        padding: 0 10px;
+    }
+
+    /* Footer section */
+    .fix-bottom {
+        font-size: 12px;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .fix-bottom pre {
+        white-space: pre-wrap;
+        text-align: left;
+        padding: 0 10px;
+    }
+
+    /* Thank you */
+    .abhar {
+        position: absolute;
+        top: 1700px;
+        left: 60px;
+        color: #dd8800;
+        width: auto;
+        text-align: center;
+
+    }
+
+    .abhar1 {
+        position: absolute;
+        top: 1650px;
+        left: 35px;
+        color: #dd8800;
         text-align: center;
         font-size: 14px;
+        line-height: 1.5;
+        padding: 2px;
+        font-family: 'Gujarati Saral 1', serif;
+
+    }
+
+    .fix-bottom {
+        position: absolute;
+        top: 1800px;
+        left: 0;
+        bottom: 0px;
+        width: 100%;
+        height: 180px;
+        background-color: rgb(174, 239, 198);
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 30px;
+        border-radius: 8px 8px 0px 0px;
+        z-index: 100;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        box-sizing: border-box;
     }
     
+    .fix-bottom h3 {
+        position: absolute;
+        top: 0px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size:20px;
+        font-weight: bold;
+    }
+    
+    .fix-bottom-d1{
+        position: absolute;
+        top: 60px;
+        left: 50px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 12.5px;
+        font-weight: bold;
+        
+    }
+    .fix-bottom-d2{
+        position: absolute;
+        top: 80px;
+        left: 50px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 12.5px;
+        font-weight: bold;
+    }
+    .fix-bottom-d3{
+        position: absolute;
+        top: 100px;
+        left: 50px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 12.5px;
+        font-weight: bold;
+    }
+    .fix-bottom-d4{
+        position: absolute;
+        top: 120px;
+        left: 50px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 12.5px;
+        font-weight: bold;
+    }
+    .fix-bottom-d5{
+        position: absolute;
+        top: 60px;
+        left: 185px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 12.5px;
+        font-weight: bold;
+    }
+    .fix-bottom-d6{
+        position: absolute;
+        top: 80px;
+        left: 185px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 12.5px;
+        font-weight: bold;
+    }
+    .fix-bottom-d7{
+        position: absolute;
+        top: 100px;
+        left: 185px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 12.5px;
+        font-weight: bold;
+    }
+    .fix-bottom-d8{
+        position: absolute;
+        top: 140px;
+        left: 50px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 12.5px;
+        font-weight: bold;
+    }
+    .fix-bottom div a {
+        color: black;
+        text-decoration: none;
+    }
 
-    .login-name form h5 button {
-        top: 40px;
-        background: none;    
-        border: none;        
-        color: blue;         
-        padding: 0;          
-        cursor: pointer;     
-        font-size: inherit;  
+    /* room booking page   */
+    .room-logo {
+        width: 100px;
+        height: 100px;
+        display: block;
+        margin: 10px auto;
+    }
+
+    .room-wel {
+        color: #D4AF37;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
+        margin-top: 10px;
+        font-size: 24px;
+    }
+
+    .room-name {
+        background-color: #daae67;
+        padding: 20px;
+        margin: 10px auto;
+        border-radius: 10px;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        width: 250px;
+        height: 730px;
+    }
+
+    .room-name label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+        font-size: 18px;
+    }
+
+    .room-input-field {
+        padding: 5px;
+        border: 2px solid #000;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 260px;
+        height: 20px;
+        font-size: 18px;
+    }
+
+    .room-name button {
+        width: 95%;
+        height: 40px;
+        margin-top: 40px;
+        padding: 5px;
+        background-color: #4CAF50;
+        color: white;
+        border: 2px solid #0db112;
+        border-radius: 10px;
+        font-weight: bold;
+        font-size: 20px;
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* Media Queries 425px*/
+ 
+@media only screen and (min-width: 376px)and (max-width: 425px) {
+
+    /* Logo size */
+    .top-left-image {
+        width: 80px;
+        position: fixed;
+        top: 5px;
+    }
+
+    /* Login button */
+    .login button {
+        font-size: 12px;
+        padding: 4px 8px;
+        position: fixed;
+        top: 20px;
+        right: 30px;
+    }
+
+    /* Slideshow image */
+    #slider {
+        /* position: center; */
+        top: 160px;
+        width: 370px;
+        height: 400px;
+    }
+
+    /* Slider text */
+    .slider-text {
+        margin-top: 0px;
+        left: 48px;
+        width: 70%;
+        font-size: 16px;
+        text-align: center;
+        padding: 10px;
+    }
+
+    /* Food photos */
+    .photo1 {
+        top: 575px;
+        left: 60px;
+        width: 34%;
+        height: 130px;
+    }
+
+    .photo3 {
+        position: absolute;
+        top: 575px;
+        left: 220px;
+        width: 34%;
+        height: 130px;
+    }
+
+    .photo2 {
+        position: absolute;
+        top: 720px;
+        left: 60px;
+        width: 34%;
+    }
+
+    .photo4 {
+        position: absolute;
+        top: 720px;
+        left: 220px;
+        width: 34%;
+    }
+
+    /* All buttons */
+    .button-menu {
+        top: 870px;
+        left: 110px;
+        display: block;
+        width: 50%;
+        font-size: 12px;
+        margin: 10px auto;
+        padding: 8px;
+    }
+
+    .button-table {
+        position: absolute;
+        top: 920px;
+        left: 110px;
+        display: block;
+        width: 50%;
+        font-size: 12px;
+        margin: 10px auto;
+        padding: 8px;
+    }
+
+    .button-order {
+        position: absolute;
+        top: 970px;
+        left: 110px;
+        display: block;
+        width: 50%;
+        font-size: 12px;
+        margin: 10px auto;
+        padding: 8px;
+    }
+
+    .button-delivery {
+        position: absolute;
+        top: 1020px;
+        left: 110px;
+        display: block;
+        width: 50%;
+        font-size: 12px;
+        margin: 10px auto;
+        padding: 8px;
+    }
+    .button-room {
+        position: absolute;
+        top: 1070px;
+        left: 110px;
+        display: block;
+        width: 50%;
+        font-size: 12px;
+        margin: 10px auto;
+        padding: 8px;
+    }
+
+    /* Text sections */
+    .personality-h2 {
+        position: absolute;
+        top: 1120px;
+        color: #d59226;
+        padding: 0 10px;
+        font-size: 18px;
+        text-align: left;
+    }
+
+    .personality-h31 {
+        position: absolute;
+        top: 1150px;
+        color: #d59226;
+        font-weight: bold;
+        padding: 0 10px;
+        font-size: 16px;
+        text-align: left;
+
+    }
+
+    .personality-pre1 {
+        position: absolute;
+        top: 1170px;
+        width: 10;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: large;
+        font-weight: bold;
+        white-space: normal;
+        word-wrap: break-word;
+        font-size: 16px;
+        padding: 0 10px;
+    }
+
+    .personality-h32 {
+        position: absolute;
+        top: 1320px;
+        color: #d59226;
+        font-weight: bold;
+        padding: 0 10px;
+        font-size: 16px;
+        text-align: left;
+    }
+
+    .personality-pre2 {
+        position: absolute;
+        top: 1340px;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: large;
+        font-weight: bold;
+        white-space: normal;
+        word-wrap: break-word;
+        font-size: 16px;
+        padding: 0 10px;
+    }
+
+    .personality-h33 {
+        position: absolute;
+        top: 1460px;
+        color: #d59226;
+        font-weight: bold;
+        padding: 0 10px;
+        font-size: 16px;
+        text-align: left;
+    }
+
+    .personality-pre3 {
+        position: absolute;
+        top: 1480px;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: large;
+        font-weight: bold;
+        white-space: normal;
+        word-wrap: break-word;
+        font-size: 16px;
+        padding: 0 10px;
+    }
+
+    /* Footer section */
+    .fix-bottom {
+        font-size: 12px;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .fix-bottom pre {
+        white-space: pre-wrap;
+        text-align: left;
+        padding: 0 10px;
+    }
+
+    /* Thank you */
+    .abhar {
+        position: absolute;
+        top: 1720px;
+        left: 80px;
+        color: #dd8800;
+        width: auto;
+        text-align: center;
+
+    }
+
+    .abhar1 {
+        position: absolute;
+        top: 1670px;
+        left: 55px;
+        color: #dd8800;
+        text-align: center;
+        font-size: 14px;
+        line-height: 1.5;
+        padding: 2px;
+        font-family: 'Gujarati Saral 1', serif;
+
+    }
+
+    .fix-bottom {
+        position: absolute;
+        top: 1800px;
+        left: 0;
+        bottom: 0px;
+        width: 100%;
+        height: 180px;
+        background-color: rgb(174, 239, 198);
+        /* display: flex; */
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 30px;
+        border-radius: 8px 8px 0px 0px;
+        z-index: 100;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        box-sizing: border-box;
+    }
+    
+    .fix-bottom h3 {
+        position: absolute;
+        top: 0px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size:20px;
+        font-weight: bold;
+    }
+    
+    .fix-bottom-d1{
+        position: absolute;
+        top: 60px;
+        left: 50px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 12.5px;
+        font-weight: bold;
+        
+    }
+    .fix-bottom-d2{
+        position: absolute;
+        top: 80px;
+        left: 50px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 12.5px;
+        font-weight: bold;
+    }
+    .fix-bottom-d3{
+        position: absolute;
+        top: 100px;
+        left: 50px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 12.5px;
+        font-weight: bold;
+    }
+    .fix-bottom-d4{
+        position: absolute;
+        top: 120px;
+        left: 50px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 12.5px;
+        font-weight: bold;
+    }
+    .fix-bottom-d5{
+        position: absolute;
+        top: 60px;
+        left: 185px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 12.5px;
+        font-weight: bold;
+    }
+    .fix-bottom-d6{
+        position: absolute;
+        top: 80px;
+        left: 185px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 12.5px;
+        font-weight: bold;
+    }
+    .fix-bottom-d7{
+        position: absolute;
+        top: 100px;
+        left: 185px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 12.5px;
+        font-weight: bold;
+    }
+    .fix-bottom-d8{
+        position: absolute;
+        top: 140px;
+        left: 50px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 12.5px;
+        font-weight: bold;
+    }
+    .fix-bottom div a {
+        color: black;
+        text-decoration: none;
       }
-    
 
+      /* room booking page */
 
+      .room-logo {
+        width: 100px;
+        height: 100px;
+        display: block;
+        margin: 10px auto;
+    }
 
-
-
-
-
-
-    
-      /* forget -password page */
-      .forget-name{
-        position: absolute;
-        top: 150px;        
-        left: 350px;       
-        background-color: #daae67;
-        padding: 30px 50px;
-        padding-left: 50 px;
-        padding-right: 50px;
-        margin-bottom: 15px;
-        border-radius: 10px;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        width: 300px;
+    .room-wel {
+        color: #D4AF37;
         text-align: center;
-    }
-
-    .forget-name label {
-        margin-top: 20px;
-        font-weight: bold;
-        text-align: center
-    }
-
-    .forget-name input{
-        resize: vertical;  
-        padding: 5px;       
-        border: 2px solid #000000;
+        font-family: Arial, Helvetica, sans-serif;
         margin-top: 10px;
-        margin-bottom: 10px;
-        padding-bottom: 5px;
-        border-radius: 5px;
-        padding-bottom: 5px;
-        position: static;
-        width: 240px;
+        font-size: 24px;
     }
 
-    .forget-name button {
-        width: 85%;
-        margin-top: 30px;
+    .room-name {
+        background-color: #daae67;
+        padding: 20px;
+        margin: 10px auto;
+        border-radius: 10px;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        width: 350px;
+        height: 730px;
+    }
+
+    .room-name label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+        font-size: 20px;
+    }
+
+    .room-input-field {
+        padding: 5px;
+        border: 2px solid #000;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 260px;
+        height: 20px;
+        font-size: 20px;
+    }
+
+    .room-name button {
+        width: 80%;
+        height: 40px;
+        margin-top: 40px;
         padding: 5px;
         background-color: #4CAF50;
         color: white;
         border: 2px solid #0db112;
-        border-radius: 5px;
-        font-weight: bold;
-    }
-
-    .forget-name textarea {
-        resize: vertical; 
-        padding: 5px;       
-        border: 2px solid #000000;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        padding-bottom: 5px;
-        border-radius: 5px;
-        padding-bottom: 5px;
-        position: static;
-    }  
-    
-
-
-
-
-
-
-
-
-
-      /* Signup page */
-      .signup-name h2{
-        position: absolute;
-        left: 85px;
-        top:5px;
-        color: #000000;
-        text-align: center;
-
-    }
-
-    .signup-name{
-        position: absolute;
-        top: 150px;        
-        left: 350px;       
-        background-color: #daae67;
-        padding: 30px 50px;
-        padding-left: 50 px;
-        padding-right: 50px;
-        margin-bottom: 15px;
         border-radius: 10px;
-        font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-        width: 300px;
-        text-align: center;
-    }
-
-    .signup-name label {
-        margin-top: 20px;
         font-weight: bold;
-        text-align: center
+        font-size: 22px;
+    }
+ }
+
+
+
+
+
+
+
+
+
+
+ 
+/* Media Queries 768px*/
+ 
+@media only screen and (min-width: 426px)and (max-width: 768px) {
+
+
+    .fixed-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100px;
+        background-color: rgb(174, 239, 198);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 30px;
+        border-radius: 0 0 8px 8px;
+        z-index: 100;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        box-sizing: border-box;
     }
 
-    .signup-name input{
-        resize: vertical; 
-        padding: 5px;       
-        border: 2px solid #000000;
+    /* Logo size */
+    .top-left-image {
+        width: 100px;
+        height: 80px;
+        position: fixed;
+        top: 5px;
+    }
+
+    /* Login button */
+    .login button {
+        font-size: 14px;
+        padding: 4px 8px;
+        position: fixed;
+        top: 35px;
+        right: 20px;
+    }
+
+    /* Slideshow image */
+    #slider {
+        /* position: center; */
+        top: 170px;
+        width: 720px;
+        height: 400px;
+    }
+
+    /* Slider text */
+    .slider-text {
+        position: absolute;
+        top: 115px;
+        left: 30px;
+        width: 90%;
+        font-size: 22px;
+        text-align: center;
+        padding: 10px;
+    }
+
+    /* Food photos */
+    .photo1 {
+        position: absolute;
+        top: 630px;
+        left: 105px;
+        width: 34%;
+        height: 250px;
+    }
+
+    .photo3 {
+        position: absolute;
+        top: 630px;
+        left: 395px;
+        width: 34%;
+        height: 250px;
+    }
+
+    .photo2 {
+        position: absolute;
+        top: 910px;
+        left: 105px;
+        width: 34%;
+        height: 250px;
+
+    }
+
+    .photo4 {
+        position: absolute;
+        top: 910px;
+        left: 395px;
+        width: 34%;
+        height: 250px;
+    }
+
+    /* All buttons */
+    .button-menu {
+        position: absolute;
+        top: 1200px;
+        left: 190px;
+        display: block;
+        width: 50%;
+        font-size: 16px;
+        margin: 10px auto;
+        padding: 8px;
+    }
+
+    .button-table {
+        position: absolute;
+        top: 1260px;
+        left: 190px;
+        display: block;
+        width: 50%;
+        font-size: 16px;
+        margin: 10px auto;
+        padding: 8px;
+    }
+
+    .button-order {
+        position: absolute;
+        top: 1320px;
+        left: 190px;
+        display: block;
+        width: 50%;
+        font-size: 16px;
+        margin: 10px auto;
+        padding: 8px;
+    }
+
+    .button-delivery {
+        position: absolute;
+        top: 1380px;
+        left: 190px;
+        display: block;
+        width: 50%;
+        font-size: 16px;
+        margin: 10px auto;
+        padding: 8px;
+    }
+    .button-room {
+        position: absolute;
+        top: 1440px;
+        left: 190px;
+        display: block;
+        width: 50%;
+        font-size: 16px;
+        margin: 10px auto;
+        padding: 8px;
+    }
+
+    /* Text sections */
+    .personality-h2 {
+        position: absolute;
+        top: 1500px;
+        color: #d59226;
+        padding: 0 10px;
+        font-size: 24px;
+        text-align: left;
+    }
+
+    .personality-h31 {
+        position: absolute;
+        top: 1540px;
+        color: #d59226;
+        font-weight: bold;
+        padding: 0 10px;
+        font-size: 20px;
+        text-align: left;
+
+    }
+
+    .personality-pre1 {
+        position: absolute;
+        top: 1570px;
+        width: 10;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: large;
+        font-weight: bold;
+        white-space: normal;
+        word-wrap: break-word;
+        font-size: 18px;
+        padding: 0 10px;
+    }
+
+    .personality-h32 {
+        position: absolute;
+        top: 1690px;
+        color: #d59226;
+        font-weight: bold;
+        padding: 0 10px;
+        font-size: 20px;
+        text-align: left;
+    }
+
+    .personality-pre2 {
+        position: absolute;
+        top: 1720px;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: large;
+        font-weight: bold;
+        white-space: normal;
+        word-wrap: break-word;
+        font-size: 18px;
+        padding: 0 10px;
+    }
+
+    .personality-h33 {
+        position: absolute;
+        top: 1800px;
+        color: #d59226;
+        font-weight: bold;
+        padding: 0 10px;
+        font-size: 20px;
+        text-align: left;
+    }
+
+    .personality-pre3 {
+        position: absolute;
+        top: 1830px;
+        font-family: 'Times New Roman', Times, serif;
+        font-size: large;
+        font-weight: bold;
+        white-space: normal;
+        word-wrap: break-word;
+        font-size: 18px;
+        padding: 0 10px;
+    }
+
+    /* Footer section */
+    .fix-bottom {
+        font-size: 12px;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .fix-bottom pre {
+        white-space: pre-wrap;
+        text-align: left;
+        padding: 0 10px;
+    }
+
+    /* Thank you */
+    .abhar {
+        position: absolute;
+        top: 2050px;
+        left: 250px;
+        color: #dd8800;
+        width: auto;
+        text-align: center;
+
+    }
+
+    .abhar1 {
+        position: absolute;
+        top: 2000px;
+        left: 228px;
+        color: #dd8800;
+        text-align: center;
+        font-size: 14px;
+        line-height: 1.5;
+        padding: 2px;
+        font-family: 'Gujarati Saral 1', serif;
+
+    }
+
+    .fix-bottom {
+        position: absolute;
+        top: 2200px;
+        left: 0;
+        bottom: 0px;
+        width: 100%;
+        height: 180px;
+        background-color: rgb(174, 239, 198);
+        /* display: flex; */
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 30px;
+        border-radius: 8px 8px 0px 0px;
+        z-index: 100;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        box-sizing: border-box;
+    }
+    
+    .fix-bottom h3 {
+        position: absolute;
+        top: 0px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size:26px;
+        font-weight: bold;
+    }
+    
+    .fix-bottom-d1{
+        position: absolute;
+        top: 75px;
+        left: 50px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 15px;
+        font-weight: bold;
+        
+    }
+    .fix-bottom-d2{
+        position: absolute;
+        top: 95px;
+        left: 50px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .fix-bottom-d3{
+        position: absolute;
+        top: 115px;
+        left: 50px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .fix-bottom-d4{
+        position: absolute;
+        top: 135px;
+        left: 50px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .fix-bottom-d5{
+        position: absolute;
+        top: 75px;
+        left: 215px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .fix-bottom-d6{
+        position: absolute;
+        top: 95px;
+        left: 215px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .fix-bottom-d7{
+        position: absolute;
+        top: 115px;
+        left: 215px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .fix-bottom-d8{
+        position: absolute;
+        top: 155px;
+        left: 50px;
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        font-size: 15px;
+        font-weight: bold;
+    }
+    .fix-bottom div a {
+        color: black;
+        text-decoration: none;
+      }
+
+      /* room booking page */
+
+      .room-logo {
+        width: 100px;
+        height: 100px;
+        display: block;
+        margin: 10px auto;
+    }
+
+    .room-wel {
+        color: #D4AF37;
+        text-align: center;
+        font-family: Arial, Helvetica, sans-serif;
         margin-top: 10px;
-        margin-bottom: 10px;
-        padding-bottom: 5px;
-        border-radius: 5px;
-        padding-bottom: 5px;
-        position: static;
-        width: 240px;
+        font-size: 24px;
     }
 
-    .signup-name button {
-        width: 85%;
-        margin-top: 20px;
+    .room-name {
+        background-color: #daae67;
+        padding: 20px;
+        margin: 10px auto;
+        border-radius: 10px;
+        font-family: Arial, sans-serif;
+        text-align: center;
+        width: 350px;
+        height: 730px;
+    }
+
+    .room-name label {
+        font-weight: bold;
+        display: block;
+        margin-bottom: 5px;
+        font-size: 20px;
+    }
+
+    .room-input-field {
+        padding: 5px;
+        border: 2px solid #000;
+        margin-top: 5px;
+        margin-bottom: 5px;
+        border-radius: 10px;
+        width: 90%;
+        max-width: 260px;
+        height: 20px;
+        font-size: 20px;
+    }
+
+    .room-name button {
+        width: 80%;
+        height: 40px;
+        margin-top: 40px;
         padding: 5px;
         background-color: #4CAF50;
         color: white;
         border: 2px solid #0db112;
-        border-radius: 5px;
+        border-radius: 10px;
         font-weight: bold;
+        font-size: 22px;
     }
+ 
+ }
 
-    .signup-name textarea {
-        resize: vertical; 
-        padding: 5px;       
-        border: 2px solid #000000;
-        margin-top: 10px;
-        margin-bottom: 10px;
-        padding-bottom: 5px;
-        border-radius: 5px;
-        padding-bottom: 5px;
-        position: static;
+
+
+
+
+
+
+
+
+
+
+
+ @media only screen and (min-width: 769px)and (max-width: 1024px) {
+ 
+    .fixed-header {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 120px;
+        background-color: rgb(174, 239, 198);
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        padding: 10px 30px;
+        border-radius: 0 0 8px 8px;
+        z-index: 100;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+        box-sizing: border-box;
     }
+/* Logo - fixed size and position */
+.top-left-image {
+    position: fixed;
+    top: 0.8rem;
+    left: 0rem;
+    width: 140px;
+    height: 100px;
+    object-fit: contain;
+    z-index: 1000;
+}
+
+/* Login Button - fixed position, non-scaling */
+.login button {
+    position: fixed;
+    top: 2.5rem;
+    right: 4vw;
+    width: 140px;
+    padding: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #0db112;
+    border-radius: 5px;
+    font-weight: bold;
+    z-index: 1000;
+    font-size: 24px;
+}
+
+
+
+/* Make scrollable content inside a container */
+.scroll-container {
+    margin-top: 0px;
+    padding: 20px;
+
+
+
+}
+
+/* Restaurant photo */
+#slider {
+    position: absolute;
+    top: 200px;
+    left: 25px;
+    width: 980px;
+    height: 570px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+/*Welcome to S.K. Restaurant*/
+.slider-text {
+    position: absolute;
+    top: 145px;
+    left: 2rem;
+    right: 0rem;
+    color: rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 26px;
+    font-weight: bold;
+    padding: 10px 5px 2px 0px;
+    background-color: #DEB26A;
+    border-radius: 90px 90px 90px 90px;
+    width: 970px;
+    text-align: center;
+}
+
+
+/* Menu button */
+.button-menu {
+    position: absolute;
+    left: 295px;
+    top:1400px;
+    width: 450px;
+    padding: 2px;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 24px;
+    border-radius: 8px;
+    border: 2px solid #69543172;
+    background-color: #DEB26A;
+}
+
+/* table booking */
+.button-table {
+    position: absolute;
+    left: 295px;
+    top: 1470px;
+    width: 450px;
+    padding: 2px;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 24px;
+    border-radius: 8px;
+    border: 2px solid #69543172;
+    background-color: #DEB26A;
+}
+
+/* food order */
+.button-order {
+    position: absolute;
+    left: 295px;
+    top: 1540px;
+    width: 450px;
+    padding: 2px;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 24px;
+    border-radius: 8px;
+    border: 2px solid #69543172;
+    background-color: #DEB26A;
+}
+
+/* Home Delivery */
+.button-delivery {
+    position: absolute;
+    left: 295px;
+    top: 1610px;
+    width: 450px;
+    padding: 2px;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 24px;
+    border-radius: 8px;
+    border: 2px solid #69543172;
+    background-color: #DEB26A;
+}
+.button-room{
+    position: absolute;
+    left: 295px;
+    top: 1680px;
+    width: 450px;
+    padding: 2px;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 24px;
+    border-radius: 8px;
+    border: 2px solid #69543172;
+    background-color: #DEB26A;
+}
+
+/* first food photo */
+.photo1 {
+    position: absolute;
+    left: 50px;
+    top: 850px;
+    width: 300px;
+    border-radius: 8px;
+}
+
+/* second food photo */
+.photo2 {
+    position: absolute;
+    left: 375px;
+    top: 850px;
+    width: 300px;
+    height: 210px;
+    border-radius: 8px;
+}
+
+/* third food photo */
+.photo3 {
+    position: absolute;
+    left: 700px;
+    top: 850px;
+    width: 300px;
+
+    border-radius: 8px;
+}
+
+/* fourth food photo */
+.photo4 {
+    position: absolute;
+    left: 375px;
+    top: 1080px;
+    width: 300px;
+    height: 215px;
+    border-radius: 8px;
+}
+
+/* home page bottom content */
+.personality-h2 {
+    position: absolute;
+    top: 1750px;
+    color: #d59226;
+    padding: 0 10px;
+    font-size: 29px;
+    text-align: left;
+}
+
+.personality-h31 {
+    position: absolute;
+    top: 1800px;
+    color: #d59226;
+    font-weight: bold;
+    padding: 0 10px;
+    font-size: 24px;
+    text-align: left;
+}
+
+.personality-pre1 {
+    position: absolute;
+    top: 1840px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    font-weight: bold;
+    white-space: normal;
+    word-wrap: break-word;
+    font-size: 20px;
+    padding: 0 10px;
+}
+
+.personality-h32 {
+    position: absolute;
+    top: 1950px;
+    color: #d59226;
+    font-weight: bold;
+    padding: 0 10px;
+    font-size: 24px;
+    text-align: left;
+}
+
+.personality-pre2 {
+    position: absolute;
+    top: 1990px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    font-weight: bold;
+    white-space: normal;
+    word-wrap: break-word;
+    font-size: 20px;
+    padding: 0 10px;
+}
+
+.personality-h33 {
+    position: absolute;
+    top: 2070px;
+    color: #d59226;
+    font-weight: bold;
+    padding: 0 10px;
+    font-size: 24px;
+    text-align: left;
+}
+
+.personality-pre3 {
+    position: absolute;
+    top: 2110px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    font-weight: bold;
+    white-space: normal;
+    word-wrap: break-word;
+    font-size: 20px;
+    padding: 0 10px;
+}
+
+/* Thank you */
+.abhar {
+    position: absolute;
+    top: 2600px;
+    left: 315px;
+    color: #dd8800;
+    font-size: 36px;
+    text-align: center;
+
+}
+
+/* quotes */
+.abhar1 {
+    position: absolute;
+    top: 2500px;
+    left: 50px;
+    color: #dd8800;
+    font-size: 26px;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+/* botton page manage */
+.fix-bottom {
+    position: absolute;
+    top: 2800px;
+    left: 0;
+    bottom: 0px;
+    width: 100%;
+    height: 220px;
+    background-color: rgb(174, 239, 198);
+    /* display: flex; */
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 30px;
+    border-radius: 8px 8px 0px 0px;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+.fix-bottom h3 {
+    position: absolute;
+    top: 0px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size:30px;
+    font-weight: bold;
+}
+
+.fix-bottom-d1{
+    position: absolute;
+    top: 80px;
+    left: 50px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+    
+}
+.fix-bottom-d2{
+    position: absolute;
+    top: 105px;
+    left: 50px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+.fix-bottom-d3{
+    position: absolute;
+    top: 130px;
+    left: 50px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+.fix-bottom-d4{
+    position: absolute;
+    top: 155px;
+    left: 50px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+.fix-bottom-d5{
+    position: absolute;
+    top: 80px;
+    left: 280px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size:20px;
+    font-weight: bold;
+}
+.fix-bottom-d6{
+    position: absolute;
+    top: 105px;
+    left: 280px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+.fix-bottom-d7{
+    position: absolute;
+    top: 130px;
+    left: 280px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+.fix-bottom-d8{
+    position: absolute;
+    top: 180px;
+    left: 50px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 20px;
+    font-weight: bold;
+}
+.fix-bottom div a {
+    color: black;
+    text-decoration: none;
+  }
+  /* room booking page */
+
+  .room-logo {
+    width: 120px;
+    height: 120px;
+    display: block;
+    margin: 10px auto;
+}
+
+.room-wel {
+    color: #D4AF37;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 10px;
+    font-size: 30px;
+}
+
+.room-name {
+    background-color: #daae67;
+    padding: 20px;
+    margin: 10px auto;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    width: 350px;
+    height: 830px;
+}
+
+.room-name label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 22px;
+}
+
+.room-input-field {
+    padding: 5px;
+    border: 2px solid #000;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 270px;
+    height: 30px;
+    font-size: 20px;
+}
+
+.room-name button {
+    width: 90%;
+    height: 40px;
+    margin-top: 40px;
+    padding: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #0db112;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+ }
+
+ @media only screen and (min-width: 1025px)and (max-width: 1440px) {
+ 
+    /* Header bar */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 70px;
+    background-color: rgb(174, 239, 198);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 30px;
+    border-radius: 0 0 8px 8px;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+/* Logo - fixed size and position */
+.top-left-image {
+    position: fixed;
+    top: 0.3rem;
+    left: 0rem;
+    width: 80px;
+    height: 60px;
+    object-fit: contain;
+    z-index: 1000;
+}
+
+/* Login Button - fixed position, non-scaling */
+.login button {
+    position: fixed;
+    top: 1rem;
+    right: 4vw;
+    width: 80px;
+    padding: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #0db112;
+    border-radius: 5px;
+    font-weight: bold;
+    z-index: 1000;
+    font-size: 14px;
+}
+
+
+
+/* Make scrollable content inside a container */
+.scroll-container {
+    margin-top: 0px;
+    padding: 20px;
+
+
+
+}
+
+/* Restaurant photo */
+#slider {
+    position: absolute;
+    top: 110px;
+    left: 25px;
+    width: 750px;
+    height: 600px;
+    object-fit: cover;
+    border-radius: 8px;
+}
+
+
+/*Welcome to S.K. Restaurant*/
+.slider-text {
+    position: absolute;
+    top: 110px;
+    left: 50rem;
+    right: 0rem;
+    color: rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 24px;
+    font-weight: bold;
+    padding: 10px 5px 2px 0px;
+    background-color: #DEB26A;
+    border-radius: 90px 90px 90px 90px;
+    width: 535px;
+    text-align: center;
+}
+
+
+/* Menu button */
+.button-menu {
+    position: absolute;
+    left: 980px;
+    top: 480px;
+    width: 150px;
+    padding: 2px;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 2px solid #69543172;
+    background-color: #DEB26A;
+}
+
+/* table booking */
+.button-table {
+    position: absolute;
+    left: 980px;
+    top: 530px;
+    width: 150px;
+    padding: 2px;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 2px solid #69543172;
+    background-color: #DEB26A;
+}
+
+/* food order */
+.button-order {
+    position: absolute;
+    left: 980px;
+    top: 580px;
+    width: 150px;
+    padding: 2px;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 2px solid #69543172;
+    background-color: #DEB26A;
+}
+
+/* Home Delivery */
+.button-delivery {
+    position: absolute;
+    left: 980px;
+    top: 630px;
+    width: 150px;
+    padding: 2px;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 2px solid #69543172;
+    background-color: #DEB26A;
+}
+/* room booking */
+.button-room{
+    position: absolute;
+    left: 980px;
+    top: 680px;
+    width: 150px;
+    padding: 2px;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 14px;
+    border-radius: 8px;
+    border: 2px solid #69543172;
+    background-color: #DEB26A;
+}
+
+/* first food photo */
+.photo1 {
+    position: absolute;
+    left: 810px;
+    top: 170px;
+    width: 180px;
+    border-radius: 8px;
+}
+
+/* second food photo */
+.photo2 {
+    position: absolute;
+    left: 1000px;
+    top: 170px;
+    width: 140px;
+    height: 130px;
+    border-radius: 8px;
+}
+
+/* third food photo */
+.photo3 {
+    position: absolute;
+    left: 1150px;
+    top: 170px;
+    width: 180px;
+
+    border-radius: 8px;
+}
+
+/* fourth food photo */
+.photo4 {
+    position: absolute;
+    left: 1000px;
+    top: 310px;
+    width: 140px;
+    height: 130px;
+    border-radius: 8px;
+}
+
+/* home page bottom content */
+.personality-h2 {
+    position: absolute;
+    top: 710px;
+    color: #d59226;
+}
+
+.personality-h31 {
+    position: absolute;
+    top: 740px;
+    color: #d59226;
+    font-weight: bold;
+
+}
+
+.personality-pre1 {
+    position: absolute;
+    top: 770px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    font-weight: bold;
+}
+
+.personality-h32 {
+    position: absolute;
+    top: 860px;
+    color: #d59226;
+    font-weight: bold;
+}
+
+.personality-pre2 {
+    position: absolute;
+    top: 890px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    font-weight: bold;
+}
+
+.personality-h33 {
+    position: absolute;
+    top: 960px;
+    color: #d59226;
+    font-weight: bold;
+}
+
+.personality-pre3 {
+    position: absolute;
+    top: 990px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    font-weight: bold;
+}
+
+/* Thank you */
+.abhar {
+    position: absolute;
+    top: 1350px;
+    left: 550px;
+    color: #dd8800;
+    width: auto;
+    text-align: center;
+
+}
+
+/* quotes */
+.abhar1 {
+    position: absolute;
+    top: 1300px;
+    left: 380px;
+    color: #dd8800;
+    font-size: large;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+/* botton page manage */
+.fix-bottom {
+    position: absolute;
+    top: 1600px;
+    left: 0;
+    bottom: 0px;
+    width: 100%;
+    height: 200px;
+    background-color: rgb(174, 239, 198);
+    /* display: flex; */
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 30px;
+    border-radius: 8px 8px 0px 0px;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+.fix-bottom h3 {
+    position: absolute;
+    top: 0px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size:25px;
+    font-weight: bold;
+}
+
+.fix-bottom-d1{
+    position: absolute;
+    top: 70px;
+    left: 50px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: medium;
+    font-weight: bold;
+    
+}
+.fix-bottom-d2{
+    position: absolute;
+    top: 90px;
+    left: 50px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: medium;
+    font-weight: bold;
+}
+.fix-bottom-d3{
+    position: absolute;
+    top: 110px;
+    left: 50px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: medium;
+    font-weight: bold;
+}
+.fix-bottom-d4{
+    position: absolute;
+    top: 130px;
+    left: 50px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: medium;
+    font-weight: bold;
+}
+.fix-bottom-d5{
+    position: absolute;
+    top: 70px;
+    left: 270px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: medium;
+    font-weight: bold;
+}
+.fix-bottom-d6{
+    position: absolute;
+    top: 90px;
+    left: 270px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: medium;
+    font-weight: bold;
+}
+.fix-bottom-d7{
+    position: absolute;
+    top: 110px;
+    left: 270px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: medium;
+    font-weight: bold;
+}
+.fix-bottom-d8{
+position: absolute;
+    top: 150px;
+    left: 50px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: medium;
+    font-weight: bold;
+}
+.fix-bottom div a {
+    color: black;
+    text-decoration: none;
+  }
+}
+
+@media only screen and (min-width: 1441px)and (max-width: 10240px){
+ 
+    /* Header bar */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 200px;
+    background-color: rgb(174, 239, 198);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 30px;
+    border-radius: 0 0 8px 8px;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+/* Logo - fixed size and position */
+.top-left-image {
+    position: fixed;
+    top: 0.3rem;
+    left: 0rem;
+    width: 200px;
+    height: 180px;
+    object-fit: contain;
+    z-index: 1000;
+}
+
+/* Login Button - fixed position, non-scaling */
+.login button {
+    position: fixed;
+    top: 4rem;
+    right: 4vw;
+    width:150px;
+    padding: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #0db112;
+    border-radius: 10px;
+    font-weight: bold;
+    z-index: 1000;
+    font-size: 34px;
+}
+
+
+
+/* Make scrollable content inside a container */
+.scroll-container {
+    margin-top: 0px;
+    padding: 20px;
+
+
+
+}
+
+/* Restaurant photo */
+#slider {
+    position: absolute;
+    top: 250px;
+    left: 25px;
+    width: 1370px;
+    height: 1500px;
+    object-fit: cover;
+    border-radius: 20px;
+}
+
+
+/*Welcome to S.K. Restaurant*/
+.slider-text {
+    position: absolute;
+    top: 250px;
+    left: 91rem;
+    right: 0rem;
+    color: rgb(0, 0, 0);
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 48px;
+    font-weight: bold;
+    padding: 10px 5px 2px 0px;
+    background-color: #DEB26A;
+    border-radius: 90px 90px 90px 90px;
+    width: 1040px;
+    height:60px;
+    text-align: center;
+}
+
+
+/* Menu button */
+.button-menu {
+    position: absolute;
+    left: 1720px;
+    top: 1050px;
+    width: 550px;
+    height: 80px;
+    padding: 2px;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 34px;
+    border-radius: 20px;
+    border: 2px solid #69543172;
+    background-color: #DEB26A;
+}
+
+/* table booking */
+.button-table {
+    position: absolute;
+    left: 1720px;
+    top: 1200px;
+    width: 550px;
+    height: 80px;
+    padding: 2px;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 34px;
+    border-radius: 20px;
+    border: 2px solid #69543172;
+    background-color: #DEB26A;
+}
+
+/* food order */
+.button-order {
+    position: absolute;
+    left: 1720px;
+    top: 1350px;
+    width: 550px;
+    height: 80px;
+    padding: 2px;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 34px;
+    border-radius: 20px;
+    border: 2px solid #69543172;
+    background-color: #DEB26A;
+}
+
+/* Home Delivery */
+.button-delivery {
+    position: absolute;
+    left: 1720px;
+    top: 1500px;
+    width: 550px;
+    height: 80px;
+    padding: 2px;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 34px;
+    border-radius: 20px;
+    border: 2px solid #69543172;
+    background-color: #DEB26A;
+}
+/* room booking */
+.button-room{
+    position: absolute;
+    left: 1720px;
+    top: 1650px;
+    width: 550px;
+    height: 80px;
+    padding: 2px;
+    font-family: Arial;
+    font-weight: bold;
+    font-size: 34px;
+    border-radius: 20px;
+    border: 2px solid #69543172;
+    background-color: #DEB26A;
+}
+
+/* first food photo */
+.photo1 {
+    position: absolute;
+    left: 1436px;
+    top: 400px;
+    width: 360px;
+    height: 560px;
+    border-radius: 20px;
+}
+
+/* second food photo */
+.photo2 {
+    position: absolute;
+    left: 1820px;
+    top: 400px;
+    width: 340px;
+    height: 270px;
+    border-radius: 20px;
+}
+
+/* third food photo */
+.photo3 {
+    position: absolute;
+    left: 2185px;
+    top: 400px;
+    width: 360px;
+    height: 560px;
+
+    border-radius: 20px;
+}
+
+/* fourth food photo */
+.photo4 {
+    position: absolute;
+    left: 1820px;
+    top: 690px;
+    width: 340px;
+    height: 270px;
+    border-radius: 20px;
+}
+
+/* home page bottom content */
+.personality-h2 {
+    position: absolute;
+    top: 1800px;
+    color: #d59226;
+    padding: 0 10px;
+    font-size: 54px;
+    text-align: left;
+}
+
+.personality-h31 {
+    position: absolute;
+    top: 1900px;
+    color: #d59226;
+    font-weight: bold;
+    padding: 0 10px;
+    font-size: 48px;
+    text-align: left;
+}
+
+.personality-pre1 {
+    position: absolute;
+    top: 1980px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    font-weight: bold;
+    white-space: normal;
+    word-wrap: break-word;
+    font-size: 44px;
+    padding: 0 10px;
+}
+
+.personality-h32 {
+    position: absolute;
+    top: 2220px;
+    color: #d59226;
+    font-weight: bold;
+    padding: 0 10px;
+    font-size: 48px;
+    text-align: left;
+}
+
+.personality-pre2 {
+    position: absolute;
+    top: 2300px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    font-weight: bold;
+    white-space: normal;
+    word-wrap: break-word;
+    font-size: 44px;
+    padding: 0 10px;
+}
+
+.personality-h33 {
+    position: absolute;
+    top: 2480px;
+    color: #d59226;
+    font-weight: bold;
+    padding: 0 10px;
+    font-size: 48px;
+    text-align: left;
+}
+
+.personality-pre3 {
+    position: absolute;
+    top: 2560px;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: large;
+    font-weight: bold;
+    white-space: normal;
+    word-wrap: break-word;
+    font-size: 44px;
+    padding: 0 10px;
+}
+
+/* Thank you */
+.abhar {
+    position: absolute;
+    top: 3500px;
+    left: 795px;
+    color: hsl(37, 100%, 43%);
+    font-size: 85px;
+    text-align: center;
+
+}
+
+/* quotes */
+.abhar1 {
+    position: absolute;
+    top: 3300px;
+    left: 250px;
+    color: #dd8800;
+    font-size: 55px;
+    font-weight: bold;
+    text-align: center;
+
+}
+
+/* botton page manage */
+.fix-bottom {
+    position: absolute;
+    top: 3800px;
+    left: 0;
+    bottom: 0px;
+    width: 100%;
+    height: 500px;
+    background-color: rgb(174, 239, 198);
+    /* display: flex; */
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px 30px;
+    border-radius: 20px 20px 0px 0px;
+    z-index: 100;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box;
+}
+
+.fix-bottom h3 {
+    position: absolute;
+    top: 0px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size:58px;
+    font-weight: bold;
+}
+
+.fix-bottom-d1{
+    position: absolute;
+    margin-top: 80px;
+    left: 50px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+    
+}
+.fix-bottom-d2{
+    position: absolute;
+    margin-top: 110px;
+    left: 50px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+}
+.fix-bottom-d3{
+    position: absolute;
+    margin-top: 140px;
+    left: 50px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 44px;
+    font-weight: bold;
+}
+.fix-bottom-d4{
+    position: absolute;
+    margin-top: 170px;
+    left: 50px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+}
+.fix-bottom-d5{
+    position: absolute;
+    margin-top: 80px;
+    left: 480px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size:40px;
+    font-weight: bold;
+}
+.fix-bottom-d6{
+    position: absolute;
+    margin-top: 110px;
+    left: 480px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+}
+.fix-bottom-d7{
+    position: absolute;
+    margin-top: 140px;
+    left: 480px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+}
+.fix-bottom-d8{
+    position: absolute;
+    margin-top: 200px;
+    left: 50px;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-size: 40px;
+    font-weight: bold;
+}
+.fix-bottom div a {
+    color: black;
+    text-decoration: none;
+  }
+  /* room booking page */
+
+  .room-logo {
+    width: 120px;
+    height: 120px;
+    display: block;
+    margin: 10px auto;
+}
+
+.room-wel {
+    color: #D4AF37;
+    text-align: center;
+    font-family: Arial, Helvetica, sans-serif;
+    margin-top: 10px;
+    font-size: 30px;
+}
+
+.room-name {
+    background-color: #daae67;
+    padding: 20px;
+    margin: 10px auto;
+    border-radius: 10px;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    width: 350px;
+    height: 830px;
+}
+
+.room-name label {
+    font-weight: bold;
+    display: block;
+    margin-bottom: 5px;
+    font-size: 22px;
+}
+
+.room-input-field {
+    padding: 5px;
+    border: 2px solid #000;
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-radius: 10px;
+    width: 100%;
+    max-width: 270px;
+    height: 30px;
+    font-size: 20px;
+}
+
+.room-name button {
+    width: 90%;
+    height: 40px;
+    margin-top: 40px;
+    padding: 5px;
+    background-color: #4CAF50;
+    color: white;
+    border: 2px solid #0db112;
+    border-radius: 10px;
+    font-weight: bold;
+    font-size: 24px;
+}
+
+}

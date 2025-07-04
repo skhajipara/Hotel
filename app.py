@@ -5,7 +5,9 @@ from email.message import EmailMessage # Import for email
 from datetime import datetime, timedelta # Import for date and time
 from pathlib import Path # Import for file path
 from dotenv import load_dotenv
+from functools import wraps
 import os
+
 load_dotenv()
 os.getenv("EMAIL_USER")
 os.getenv("EMAIL_PASS")
@@ -19,10 +21,11 @@ app.permanent_session_lifetime = timedelta(hours=24)
 
 # For pdf location
 pdf_location = Path("Gujarati menu.pdf")
+pdf_location1= Path("English menu.pdf")
 
 # Email send setup
 
-def send_email_notification(to_email, customer_name, subject, body, attach_pdf=False):
+def send_email_notification(to_email, customer_name, subject, body, attach_pdf=False,attach_pdf1=False):
     sender_email = os.getenv("EMAIL_USER") # email sender
     sender_password = os.getenv("EMAIL_PASS")
 
@@ -35,14 +38,25 @@ def send_email_notification(to_email, customer_name, subject, body, attach_pdf=F
     # Attach pdf setup
     if attach_pdf and pdf_location.exists():
         with open(pdf_location, 'rb') as f:
-            msg.add_attachment(f.read(), maintype='application', subtype='pdf', filename="S.K.Restaurant_Menu.pdf")
+            msg.add_attachment(f.read(), maintype='application', subtype='pdf', filename="S.K.Hostels_Gujarati_Menu.pdf")
+
+    if attach_pdf1 and pdf_location1.exists():
+        with open(pdf_location1, 'rb') as f:
+            msg.add_attachment(f.read(), maintype='application', subtype='pdf', filename="S.K.Hotels_English_Menu.pdf")
 
     # mail sending use smtplib
     with smtplib.SMTP_SSL('smtp.gmail.com', 465) as smtp:
         smtp.login(sender_email, sender_password)
         smtp.send_message(msg)
 
-
+# Login mandatory
+def login_required(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'user' not in session or 'email' not in session:
+            return redirect(url_for('login', flash_message="⚠️ Please login first."))
+        return f(*args, **kwargs)
+    return decorated_function
 # for connect with html
 @app.route('/')
 def home():
@@ -78,18 +92,23 @@ def login():
                     subject = "🔐 Login Notification"
                     body = f"""\U0001f44b Hello {customer_name},
 
-✅ You have successfully logged in to **S.K.Restaurant**!
+✅ You have successfully logged in to **S.K.Hotels Group**!
 
-Please enjoy your meal at our restaurant.
+Please enjoy your meal at our Hotel.
 
 🍽️ Explore the Menu  
 🛒 Place Your Order  
-🪑   Book a Table  
+🪑  Book a Table  
 🚚 Get Food Delivered  
+🛏️ Room Book
 
 🕰️ Login Time: {datetime.now().strftime('%Y-%m-%d %H:%M:%S')}
-❤️ Team S.K.Restaurant"""
-                    send_email_notification(Email, customer_name, subject, body, attach_pdf=True)
+
+
+
+Warm Regards,
+❤️ Team S.K.Hotels"""
+                    send_email_notification(Email, customer_name, subject, body, attach_pdf=True,attach_pdf1=True)
                     return render_template('Kathiyawad.html', flash_message="✅ Login successful!")
 
                 else:# Check if the password is correct or not
@@ -130,15 +149,19 @@ def signup():
             subject = "📝 Account Created Successfully"
             body = f"""\U0001f44b Hello {Customer_Name},
 
-🎉 Your account has been created at **S.K.Restaurant**!
+🎉 Your account has been created at **S.K.Hotels Group**!
 
 
 🍽️ Explore the Menu  
 🛒 Place Your Order  
 🪑 Book a Table  
-🚚 Get Food Delivered  
+🚚 Get Food Delivered
+🛏️ Room Book  
 
-❤️ Team S.K.Restaurant"""
+
+
+Warm Regards,
+❤️ Team S.K.Hotels"""
             send_email_notification(Email, Customer_Name, subject, body)
             return render_template('login.html', flash_message="✅ Account created successfully!")
 
@@ -159,16 +182,18 @@ def forget_password():
 
                 if result:
                     customer_name, password = result
-                    subject = "🔑 Password Recovery - S.K.Restaurant"
+                    subject = "🔑 Password Recovery - S.K.Hotels Group"
                     body = f"""\U0001f44b Hello {customer_name},
 
-🛡️ You requested to recover your password from **S.K.Restaurant**.
+🛡️ You requested to recover your password from **S.K.Hotels Group**.
 
 📞 Contact: {Mobile_No}
 🔐 Your Password: {password}
 
 
-❤️ Team S.K.Restaurant"""
+
+Warm Regards,
+❤️ Team S.K.Hotels"""
                     send_email_notification(Email, customer_name, subject, body)
                     return render_template('login.html', flash_message="✅ Password sent to your email.")
                 else:
@@ -177,6 +202,10 @@ def forget_password():
     return render_template('forget.html')
 
 # All route are link page with html file
+@app.route('/menu')
+def menu():
+    return render_template('menu.html')
+
 @app.route('/booking')
 def booking():
     return render_template('booking.html')
@@ -189,12 +218,112 @@ def order():
 def delivery():
     return render_template('delivery.html')
 
+@app.route('/room', methods=['GET', 'POST'])
+def room_booking():
+    if request.method == 'POST':
+        # ✅ Check login session
+        if 'user' not in session or 'email' not in session:
+            return redirect(url_for('login', flash_message="⚠️ Please login first to book a room."))
+
+        Customer_Name = request.form.get('Customer_Name')
+        Email = request.form.get('Email')
+        MO_Number = request.form.get('MO_Number')
+        room_no = request.form.get('Room_No')
+        Member = request.form.get('Member')
+        entry_time = request.form.get('Entry_Time')
+        exit_time = request.form.get('Exit_Time')
+
+        try:
+            Customer_Name = Customer_Name.strip()
+            Email = Email.strip()
+            MO_Number = MO_Number.strip()
+            room_no = room_no.strip()
+            Member = Member.strip()
+            entry_time = entry_time.strip()
+            exit_time = exit_time.strip()
+
+            if not all([Customer_Name, Email, MO_Number, room_no, Member, entry_time, exit_time]):
+                return render_template('room booking.html', flash_message="⚠️ All fields are required.")
+
+            with sqlite3.connect('table.db') as conn:
+                cursor = conn.cursor()
+
+                # Check if user is registered
+                cursor.execute('SELECT * FROM Login WHERE Customer_Name = ? AND Email = ? AND Mobile_No = ?', 
+                               (Customer_Name, Email, MO_Number))
+                if not cursor.fetchone():
+                    return redirect(url_for('login', flash_message="⚠️ Please login first (you are not registered)."))
+
+                # Convert time to datetime
+                entry = datetime.strptime(entry_time, "%Y-%m-%dT%H:%M")
+                exit = datetime.strptime(exit_time, "%Y-%m-%dT%H:%M")
+
+                if exit <= entry or (exit - entry).total_seconds() < 3600:
+                    return render_template('room booking.html', flash_message="⚠️ You must book the room for a minimum of 1 hour.")
+
+                if entry < datetime.now():
+                    return render_template('room booking.html', flash_message="⚠️ You cannot book a room in the past.")
+
+                room = int(room_no)
+                valid_ranges = list(range(101, 131)) + list(range(201, 231)) + list(range(301, 331)) + list(range(401, 441))
+                if room not in valid_ranges:
+                    return render_template('room booking.html', flash_message="⚠️ Room number must be between 101-130, 201-230, 301-330, 401-440")
+
+                # Create table if not exists
+                cursor.execute('''CREATE TABLE IF NOT EXISTS RoomBooking (
+                    Customer_Name TEXT, Email TEXT, Mobile_No TEXT,
+                    Room_No INTEGER, Member INTEGER, Entry_Time TEXT, Exit_Time TEXT);''')
+
+                # Check if room is already booked (not yet exited)
+                cursor.execute('''
+                    SELECT * FROM RoomBooking 
+                    WHERE Room_No = ? AND Exit_Time > ?
+                ''', (room_no, entry_time))
+
+                if cursor.fetchone():
+                    return render_template('room booking.html', flash_message="⚠️ This room is already booked for the selected time.")
+
+                # Book room
+                cursor.execute("INSERT INTO RoomBooking VALUES (?, ?, ?, ?, ?, ?, ?)",
+                               (Customer_Name, Email, MO_Number, room_no, Member, entry_time, exit_time))
+
+            # Send confirmation email
+            subject = "🛏️ Room Booking Confirmation"
+            body = f"""👋 Hello {Customer_Name},
+
+✅ Your room has been booked successfully!
+
+🏨 Room No: {room_no}  
+👥 Members: {Member}  
+🕰️ From: {entry_time}  
+⏳ To: {exit_time}
+📞 Contact: {MO_Number}
+
+
+
+Warm Regards,  
+❤️ Team S.K.Hotels"""
+
+            send_email_notification(Email, Customer_Name, subject, body)
+
+            return render_template('Kathiyawad.html', flash_message="✅ Room booked successfully!")
+
+        except Exception as e:
+            return render_template('room booking.html', flash_message=f"⚠️ Error: {str(e)}")
+
+    return render_template('room booking.html')  # GET method returns booking page
+
+
+
 @app.route('/submit', methods=['POST'])
+
 def submit():
     Customer_Name = request.form.get('Customer_Name')
     Email = request.form.get('Email')
     MO_Number = request.form.get('MO_Number')
 
+    if 'user' not in session or 'email' not in session:
+        return redirect(url_for('login', flash_message="⚠️ Please login first."))
     try:
         with sqlite3.connect('table.db', timeout=10) as conn: # Connect to database. It will be created if it doesn't exist.
             cursor = conn.cursor()
@@ -237,7 +366,7 @@ def submit():
                         subject = "🪑 Table Booking Confirmation"
                         body = f"""\U0001f44b Hello {Customer_Name},
 
-✅ Your table has been booked at **S.K.Restaurant**!
+✅ Your table has been booked at **S.K.Hotel Group**!
 
 
 🪑 Table No: {Table_No}  
@@ -245,8 +374,10 @@ def submit():
 📆 Date & Time: {Date_Time}
 
 
-❤️ Team S.K.Restaurant"""
-                        send_email_notification(Email, Customer_Name, subject, body, attach_pdf=True)
+
+Warm Regards,
+❤️ Team S.K.Hotels"""
+                        send_email_notification(Email, Customer_Name, subject, body, attach_pdf=True,attach_pdf1=True)
                     return render_template('Kathiyawad.html', flash_message="✅ Booking successful!")
 
 
@@ -282,7 +413,10 @@ def submit():
 
 Please wait a while.....
 
-❤️ Team S.K.Restaurant"""
+
+
+Warm Regards,
+❤️ Team S.K.Hotels"""
                         send_email_notification(Email, Customer_Name, subject, body)
                     return render_template('Kathiyawad.html', flash_message="✅ Your order has been placed successfully.")
     
@@ -322,14 +456,16 @@ Your order is our responsibility,
 Please wait a while.....
 
 
-❤️ Team S.K.Restaurant"""
+
+Warm Regards,
+❤️ Team S.K.Hotels"""
                         send_email_notification(Email, Customer_Name, subject, body)
                     return render_template('Kathiyawad.html',flash_message="✅ Your delivery order is confirmed.")
 
     
     except sqlite3.OperationalError as e: # if database is not created
         
-        return render_template('Kathiyawad.html', flash_message=f"⚠️ Database Error: {str(e)}")
+        return render_template('Kathiyawad.html', flash_message=f"⚠️ Database Error Read: {str(e)}")
 
     return render_template(flash_message="⚠️ Invalid submission. Please try again.")
 

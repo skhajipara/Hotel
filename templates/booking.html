@@ -3,29 +3,39 @@
 <head>
     <title>Book a Table</title>
     <link rel="stylesheet" href="../static/style.css">
-
 </head>
 <body style="background-color: rgb(228, 226, 226);" data-flash-message="{{ flash_message }}">
     
-    <!-- Javascript link code -->
     <script src="{{ url_for('static', filename='alert.js') }}"></script>
     
-    <a href="{{ url_for('home') }}">  <!-- click logo for go back to home page -->
-        <img src="../static/Logo.png"  class="booking-logo" alt="S.K.Restautrant">
-    </a><br><br><br>
-    <h2 style="font-family:Arial, Helvetica, sans-serif" class="booking-wel">Book Your Table</h2>
-    <div class="booking-name">
-    <form action="/submit" method="POST">
-        <label >Name</label><br><input type="text" name="Customer_Name"  style="margin-bottom: 10px;"><br>        
-        <label>Email</label><br> <input type="email" name="Email" style="margin-bottom: 10px;"><br>
-        <label>Mobile Number</label><br> <input type="text" name="MO_Number" style="margin-bottom: 10px;"><br>
-        <label>Table Number</label><br> <input type="number" name="Table_No" style="margin-bottom: 10px;"><br>
-        <label>Member</label><br> <input type="number" name="Member" style="margin-bottom: 10px;"><br>
-        <label>Date & Time</label><br> <input type="datetime-local" name="Date_Time" style="margin-bottom: 10px;"><br><br>
-        
-        <button type="submit">Confirm Booking</button>
-    </form>
-</div>
+    <a href="{{ url_for('home') }}">
+        <img src="../static/Logo.png" class="booking-logo" alt="S.K.Restaurant">
+    </a>
+    
+    <h2 class="booking-wel">Book Your Table</h2>
 
+    <div class="booking-name">
+        <form action="/submit" method="POST">
+            <label>Name</label>
+            <input type="text" name="Customer_Name" class="booking-input-field">
+            
+            <label>Email</label>
+            <input type="email" name="Email" class="booking-input-field">
+
+            <label>Mobile Number</label>
+            <input type="text" name="MO_Number" class="booking-input-field">
+
+            <label>Table Number</label>
+            <input type="number" name="Table_No" class="booking-input-field">
+
+            <label>Member</label>
+            <input type="number" name="Member" class="booking-input-field">
+
+            <label>Date & Time</label>
+            <input type="datetime-local" name="Date_Time" class="booking-input-field">
+
+            <button type="submit">Confirm Booking</button>
+        </form>
+    </div>
 </body>
 </html>

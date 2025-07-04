@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Room Booking</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+
+<body style="background-color: rgb(228, 226, 226);" data-flash-message="{{ flash_message }}">
+    
+    <script src="{{ url_for('static', filename='alert.js') }}"></script>
+    
+    <a href="{{ url_for('home') }}">
+        <img src="../static/Logo.png" class="room-logo" alt="S.K.Restaurant">
+    </a>
+    
+    <h2 class="room-wel">Book Your Room</h2>
+    
+    <div class="room-name">
+        <form action="/room" method="POST">
+            <label>Name</label>
+            <input type="text" name="Customer_Name" class="room-input-field" required>
+            
+            <label>Email</label>
+            <input type="email" name="Email" class="room-input-field" required>
+
+            <label>Mobile Number</label>
+            <input type="text" name="MO_Number" class="room-input-field" required>
+
+            <label>Room Number</label>
+            <input type="number" name="Room_No" class="room-input-field" required>
+
+            <label>Member</label>
+            <input type="number" name="Member" class="room-input-field" required>
+    
+            <label>Enter Date & Time</label>
+            <input type="datetime-local" name="Entry_Time" class="room-input-field" required>
+
+            <label>Leave Date & Time</label>
+            <input type="datetime-local" name="Exit_Time" class="room-input-field" required>
+
+    
+            <button type="submit">Confirm Room</button>
+            </form>
+        </div>
+    </body>
+</html>
