@@ -243,7 +243,7 @@ def room_booking():
             exit_time = exit_time.strip()
 
             if not all([Customer_Name, Email, MO_Number, room_no, Member, entry_time, exit_time]):
-                return render_template('room booking.html', flash_message="⚠️ All fields are required.")
+                return render_template('room.html', flash_message="⚠️ All fields are required.")
 
             with sqlite3.connect('table.db') as conn:
                 cursor = conn.cursor()
@@ -259,15 +259,15 @@ def room_booking():
                 exit = datetime.strptime(exit_time, "%Y-%m-%dT%H:%M")
 
                 if exit <= entry or (exit - entry).total_seconds() < 3600:
-                    return render_template('room booking.html', flash_message="⚠️ You must book the room for a minimum of 1 hour.")
+                    return render_template('room.html', flash_message="⚠️ You must book the room for a minimum of 1 hour.")
 
                 if entry < datetime.now():
-                    return render_template('room booking.html', flash_message="⚠️ You cannot book a room in the past.")
+                    return render_template('room.html', flash_message="⚠️ You cannot book a room in the past.")
 
                 room = int(room_no)
                 valid_ranges = list(range(101, 131)) + list(range(201, 231)) + list(range(301, 331)) + list(range(401, 441))
                 if room not in valid_ranges:
-                    return render_template('room booking.html', flash_message="⚠️ Room number must be between 101-130, 201-230, 301-330, 401-440")
+                    return render_template('room.html', flash_message="⚠️ Room number must be between 101-130, 201-230, 301-330, 401-440")
 
                 # Create table if not exists
                 cursor.execute('''CREATE TABLE IF NOT EXISTS RoomBooking (
@@ -281,7 +281,7 @@ def room_booking():
                 ''', (room_no, entry_time))
 
                 if cursor.fetchone():
-                    return render_template('room booking.html', flash_message="⚠️ This room is already booked for the selected time.")
+                    return render_template('room.html', flash_message="⚠️ This room is already booked for the selected time.")
 
                 # Book room
                 cursor.execute("INSERT INTO RoomBooking VALUES (?, ?, ?, ?, ?, ?, ?)",
@@ -309,9 +309,9 @@ Warm Regards,
             return render_template('Kathiyawad.html', flash_message="✅ Room booked successfully!")
 
         except Exception as e:
-            return render_template('room booking.html', flash_message=f"⚠️ Error: {str(e)}")
+            return render_template('room.html', flash_message=f"⚠️ Error: {str(e)}")
 
-    return render_template('room booking.html')  # GET method returns booking page
+    return render_template('room.html')  # GET method returns booking page
 
 
 
