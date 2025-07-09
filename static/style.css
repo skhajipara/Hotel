@@ -377,68 +377,6 @@ position: absolute;
 
 
 /* booking page css */
-/* 
-.booking-logo {
-    position: absolute;
-    left: 630px;
-    top: 4px;
-    width: 100px;
-    height: 100px;
-    text-align: center;
-}
-
-.booking-wel {
-    position: absolute;
-    left: 590px;
-    top: 95px;
-    color: #DEB26A;
-    text-align: center;
-}
-
-.booking-name {
-    position: absolute;
-    top: 200px;
-    left: 480px;
-    background-color: #a8e6f5;
-    padding: 30px 50px;
-    padding-left: 50 px;
-    padding-right: 50px;
-    margin-bottom: 15px;
-    border-radius: 10px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    width: 300px;
-    text-align: center;
-}
-
-.booking-name input {
-    resize: vertical;
-    padding: 5px;
-    border: 2px solid #000000;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding-bottom: 5px;
-    border-radius: 5px;
-    padding-bottom: 5px;
-    position: static;
-    width: 240px;
-}
-
-
-.booking-name button {
-    width: 100%;
-    padding: 5px;
-    background-color: #4CAF50;
-    color: white;
-    border: 2px solid #0db112;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-.booking-name label {
-    font-weight: bold;
-    margin-top: 20px;
-    text-align: center
-} */
 
 .booking-logo {
     width: 100px;
@@ -716,72 +654,6 @@ position: absolute;
 
 
 /* Food delivery page */
-/* .delivery-wel {
-    position: absolute;
-    left: 560px;
-    top: 95px;
-    color: #DEB26A;
-    text-align: center;
-}
-
-.delivery-name {
-    position: absolute;
-    top: 200px;
-    left: 480px;
-    background-color: #daae67;
-    padding: 30px 50px;
-    padding-left: 50 px;
-    padding-right: 50px;
-    margin-bottom: 15px;
-    border-radius: 10px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    width: 300px;
-    text-align: center;
-}
-
-.delivery-name label {
-    margin-top: 20px;
-    font-weight: bold;
-    text-align: center
-}
-
-.delivery-name input {
-    resize: vertical;
-    padding: 5px;
-    border: 2px solid #000000;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding-bottom: 5px;
-    border-radius: 5px;
-    padding-bottom: 5px;
-    position: static;
-    width: 240px;
-}
-
-.delivery-name button {
-    width: 100%;
-    margin-top: 20px;
-    padding: 5px;
-    background-color: #4CAF50;
-    color: white;
-    border: 2px solid #0db112;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-.delivery-name textarea {
-    resize: vertical;
-    padding: 5px;
-    border: 2px solid #000000;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding-bottom: 5px;
-    border-radius: 5px;
-    padding-bottom: 5px;
-    position: static;
-} */
-
-/* Delivery Page Styles (default desktop) */
 
 .delivery-wel {
     left: 560px;
@@ -866,93 +738,6 @@ position: absolute;
 
 
 /* Login page */
-/* .login-name h2 {
-    position: absolute;
-    left: 170px;
-    top: 5px;
-    color: #000000;
-    text-align: center;
-
-}
-
-.login-name {
-    position: absolute;
-    top: 150px;
-    left: 480px;
-    background-color: #daae67;
-    padding: 30px 50px;
-    padding-left: 50 px;
-    padding-right: 50px;
-    margin-bottom: 15px;
-    border-radius: 10px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    width: 300px;
-    text-align: center;
-}
-
-.login-name label {
-    margin-top: 20px;
-    font-weight: bold;
-    text-align: center
-}
-
-.login-name input {
-    resize: vertical;
-    padding: 5px;
-    border: 2px solid #000000;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding-bottom: 5px;
-    border-radius: 5px;
-    padding-bottom: 5px;
-    position: static;
-    width: 240px;
-}
-
-.login-name button {
-    width: 85%;
-    margin-top: 30px;
-    padding: 5px;
-    background-color: #4CAF50;
-    color: white;
-    border: 2px solid #0db112;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-.login-name textarea {
-    resize: vertical;
-    padding: 5px;
-    border: 2px solid #000000;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding-bottom: 5px;
-    border-radius: 5px;
-    padding-bottom: 5px;
-    position: static;
-}*/
-
-/* forget button */
-/* .forgot-password {
-    position: absolute;
-    left: 210px;
-    bottom: 130px;
-    margin-top: 5px;
-    margin-bottom: 0px;
-    text-align: center;
-    font-size: 14px;
-}
-
-
-.login-name form h5 button {
-    top: 40px;
-    background: none;
-    border: none;
-    color: blue;
-    padding: 0;
-    cursor: pointer;
-    font-size: inherit;
-} */ 
 
 .login-name {
     top: 10px;
@@ -1026,62 +811,7 @@ position: absolute;
 
 
 /* forget -password page */
-/* .forget-name {
-    position: absolute;
-    top: 150px;
-    left: 480px;
-    background-color: #daae67;
-    padding: 30px 50px;
-    padding-left: 50 px;
-    padding-right: 50px;
-    margin-bottom: 15px;
-    border-radius: 10px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    width: 300px;
-    text-align: center;
-}
 
-.forget-name label {
-    margin-top: 20px;
-    font-weight: bold;
-    text-align: center;
-}
-
-.forget-name input {
-    resize: vertical;
-    padding: 5px;
-    border: 2px solid #000000;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding-bottom: 5px;
-    border-radius: 5px;
-    padding-bottom: 5px;
-    position: static;
-    width: 240px;
-}
-
-.forget-name button {
-    width: 85%;
-    margin-top: 30px;
-    padding: 5px;
-    background-color: #4CAF50;
-    color: white;
-    border: 2px solid #0db112;
-    border-radius: 5px;
-    font-weight: bold;
-}
-
-.forget-name textarea {
-    resize: vertical;
-    padding: 5px;
-    border: 2px solid #000000;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding-bottom: 5px;
-    border-radius: 5px;
-    padding-bottom: 5px;
-    position: static;
-} */
 .forget-name {
     top: 150px;
     left: 480px;
@@ -1225,7 +955,7 @@ position: absolute;
 
 /* Media Queries 320px*/
 
-@media only screen and (max-width:  320px) {
+@media only screen and (min-width: 320px)and (max-width: 321px) {
 
     /* Logo size */
     .top-left-image {
@@ -1733,77 +1463,7 @@ position: absolute;
     font-size: 30px;
 }
 
-/* room booking page */
 
-/* .room-logo{
-    left: 150px;
-    width: 200px;
-    height: 200px;
-    display: block;
-    margin: 10px auto;
-    text-align: center;
-}
-.room-wel{
-    left: 560px;
-    top: 95px;
-    color: #D4AF37;
-    text-align: center;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
-    margin-top: 10px;
-    font-size: 46px;
-    text-align: center;
-}
-.room-name{
-    top: 200px;
-    left: 80px;
-    background-color: #daae67;
-    padding: 30px 50px;
-    padding-left: 50 px;
-    padding-right: 50px;
-    margin-bottom: 15px;
-    border-radius: 10px;
-    font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-    text-align: center;
-    width: 550px;
-    height: 1050px;
-    display: block;
-    margin: 10px auto;
-}
-
-.room-name label {
-    font-weight: bold;
-    display: block;
-    margin-bottom: 5px;
-    font-size: 24px;
-}
-.room-input-field {
-    resize: vertical;
-    padding: 5px;
-    border: 2px solid #000000;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    padding-bottom: 5px;
-    border-radius: 10px;
-    padding-bottom: 5px;
-    position: static;
-    width: 440px;
-    height: 40px;
-    font-size: 24px;
-}
-
-.room-name button {
-    width: 70%;
-    height: 60px;
-    margin-top: 70px;
-    padding: 5px;
-    background-color: #4CAF50;
-    color: white;
-    border: 2px solid #0db112;
-    border-radius: 10px;
-    font-weight: bold;
-    font-size: 30px;
-} */
 
 /* Delivery page */
 
