@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request, redirect, url_for, session # Importing the necessary libraries
+from flask import Flask, render_template, request, redirect, session # Importing the necessary libraries
 import sqlite3 # Import for SQL
 import smtplib # Import for email
 from email.message import EmailMessage # Import for email
@@ -54,7 +54,7 @@ def login_required(f):
     @wraps(f)
     def decorated_function(*args, **kwargs):
         if 'user' not in session or 'email' not in session:
-            return redirect(url_for('login', flash_message="⚠️ Please login first."))
+            return render_template('login.html', flash_message="⚠️ Please login first.")
         return f(*args, **kwargs)
     return decorated_function
 # for connect with html
@@ -223,7 +223,7 @@ def room_booking():
     if request.method == 'POST':
         # ✅ Check login session
         if 'user' not in session or 'email' not in session:
-            return redirect(url_for('login', flash_message="⚠️ Please login first to book a room."))
+            return render_template('login.html', flash_message="⚠️ Please login first to book a room.")
 
         Customer_Name = request.form.get('Customer_Name')
         Email = request.form.get('Email')
@@ -252,7 +252,7 @@ def room_booking():
                 cursor.execute('SELECT * FROM Login WHERE Customer_Name = ? AND Email = ? AND Mobile_No = ?', 
                                (Customer_Name, Email, MO_Number))
                 if not cursor.fetchone():
-                    return redirect(url_for('login', flash_message="⚠️ Please login first (you are not registered)."))
+                   return render_template('login.html', flash_message="⚠️ Please login first(you are not registered).")
 
                 # Convert time to datetime
                 entry = datetime.strptime(entry_time, "%Y-%m-%dT%H:%M")
@@ -323,7 +323,8 @@ def submit():
     MO_Number = request.form.get('MO_Number')
 
     if 'user' not in session or 'email' not in session:
-        return redirect(url_for('login', flash_message="⚠️ Please login first."))
+        return render_template('login.html', flash_message="⚠️ Please login first.")
+
     try:
         with sqlite3.connect('table.db', timeout=10) as conn: # Connect to database. It will be created if it doesn't exist.
             cursor = conn.cursor()
