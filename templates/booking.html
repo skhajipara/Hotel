@@ -1,41 +1,30 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Book a Table</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Table - S.K. Hotels Group</title>
     <link rel="stylesheet" href="../static/style.css">
+    <script src="../script.js" defer></script>
 </head>
-<body style="background-color: rgb(228, 226, 226);" data-flash-message="{{ flash_message }}">
-    
-    <script src="{{ url_for('static', filename='alert.js') }}"></script>
-    
-    <a href="{{ url_for('home') }}">
-        <img src="../static/Logo.png" class="booking-logo" alt="S.K.Restaurant">
-    </a>
-    
-    <h2 class="booking-wel">Book Your Table</h2>
-
-    <div class="booking-name">
-        <form action="/submit" method="POST">
-            <label>Name</label>
-            <input type="text" name="Customer_Name" class="booking-input-field">
-            
-            <label>Email</label>
-            <input type="email" name="Email" class="booking-input-field">
-
-            <label>Mobile Number</label>
-            <input type="text" name="MO_Number" class="booking-input-field">
-
-            <label>Table Number</label>
-            <input type="number" name="Table_No" class="booking-input-field">
-
-            <label>Member</label>
-            <input type="number" name="Member" class="booking-input-field">
-
-            <label>Date & Time</label>
-            <input type="datetime-local" name="Date_Time" class="booking-input-field">
-
-            <button type="submit">Confirm Booking</button>
+<body>
+    <div class="container">
+        <h2>Book a Table</h2>
+        <p id="flash-message"></p>
+        <form id="booking-form">
+            <div class="form-group">
+                <label for="Table_No">Table Number</label>
+                <input type="number" id="Table_No" name="Table_No" required>
+            </div>
+            <div class="form-group">
+                <label for="Date_Time">Date and Time</label>
+                <input type="datetime-local" id="Date_Time" name="Date_Time" required>
+            </div>
+            <button type="submit">Book Table</button>
         </form>
+         <div class="form-links">
+            <a href="Kathiyawad.html">Back to Home</a>
+        </div>
     </div>
 </body>
 </html>

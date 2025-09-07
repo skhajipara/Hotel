@@ -1,23 +1,19 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Login</title>
-        <link rel="stylesheet" href="../static/style.css">
-    </head>
-
-    <body style="background-color: #e0d4c0" data-flash-message="{{ flash_message }}">
-
-        <a href="{{ url_for('home') }}"><img src="../static/Logo.png"  class="booking-logo" alt="S.K.Restautrant"></a><br><br><br>  <!-- click logo for go back to home page -->
-        
-        <div class="menu-name">
-            
-                <a href="../static/Gujarati menu.pdf" target="_blank">
-                    <button class="menu-Gujarati">Kathiyawadi Menu</button>
-                </a>
-                <a href="../static/English menu.pdf" target="_blank">
-                    <button class="menu-English">Menu</button>
-                </a>
-            
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu - S.K. Hotels Group</title>
+    <link rel="stylesheet" href="../static/style.css">
+</head>
+<body>
+    <div class="container main-dashboard">
+        <h2>Our Menus</h2>
+        <div class="nav-links">
+            <a href="../static/Gujarati menu.pdf" target="_blank" class="btn">View Gujarati Menu</a>
+            <a href="../static/English menu.pdf" target="_blank" class="btn">View English Menu</a>
+            <a href="Kathiyawad.html" class="btn">Back to Home</a>
         </div>
-    </body>
+    </div>
+</body>
 </html>

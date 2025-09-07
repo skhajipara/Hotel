@@ -1,0 +1,254 @@
+/* --- General Styles --- */
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #1a1a1a;
+    color: #f0f0f0;
+    margin: 0;
+    padding-top: 80px; /* Space for the fixed header */
+}
+
+/* --- Fixed Header --- */
+.fixed-header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #2c2c2c;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    z-index: 1000;
+    box-sizing: border-box;
+}
+
+.top-left-image {
+    height: 60px;
+}
+
+.header-right a, .header-right button {
+    background: #ffd700;
+    color: #1a1a1a;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1em;
+}
+
+.header-right #logout-btn {
+    background: #8B0000;
+    color: white;
+}
+
+#welcome-user {
+    color: #ffd700;
+    margin-right: 15px;
+}
+
+/* --- Main Content & Slideshow --- */
+.scroll-container {
+    width: 100%;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.slideshow-container {
+    position: relative; 
+    top:10px;
+    width: 100%;
+    margin-bottom: 20px;
+}
+#slider {
+    display: block; /* Ensures margin auto works correctly */
+    width: 90%;
+    max-height: 600px; /* height: 800px was overridden by this, so it's removed */
+    object-fit: cover;
+    border-radius: 10px;
+    margin: 0 auto; /* This centers the slider */
+}
+
+.slider-text {
+    position: absolute;
+    top: 0%; /* <-- This is the key change for vertical centering */
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: white;
+    background: rgba(0, 0, 0, 0.6);
+    padding: 15px 30px;
+    border-radius: 5px;
+    font-size: 2em;
+    font-weight: bold;
+    text-align: center;
+}
+
+/* --- Food Photos & Buttons --- */
+.photo-gallery {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.photo-gallery img {
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    border-radius: 8px;
+    border: 2px solid #ffd700;
+}
+
+.action-buttons {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin: 30px 0;
+}
+
+.action-buttons .btn {
+    background: #ffd700;
+    color: #1a1a1a;
+    padding: 15px 25px;
+    border: none;
+    border-radius: 5px;
+    font-size: 1.1em;
+    font-weight: bold;
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+
+.action-buttons .btn:hover {
+    transform: translateY(-3px);
+}
+
+/* --- Content Sections --- */
+.content-section {
+    background: #2c2c2c;
+    padding: 25px;
+    border-radius: 10px;
+    margin-top: 40px;
+    text-align: left;
+}
+
+.content-section h2 {
+    color: #ffd700;
+    border-bottom: 2px solid #ffd700;
+    padding-bottom: 10px;
+    margin-bottom: 20px;
+}
+
+.content-section h3 {
+    color: #f0f0f0;
+    margin-top: 25px;
+}
+
+.content-section pre {
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    font-family: inherit;
+    font-size: 1em;
+    line-height: 1.6;
+    color: #ccc;
+}
+
+.thank-you-note {
+    text-align: center;
+    margin-top: 40px;
+}
+
+.thank-you-note h2 {
+    color: #ffd700;
+}
+
+.thank-you-note pre {
+    font-size: 1.2em;
+    color: #ccc;
+}
+
+/* --- Fixed Bottom Bar --- */
+.fix-bottom {
+    background: #2c2c2c;
+    color: #fff;
+    padding: 20px;
+    margin-top: 40px;
+    text-align: center;
+    border-top: 2px solid #ffd700;
+}
+
+.fix-bottom h3 {
+    margin-top: 0;
+    color: #ffd700;
+}
+
+.fix-bottom-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+}
+
+.fix-bottom a, .fix-bottom div {
+    color: #ccc;
+    text-decoration: none;
+}
+.fix-bottom a:hover {
+    color: #ffd700;
+}
+
+
+/* --- Media Query for Mobile --- */
+@media (max-width: 768px) {
+    .slider-text {
+        font-size: 1.5em;
+        padding: 10px 20px;
+    }
+    .header-right {
+        display: flex;
+        align-items: center;
+    }
+    #welcome-user {
+        font-size: 0.9em;
+    }
+    .top-left-image {
+        height: 50px;
+    }
+    .slideshow-container {
+        position: relative;
+    }
+    #slider {
+        width: 100%;
+        max-height: 350px;
+    }
+
+    .slider-text {
+        position: absolute;
+    
+        font-size: 1em;
+        padding: 10px 20px;
+        width: 90%;
+        
+        top: -50px; 
+        left: 50%; 
+        transform: translateX(-50%); 
+        text-align: center;
+    }
+
+
+    /* --- Photo Gallery Adjustments --- */
+    .photo-gallery {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .photo-gallery img {
+        max-width: 80%;
+    }
+}
