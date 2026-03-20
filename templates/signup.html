@@ -1,28 +1,83 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Create Account</title>
-        <link rel="stylesheet" href="../static/style.css">
-    </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Create Account - S.K. Hotels</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
 
-    <body style="background-color: #e0d4c0" data-flash-message="{{ flash_message }}">
-        
-        <!-- Javascript link code -->
-        <script src="{{ url_for('static', filename='alert.js') }}"></script>
+<body class="auth-page" data-flash-message="{{ flash_message }}">
     
-        <a href="{{ url_for('home') }}"><img src="../static/Logo.png"  class="booking-logo" alt="S.K.Restautrant"></a><br><br><br>  <!-- click logo for go back to home page -->
-        
-        <div class="signup-name">
-            <form action="/signup" method="POST">
-                <h2>Create New Account</h2></br>
-                <h4>Welcome In S.K.Restaurant</h4>
-                <label >Name</label><br><input type="text" name="Customer_Name"  ><br>        
-                <label>Mobile Number</label><br> <input type="number" name="Mobile_No" ><br>
-                <label >Email</label><br><input type="email" name="Email"  ><br>        
-                <label>Password</label><br> <input type="text" name="Password" ><br>
-                <button type="submit">Sign Up</button>
+    <script src="{{ url_for('static', filename='alert.js') }}"></script>
+
+    <div class="auth-container">
+        <a href="{{ url_for('home') }}" class="auth-logo-link">
+            <img src="../static/Logo.png" class="auth-logo" alt="S.K. Restaurant">
+        </a>
+
+        <div class="auth-card">
+            <h2>Create New Account</h2>
+            <p class="auth-subtitle">Join S.K. Hotels Group to easily book tables, rooms, and order food.</p>
+
+            <form action="/signup" method="POST" id="signupForm">
+                
+                <div class="form-group">
+                    <label for="name"><i class="fas fa-user"></i> Full Name</label>
+                    <input type="text" id="name" name="Customer_Name" placeholder="Enter your full name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="mobile"><i class="fas fa-phone"></i> Mobile Number</label>
+                    <input type="tel" id="mobile" name="Mobile_No" pattern="[0-9]{10}" maxlength="10" placeholder="10-digit number" title="Please enter exactly 10 digits" oninvalid="this.setCustomValidity('Please enter a valid 10-digit mobile number')" oninput="this.setCustomValidity('')" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                    <input type="email" id="email" name="Email" placeholder="Enter your email address" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password"><i class="fas fa-lock"></i> Password</label>
+                    <input type="password" id="password" name="Password" placeholder="Create a secure password" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="confirm_password"><i class="fas fa-lock"></i> Confirm Password</label>
+                    <input type="password" id="confirm_password" placeholder="Type your password again" required>
+                    <small id="passwordError" style="color: red; display: none; margin-top: 5px; font-family: 'Poppins', sans-serif;">
+                        ❌ Passwords do not match.
+                    </small>
+                </div>
+
+                <div style="margin-top: 30px;">
+                    <button type="submit" class="btn-submit">Sign Up</button>
+                </div>
 
             </form>
+
+            <div class="auth-footer">
+                <p>Already have an account? <a href="/login" class="auth-link gold-link">Sign in here</a></p>
+            </div>
         </div>
-    </body>
+    </div>
+
+    <script>
+        document.getElementById('signupForm').addEventListener('submit', function(event) {
+            const password = document.getElementById('password').value;
+            const confirmPassword = document.getElementById('confirm_password').value;
+            const errorText = document.getElementById('passwordError');
+
+            if (password !== confirmPassword) {
+                event.preventDefault(); // Stop the form from submitting
+                errorText.style.display = 'block';
+                document.getElementById('confirm_password').style.borderColor = 'red';
+            } else {
+                errorText.style.display = 'none';
+                document.getElementById('confirm_password').style.borderColor = '#ddd';
+            }
+        });
+    </script>
+</body>
 </html>

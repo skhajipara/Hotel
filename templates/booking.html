@@ -1,41 +1,69 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Book a Table</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Table - S.K. Hotels</title>
     <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body style="background-color: rgb(228, 226, 226);" data-flash-message="{{ flash_message }}">
+
+<body class="auth-page" data-flash-message="{{ flash_message }}">
     
     <script src="{{ url_for('static', filename='alert.js') }}"></script>
     
-    <a href="{{ url_for('home') }}">
-        <img src="../static/Logo.png" class="booking-logo" alt="S.K.Restaurant">
-    </a>
-    
-    <h2 class="booking-wel">Book Your Table</h2>
+    <div class="auth-container" style="max-width: 650px;">
+        
+        <a href="{{ url_for('home') }}" class="auth-logo-link">
+            <img src="../static/Logo.png" class="auth-logo" alt="S.K. Restaurant">
+        </a>
+        
+        <div class="auth-card">
+            <h2>Book Your Table</h2>
+            <p class="auth-subtitle">Reserve your spot for an authentic dining experience.</p>
 
-    <div class="booking-name">
-        <form action="/submit" method="POST">
-            <label>Name</label>
-            <input type="text" name="Customer_Name" class="booking-input-field">
-            
-            <label>Email</label>
-            <input type="email" name="Email" class="booking-input-field">
+            <form action="/submit" method="POST">
+                
+                <div class="form-grid">
+                    
+                    <div class="form-group">
+                        <label for="name"><i class="fas fa-user"></i> Full Name</label>
+                        <input type="text" id="name" name="Customer_Name" placeholder="Enter your name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                        <input type="email" id="email" name="Email" placeholder="Enter your email" required>
+                    </div>
 
-            <label>Mobile Number</label>
-            <input type="text" name="MO_Number" class="booking-input-field">
+                    <div class="form-group">
+                        <label for="mobile"><i class="fas fa-phone"></i> Mobile Number</label>
+                        <input type="tel" id="mobile" name="MO_Number" pattern="[0-9]{10}" maxlength="10" placeholder="10-digit number" title="Please enter exactly 10 digits" oninvalid="this.setCustomValidity('Please enter a valid 10-digit mobile number')" oninput="this.setCustomValidity('')" required>
+                    </div>
 
-            <label>Table Number</label>
-            <input type="number" name="Table_No" class="booking-input-field">
+                    <div class="form-group">
+                        <label for="members"><i class="fas fa-users"></i> Number of Guests</label>
+                        <input type="number" id="members" name="Member" min="1" max="20" placeholder="How many people?" required>
+                    </div>
 
-            <label>Member</label>
-            <input type="number" name="Member" class="booking-input-field">
+                    <div class="form-group">
+                        <label for="table"><i class="fas fa-chair"></i> Table Number</label>
+                        <input type="number" id="table" name="Table_No" min="1" max="100" placeholder="Table 1 to 100" title="We have tables from 1 to 100" required>
+                    </div>
 
-            <label>Date & Time</label>
-            <input type="datetime-local" name="Date_Time" class="booking-input-field">
+                    <div class="form-group">
+                        <label for="datetime"><i class="fas fa-calendar-alt"></i> Date & Time</label>
+                        <input type="datetime-local" id="datetime" name="Date_Time" required>
+                    </div>
 
-            <button type="submit">Confirm Booking</button>
-        </form>
+                </div>
+
+                <div style="margin-top: 15px;">
+                    <button type="submit" class="btn-submit">Confirm Booking</button>
+                </div>
+
+            </form>
+        </div>
     </div>
 </body>
 </html>

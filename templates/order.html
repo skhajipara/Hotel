@@ -1,30 +1,51 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Order Here</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Food - S.K. Hotels</title>
     <link rel="stylesheet" href="../static/style.css">
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
-<body style="background-color: rgb(228, 226, 226);" data-flash-message="{{ flash_message }}">
-    
-    <!-- Javascript link code -->
+
+<body class="auth-page" data-flash-message="{{ flash_message }}">
     <script src="{{ url_for('static', filename='alert.js') }}"></script>
     
-    <a href="{{ url_for('home') }}">  <!-- click logo for go back to home page -->
-        <img src="../static/Logo.png"  class="booking-logo" alt="S.K.Restautrant">
-    </a><br><br><br>
-    <h2 style="font-family:Arial, Helvetica, sans-serif" class="order-wel">Order Here</h2>
-    <div class="order-name">
-        <form action="/submit" method="POST">
-            <label >Name</label><br><input type="text" name="Customer_Name"  ><br>        
-            <label >Email</label><br><input type="email" name="Email"  ><br>                    
-            <label>Table Number</label><br> <input type="number" name="Table_No" ><br>
-            <label>Order</label><br><textarea type="text" name="Order" rows="4" cols="30"style="padding-bottom: 200px;"></textarea><br>
-            <button type="submit">Confirm Order</button>
-        </form>
+    <div class="auth-container" style="max-width: 550px;">
+        <a href="{{ url_for('home') }}" class="auth-logo-link">
+            <img src="../static/Logo.png" class="auth-logo" alt="S.K. Restaurant">
+        </a>
+        
+        <div class="auth-card">
+            <h2>Place Your Order</h2>
+            <p class="auth-subtitle">Tell us what you'd like to enjoy at your table.</p>
+
+            <form action="/submit" method="POST">
+                <div class="form-group">
+                    <label for="name"><i class="fas fa-user"></i> Full Name</label>
+                    <input type="text" id="name" name="Customer_Name" placeholder="Enter your name" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                    <input type="email" id="email" name="Email" placeholder="Enter your registered email" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="table"><i class="fas fa-chair"></i> Table Number</label>
+                    <input type="number" id="table" name="Table_No" min="1" max="100" placeholder="Table 1 to 100" title="We have tables from 1 to 100" oninvalid="this.setCustomValidity('Please enter a valid table number between 1 and 100')" oninput="this.setCustomValidity('')" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="order"><i class="fas fa-concierge-bell"></i> Your Order</label>
+                    <textarea id="order" name="Order" placeholder="E.g., 2 Kathiyawadi Thali, 1 Buttermilk..." required></textarea>
+                </div>
+
+                <div style="margin-top: 25px;">
+                    <button type="submit" class="btn-submit">Confirm Order</button>
+                </div>
+            </form>
+        </div>
     </div>
-
-
-
 </body>
 </html>

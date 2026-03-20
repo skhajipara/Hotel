@@ -1,138 +1,152 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
     <head>
         <meta charset="UTF-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title> S.K.Restautrant </title>
+        <title>S.K. Restaurant & Hotel</title>
         <link rel="stylesheet" href="../static/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     </head>
 
     <body data-flash-message="{{ flash_message }}">
-        <!-- Logo -->
-        <div class="fixed-header">
-            <img src="../static/Logo.png" class="top-left-image" alt="S.K.Restaurant">
-            <div class="login">
+        <script src="{{ url_for('static', filename='alert.js') }}"></script>
+
+        <nav class="navbar">
+            <img src="../static/Logo.png" class="logo" alt="S.K. Restaurant">
+            <div class="login-container">
                 <form action="/login">
-                    <button type="submit">Login</button>
+                    <button type="submit" class="btn-login"><i class="fas fa-user"></i> Login</button>
                 </form>
             </div>
-        </div>
-        <div class="scroll-container">
+        </nav>
+
+        <section class="hero-slider">
             <img id="slider" src="../static/Hotel outside.png" alt="Slideshow">
+            <div class="overlay">
+                <h1 class="slider-text">Welcome to S.K. Hotels Group</h1>
+            </div>
 
-                <script>
-                    const images = [
-                        // First image
-                        
-                        "../static/Hotel outside.png",
-
-                        // Second image
-                        "../static/reception.png",
-                                              
-                        // Third image
-                        
-                        "../static/Dining.png",
-                        
-                        // fourth image
-                        
-                        "../static/room outside.png",
-                        
-                        // fifth image
-                        
-                        "../static/room 1.png",
-                        
-                        // sixth image
-                        
-                        "../static/room 2.png",
-
-                        // seventh image
-                        
-                        "../static/D room.png",
-
-                         // eighth image
-                        
-                         "../static/D dining.png",
-                        
-                    ]
-            
-                    let currentIndex = 0;
-                    const imgElement = document.getElementById("slider");
-                    
-                    function changeImage() {
+            <script>
+                const images = [
+                    "../static/Hotel outside.png",
+                    "../static/reception.png",
+                    "../static/Dining.png",
+                    "../static/room outside.png",
+                    "../static/room 1.png",
+                    "../static/room 2.png",
+                    "../static/D room.png",
+                    "../static/D dining.png"
+                ];
+                let currentIndex = 0;
+                const imgElement = document.getElementById("slider");
+                
+                function changeImage() {
+                    imgElement.style.opacity = 0; // Fade out
+                    setTimeout(() => {
                         currentIndex = (currentIndex + 1) % images.length; 
                         imgElement.src = images[currentIndex];
-                    }
-                    
-                    setInterval(changeImage, 3000);
-                </script>
-            <div class="slider-text">Welcome to S.K. Hotels Group</div>
-            <!-- food photo -->
-            <img src="../static/Photo 01.png" class="photo1">
-            <img src="../static/Photo 02.png" class="photo2">
-            <img src="../static/Photo 03.png" class="photo3">
-            <img src="../static/Photo 04.png" class="photo4">
-            
-            <!-- Javascript link code -->
-            <script src="{{ url_for('static', filename='alert.js') }}"></script>
+                        imgElement.style.opacity = 1; // Fade in
+                    }, 500); // Wait half a second for the fade out before changing
+                }
+                setInterval(changeImage, 4000); // Change every 4 seconds
+            </script>
+        </section>
 
-            
-            
-            <a href="/menu">                    
-                <button class="button-menu">Menu</button>
+        <section class="actions-section">
+            <a href="/menu" class="action-card">
+                <i class="fas fa-book-open"></i>
+                <h3>Menu</h3>
             </a>
+            <a href="/booking" class="action-card">
+                <i class="fas fa-chair"></i>
+                <h3>Table Booking</h3>
+            </a>
+            <a href="/order" class="action-card">
+                <i class="fas fa-utensils"></i>
+                <h3>Order Food</h3>
+            </a>
+            <a href="/delivery" class="action-card">
+                <i class="fas fa-motorcycle"></i>
+                <h3>Home Delivery</h3>
+            </a>
+            <a href="/room" class="action-card">
+                <i class="fas fa-bed"></i>
+                <h3>Room Booking</h3>
+            </a>
+        </section>
+
+        <section class="gallery-section">
+            <h2 class="section-title">A Taste of Tradition</h2>
+            <div class="photo-grid">
+                <img src="../static/Photo 01.png" alt="Food Photo 1">
+                <img src="../static/Photo 02.png" alt="Food Photo 2">
+                <img src="../static/Photo 03.png" alt="Food Photo 3">
+                <img src="../static/Photo 04.png" alt="Food Photo 4">
+            </div>
+        </section>
+
+        <section class="uniqueness-section">
+            <h2 class="section-title">* Our Uniqueness</h2>
+            <div class="uniqueness-grid">
+                
+                <div class="unique-box">
+                    <h3>~ In Food</h3>
+                    <ul>
+                        <li>Our restaurant uses directly farmed vegetables.</li>
+                        <li>We use pure peanut oil, extracted directly from farmers' peanuts.</li>
+                        <li>Pulses and agricultural items are supplied directly from farmers.</li>
+                        <li>Dairy products like ghee and milk are provided by our own buffalo stable.</li>
+                    </ul>
+                </div>
+
+                <div class="unique-box">
+                    <h3>~ Serving Style <br><span>(Only Available in Village Vibe)</span></h3>
+                    <ul>
+                        <li>We use brass utensils to serve food, just like in the past.</li>
+                        <li>We embrace traditional ways of serving to honor our heritage.</li>
+                        <li>All signature dishes are prepared perfectly in clay pots.</li>
+                    </ul>
+                </div>
+
+                <div class="unique-box">
+                    <h3>~ Dining Arrangements</h3>
+                    <ul>
+                        <li>Traditional dining area with a seating capacity of 550 people.</li>
+                        <li>Separate private dining areas for special occasions and events.</li>
+                        <li>A dedicated, fun dining area for children.</li>
+                        <li>Authentic floor seating in perfect Kathiawadi style.</li>
+                        <li>Fully accessible separate dining areas for people with disabilities.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-quote">
+                <h2>Thank You 🙏 Visit again</h2>
+                <p>રાધા વીના કાન નહીં,<br>એસ.કે. વીના જમવા નુ નહીં.....</p>
+            </div>
             
-            <!-- table booking -->
-            <a href="/booking">                    
-                <button class="button-table">Table Booking</button>
-            </a>    
-
-            <!-- Food order -->
-            <a href="/order">
-                <button class="button-order">Order Food</button>
-            </a>
-
-            <!-- Delivery -->
-            <a href="/delivery">
-                <button class="button-delivery">Home Delivery</button>
-            </a>
-
-            <!-- Room Booking -->
-            <a href="/room">
-                <button class="button-room">Room Booking</button>
-            </a>
-
-            <!-- bottom page content -->
-            <div>
-            <h2 class="personality-h2" >* Our Uniqueness</h2>
-            <h3 class="personality-h31">~ In Food</h3>
-            <pre class="personality-pre1">
-            - Our restaurant uses directly farmed vegetables. </br>            - Our restaurant uses pure peanut oil, which is extracted directly from peanuts grown by farmers. </br>            - Pulses and other items that depend on agriculture are supplied directly from farmers. </br>            - Dairy products like ghee and milk are provided by our buffalo stable.</br> 
-            </pre>
-            <h3 class="personality-h32">~ Serving Style (Only Avilable in Village Vibe)</h3>            
-            <pre class="personality-pre2">            - We are using brass utensils to serve food, just like in the past.</br>            - We are using a traditional way of serving food, just like in the past.</br>            - All dishes are prepared in clay pots.</br>
-            </pre>
-            <h3 class="personality-h33">~ Dining Arrangements</h3>
-            <pre class="personality-pre3">
-            - We have a traditional dining area with a seating capacity of 550 people.</br>            - We have a separate dining area for special occasions and events.</br>            - We have a separate dining area for children.</br>            - And there is also an arrangement to eat in the perfect Kathiawadi style, just like in the village.</br>            - We have a separate dining area for people with disabilities.</br>
-            </pre>
-
-            <h2 class="abhar">Thank You 🙏 Visit again</h2>
-            <pre class="abhar1">                રાધા વીના કાન નહીં,</br>                    એસ.કે. વીના જમવા નુ નહીં.....</pre>
-        </div>
-        <div class="fix-bottom">
-            <h3>S.K.Hotels Group</br></br></br></h3>
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <a href="/menu" target="_blank">~ Menu</a>
+                    <a href="/booking">~ Table Booking</a>
+                    <a href="/order">~ Order Food</a>
+                    <a href="/delivery">~ Home Delivery</a>
+                    <a href="/room">~ Room Booking</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Discover</h4>
+                    <span>~ Food Quality</span>
+                    <span>~ Serving Speciality</span>
+                    <span>~ Dining Arrangements</span>
+                </div>
+            </div>
             
-            <div class="fix-bottom-d1"><a href="/menu" target="_blank">~ Menu</a></div>
-            <div class="fix-bottom-d2"><a href="/booking"> ~ Table Booking</a></div>
-            <div class="fix-bottom-d3"><a href="/order">~ Order Food</a></div>
-            <div class="fix-bottom-d4"><a href="/delivery">~ Home Delivery</a></div>
-            <div class="fix-bottom-d8"><a href="/room">~ Room Booking</a></div>
-            <div class="fix-bottom-d5">~ Food Quality</div>
-            <div class="fix-bottom-d6">~ Serving Speciality</div>
-            <div class="fix-bottom-d7">~ Dining Arrangements</div>
-        </div>
-        
-        </div>
-    </div>    
+            <div class="footer-bottom">
+                <h3>S.K. Hotels Group</h3>
+            </div>
+        </footer>
     </body>
 </html>

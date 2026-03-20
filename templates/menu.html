@@ -1,23 +1,47 @@
 <!DOCTYPE html>
-<html>
-    <head>
-        <title>Login</title>
-        <link rel="stylesheet" href="../static/style.css">
-    </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Menus - S.K. Hotels</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
 
-    <body style="background-color: #e0d4c0" data-flash-message="{{ flash_message }}">
+<body class="auth-page" data-flash-message="{{ flash_message }}">
 
-        <a href="{{ url_for('home') }}"><img src="../static/Logo.png"  class="booking-logo" alt="S.K.Restautrant"></a><br><br><br>  <!-- click logo for go back to home page -->
-        
-        <div class="menu-name">
-            
-                <a href="../static/Gujarati menu.pdf" target="_blank">
-                    <button class="menu-Gujarati">Kathiyawadi Menu</button>
+    <script src="{{ url_for('static', filename='alert.js') }}"></script>
+
+    <div class="auth-container" style="max-width: 650px;">
+        <a href="{{ url_for('home') }}" class="auth-logo-link">
+            <img src="../static/Logo.png" class="auth-logo" alt="S.K. Restaurant">
+        </a>
+
+        <div class="auth-card">
+            <h2>Explore Our Menus</h2>
+            <p class="auth-subtitle">Choose from our authentic village cuisine or our standard multi-cuisine selection.</p>
+
+            <div class="menu-selection-grid">
+                
+                <a href="../static/Gujarati menu.pdf" target="_blank" class="menu-option-card traditional">
+                    <i class="fas fa-leaf"></i>
+                    <h3>Kathiyawadi Menu</h3>
+                    <p>Authentic Village Vibe</p>
                 </a>
-                <a href="../static/English menu.pdf" target="_blank">
-                    <button class="menu-English">Menu</button>
+
+                <a href="../static/English menu.pdf" target="_blank" class="menu-option-card modern">
+                    <i class="fas fa-utensils"></i>
+                    <h3>Standard Menu</h3>
+                    <p>Multi-Cuisine Selection</p>
                 </a>
-            
+
+            </div>
+
+            <div class="auth-footer" style="margin-top: 35px; border-top: none;">
+                <p>Ready to dine with us?</p>
+                <a href="/booking" class="btn-submit" style="display: inline-block; width: auto; padding: 10px 30px; margin-top: 10px; text-decoration: none;">Book a Table</a>
+            </div>
         </div>
-    </body>
+    </div>
+</body>
 </html>

@@ -1,35 +1,49 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Forget Password</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Forget Password - S.K. Hotels</title>
     <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
-<body style="background-color: #e0d4c0" data-flash-message="{{ flash_message }}">
+<body class="auth-page" data-flash-message="{{ flash_message }}">
 
-    <!-- JS Alert -->
     <script src="{{ url_for('static', filename='alert.js') }}"></script>
 
-    <!-- Click logo to go home -->
-    <a href="{{ url_for('home') }}">
-        <img src="../static/Logo.png" class="booking-logo" alt="S.K.Restaurant">
-    </a>
+    <div class="auth-container">
+        <a href="{{ url_for('home') }}" class="auth-logo-link">
+            <img src="../static/Logo.png" class="auth-logo" alt="S.K. Restaurant">
+        </a>
 
-    <div class="forget-name">
-        <form action="/forget" method="POST">
-            <h2>Forget Password</h2>
-            <h4>Welcome Back In S.K.Restaurant</h4>
+        <div class="auth-card">
+            <h2>Password Recovery</h2>
+            <p class="auth-subtitle">Enter your details to receive your password securely via email</p>
 
-            <label>Email</label>
-            <input type="email" name="Email">
+            <form action="/forget" method="POST">
+                
+                <div class="form-group">
+                    <label for="email"><i class="fas fa-envelope"></i> Registered Email</label>
+                    <input type="email" id="email" name="Email" placeholder="Enter your email address" required>
+                </div>
 
-            <label>Mobile Number</label>
-            <input type="number" name="Mobile_No">
+                <div class="form-group">
+                    <label for="mobile"><i class="fas fa-phone"></i> Mobile Number</label>
+                    <input type="number" id="mobile" name="Mobile_No" placeholder="Enter your registered mobile number" required>
+                </div>
 
-            <button type="submit">Forget</button>
+                <div style="margin-top: 30px;">
+                    <button type="submit" class="btn-submit">Recover Password</button>
+                </div>
 
-            <h5>Don't have an account? <a href="/signup"><u>Sign up</u></a></h5>
-        </form>
+            </form>
+
+            <div class="auth-footer">
+                <p>Remembered your password? <a href="/login" class="auth-link gold-link">Login here</a></p>
+                <p style="margin-top: 10px;">Don't have an account? <a href="/signup" class="auth-link gold-link">Sign up</a></p>
+            </div>
+        </div>
     </div>
 </body>
 </html>

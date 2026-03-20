@@ -1,48 +1,102 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Room Booking</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Room Booking - S.K. Hotels</title>
     <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
-<body style="background-color: rgb(228, 226, 226);" data-flash-message="{{ flash_message }}">
+<body class="auth-page" data-flash-message="{{ flash_message }}">
     
     <script src="{{ url_for('static', filename='alert.js') }}"></script>
     
-    <a href="{{ url_for('home') }}">
-        <img src="../static/Logo.png" class="room-logo" alt="S.K.Restaurant">
-    </a>
-    
-    <h2 class="room-wel">Book Your Room</h2>
-    
-    <div class="room-name">
-        <form action="/room" method="POST">
-            <label>Name</label>
-            <input type="text" name="Customer_Name" class="room-input-field" required>
-            
-            <label>Email</label>
-            <input type="email" name="Email" class="room-input-field" required>
+    <div class="auth-container" style="max-width: 700px;">
+        
+        <a href="{{ url_for('home') }}" class="auth-logo-link">
+            <img src="../static/Logo.png" class="auth-logo" alt="S.K. Restaurant">
+        </a>
+        
+        <div class="auth-card">
+            <h2>Book Your Stay</h2>
+            <p class="auth-subtitle">Experience luxury, tradition, and absolute comfort.</p>
 
-            <label>Mobile Number</label>
-            <input type="text" name="MO_Number" class="room-input-field" required>
+            <form action="/room" method="POST" id="roomBookingForm">
+                
+                <div class="form-grid">
+                    
+                    <div class="form-group">
+                        <label for="name"><i class="fas fa-user"></i> Full Name</label>
+                        <input type="text" id="name" name="Customer_Name" placeholder="Enter your name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                        <input type="email" id="email" name="Email" placeholder="Enter your email" required>
+                    </div>
 
-            <label>Room Number</label>
-            <input type="number" name="Room_No" class="room-input-field" required>
+                    <div class="form-group">
+                        <label for="mobile"><i class="fas fa-phone"></i> Mobile Number</label>
+                        <input type="tel" id="mobile" name="MO_Number" pattern="[0-9]{10}" maxlength="10" placeholder="10-digit number" title="Please enter exactly 10 digits" oninvalid="this.setCustomValidity('Please enter a valid 10-digit mobile number')" oninput="this.setCustomValidity('')" required>
+                    </div>
 
-            <label>Member</label>
-            <input type="number" name="Member" class="room-input-field" required>
-    
-            <label>Enter Date & Time</label>
-            <input type="datetime-local" name="Entry_Time" class="room-input-field" required>
+                    <div class="form-group">
+                        <label for="members"><i class="fas fa-users"></i> Number of Guests</label>
+                        <input type="number" id="members" name="Member" min="1" max="4" placeholder="Max 4 guests per room" title="Maximum 4 guests allowed per room" required>
+                    </div>
 
-            <label>Leave Date & Time</label>
-            <input type="datetime-local" name="Exit_Time" class="room-input-field" required>
+                    <div class="form-group">
+                        <label for="entry"><i class="fas fa-calendar-check"></i> Check-in Date & Time</label>
+                        <input type="datetime-local" id="entry" name="Entry_Time" required>
+                    </div>
 
-    
-            <button type="submit">Confirm Room</button>
+                    <div class="form-group">
+                        <label for="exit"><i class="fas fa-calendar-times"></i> Check-out Date & Time</label>
+                        <input type="datetime-local" id="exit" name="Exit_Time" required>
+                    </div>
+
+                </div>
+
+                <div class="form-group" style="margin-top: 5px;">
+                    <label for="room"><i class="fas fa-bed"></i> Room Number</label>
+                    <input type="number" id="room" name="Room_No" placeholder="Preferred room number" required>
+                    <small id="roomError" style="color: red; display: none; margin-top: 5px;"></small>
+                    <small style="color: #888; font-size: 0.85rem; display: block; margin-top: 6px; font-family: 'Poppins', sans-serif;">
+                        <i class="fas fa-info-circle"></i> Valid rooms: 101-130, 201-230, 301-330, 401-430
+                    </small>
+                </div>
+
+                <div style="margin-top: 25px;">
+                    <button type="submit" class="btn-submit">Confirm Room Booking</button>
+                </div>
+
             </form>
         </div>
-    </body>
+    </div>
+
+    <script>
+        document.getElementById('roomBookingForm').addEventListener('submit', function(event) {
+            const roomInput = parseInt(document.getElementById('room').value);
+            const errorText = document.getElementById('roomError');
+            
+            // Check if room falls into any of the valid ranges
+            const isValid = 
+                (roomInput >= 101 && roomInput <= 130) ||
+                (roomInput >= 201 && roomInput <= 230) ||
+                (roomInput >= 301 && roomInput <= 330) ||
+                (roomInput >= 401 && roomInput <= 430);
+
+            if (!isValid) {
+                event.preventDefault(); // Stop form from submitting to Flask
+                errorText.style.display = 'block';
+                errorText.innerText = "❌ Invalid Room Number. Please choose from the valid ranges listed below.";
+                document.getElementById('room').style.borderColor = 'red';
+            } else {
+                errorText.style.display = 'none';
+                document.getElementById('room').style.borderColor = '#ddd';
+            }
+        });
+    </script>
+</body>
 </html>
