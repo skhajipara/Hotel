@@ -2,12 +2,16 @@ from flask import Flask, render_template, request, redirect, session
 import sqlite3
 import smtplib
 import threading
+import os
+import string
+import random
 from email.message import EmailMessage
+from email.utils import formatdate, make_msgid
 from datetime import datetime, timedelta
 from pathlib import Path
 from dotenv import load_dotenv
 from functools import wraps
-import os
+from werkzeug.security import generate_password_hash, check_password_hash
 
 load_dotenv()
 # Note: Ensure your .env file has valid credentials (use an App Password for Gmail!)
@@ -22,6 +26,55 @@ app.permanent_session_lifetime = timedelta(hours=24)
 pdf_location = Path("Gujarati menu.pdf")
 pdf_location1= Path("English menu.pdf")
 
+# ==========================================
+# DATABASE INITIALIZATION (OPTIMIZATION)
+# ==========================================
+def init_db():
+    """Creates all required tables once on startup to improve route speed."""
+    with sqlite3.connect('table.db') as conn:
+        cursor = conn.cursor()
+        cursor.execute('''CREATE TABLE IF NOT EXISTS Login (
+            Customer_Name TEXT NOT NULL,
+            Email TEXT NOT NULL,
+            Mobile_No INTEGER NOT NULL,
+            Password TEXT NOT NULL);''')
+        
+        cursor.execute('''CREATE TABLE IF NOT EXISTS RoomBooking (
+            Customer_Name TEXT, Email TEXT, Mobile_No TEXT,
+            Room_No INTEGER, Member INTEGER, Entry_Time TEXT, Exit_Time TEXT);''')
+            
+        cursor.execute('''CREATE TABLE IF NOT EXISTS Booking (
+            Customer_Name TEXT, Email TEXT, MO_Number INTEGER,
+            Table_No INTEGER, Member INTEGER, Date_Time TEXT);''')
+            
+        cursor.execute('''CREATE TABLE IF NOT EXISTS Orders_Details (
+            Customer_Name TEXT, Email TEXT NOT NULL, Table_No INTEGER, "Order" TEXT, Order_Time TEXT);''')
+            
+        cursor.execute('''CREATE TABLE IF NOT EXISTS Delivery (
+            Customer_Name TEXT, Mobile_Number INTEGER, "Order" TEXT, Address TEXT, Order_Time TEXT);''')
+        conn.commit()
+
+# Run database initialization
+init_db()
+
+# ==========================================
+# DATABASE UPGRADE (RUNS ONCE)
+# ==========================================
+def upgrade_db():
+    """Safely adds the missing columns to old tables without deleting user data."""
+    with sqlite3.connect('table.db') as conn:
+        cursor = conn.cursor()
+        try:
+            # Try to add the new Order_Time column to both tables
+            cursor.execute("ALTER TABLE Delivery ADD COLUMN Order_Time TEXT;")
+            cursor.execute("ALTER TABLE Orders_Details ADD COLUMN Order_Time TEXT;")
+            print("✅ Database successfully upgraded with Order_Time columns!")
+        except sqlite3.OperationalError:
+            # If the column already exists, SQLite throws an error, so we just ignore it!
+            pass 
+
+# Run the upgrade check
+upgrade_db()
 
 # ==========================================
 # LUXURY CURVED HTML EMAIL TEMPLATE
@@ -70,7 +123,7 @@ def get_html_email_template(title, content):
     """
 
 # ==========================================
-# EMAIL SENDER FUNCTION (ANTI-SPAM FIXED)
+# EMAIL SENDER FUNCTION
 # ==========================================
 def send_email_notification(to_email, customer_name, subject, body_text, body_html=None, attach_pdf=False, attach_pdf1=False):
     sender_email = os.getenv("EMAIL_USER") 
@@ -82,22 +135,22 @@ def send_email_notification(to_email, customer_name, subject, body_text, body_ht
 
     msg = EmailMessage()
     msg['Subject'] = subject
-    msg['From'] = f"S.K. Hotels <{sender_email}>"
+    msg['From'] = sender_email 
     msg['To'] = to_email
-    msg['Reply-To'] = sender_email 
+    msg['Date'] = formatdate(localtime=True)
+    msg['Message-ID'] = make_msgid(domain="skhotels.com")
     
-    # STRICT SPAM FIX: The plain text MUST have the exact same footer as the HTML version
     text_footer = "\n\nWarm Regards,\nTeam S.K. Hotels\n\n----------------------------------------\nYou are receiving this email because of your recent activity with S.K. Hotels Group.\nS.K. Hotels Group, Kathiyawad, Gujarat, India"
     msg.set_content(body_text + text_footer)
     
     if body_html:
         msg.add_alternative(body_html, subtype='html')
 
-    if attach_pdf and pdf_location.exists():
+    if attach_pdf and pdf_location.exists() and os.path.getsize(pdf_location) > 0:
         with open(pdf_location, 'rb') as f:
             msg.add_attachment(f.read(), maintype='application', subtype='pdf', filename="S.K.Hotels_Gujarati_Menu.pdf")
 
-    if attach_pdf1 and pdf_location1.exists():
+    if attach_pdf1 and pdf_location1.exists() and os.path.getsize(pdf_location1) > 0:
         with open(pdf_location1, 'rb') as f:
             msg.add_attachment(f.read(), maintype='application', subtype='pdf', filename="S.K.Hotels_English_Menu.pdf")
 
@@ -136,24 +189,20 @@ def login():
         if Email and Password:
             with sqlite3.connect('table.db') as conn:
                 cursor = conn.cursor()
-                cursor.execute('''CREATE TABLE IF NOT EXISTS Login (
-                    Customer_Name TEXT NOT NULL,
-                    Email TEXT NOT NULL,
-                    Mobile_No INTEGER NOT NULL,
-                    Password TEXT NOT NULL);''')
                 cursor.execute("SELECT Customer_Name, Password FROM Login WHERE Email = ?", (Email,))
                 result = cursor.fetchone()
 
             if result:
-                customer_name, stored_password = result
-                if stored_password == Password:
+                customer_name, stored_password_hash = result
+                # SECURITY FIX: Verify the password against the stored hash
+                if check_password_hash(stored_password_hash, Password):
                     session.permanent = True
                     session['user'] = customer_name
                     session['email'] = Email
 
-                    time_now = datetime.now().strftime('%d %b %Y, %I:%M %p')
+                    time_now = datetime.now().strftime('%d %b %Y, %I:%M:%S %p')
 
-                    subject = "S.K. Hotels - Login Notification"
+                    subject = f"S.K. Hotels - Login Notification ({time_now})"
                     title = "🔐 New Login Detected"
                     body_text = f"Hello {customer_name},\n\nYou have successfully logged in to your account at S.K. Hotels Group.\n\nPlease enjoy our services:\n- Explore the Menu\n- Place Your Order\n- Book a Table\n- Get Food Delivered\n- Book a Room\n\nLogin Time: {time_now}"
                     
@@ -174,8 +223,8 @@ def login():
                     """
                     
                     body_html = get_html_email_template(title, html_content)
-                    # Create a background thread to send the email so the user doesn't have to wait
-                    email_thread = threading.Thread(target=send_email_notification, args=(Email, customer_name, subject, body_text, body_html, True, True))
+                    
+                    email_thread = threading.Thread(target=send_email_notification, args=(Email, customer_name, subject, body_text, body_html, False, False))
                     email_thread.start()  
                                       
                     return render_template('Kathiyawad.html', flash_message="✅ Login successful!")
@@ -197,20 +246,18 @@ def signup():
         if Customer_Name and Email and Mobile_No and Password:
             with sqlite3.connect('table.db') as conn:
                 cursor = conn.cursor()
-                cursor.execute('''CREATE TABLE IF NOT EXISTS Login (
-                    Customer_Name TEXT NOT NULL,
-                    Email TEXT NOT NULL,
-                    Mobile_No INTEGER NOT NULL,
-                    Password TEXT NOT NULL);''')
-                
                 cursor.execute('SELECT * FROM Login WHERE Email = ?', (Email,))
                 if cursor.fetchone():
                     return render_template('login.html', flash_message="⚠️ You already have an account. Please login.")
 
-                cursor.execute('''INSERT INTO Login (Customer_Name, Email, Mobile_No, Password)
-                                  VALUES (?, ?, ?, ?)''', (Customer_Name, Email, Mobile_No, Password))
+                # SECURITY FIX: Hash the password before saving it to the database
+                hashed_password = generate_password_hash(Password)
 
-            subject = "Account Created Successfully - S.K. Hotels"
+                cursor.execute('''INSERT INTO Login (Customer_Name, Email, Mobile_No, Password)
+                                  VALUES (?, ?, ?, ?)''', (Customer_Name, Email, Mobile_No, hashed_password))
+
+            time_now = datetime.now().strftime('%d %b %Y, %I:%M:%S %p')
+            subject = f"Account Created Successfully - S.K. Hotels ({time_now})"
             title = "🎉 Welcome to S.K. Hotels!"
             body_text = f"Hello {Customer_Name},\n\nWelcome to the family! Your account has been successfully created.\n\nYou can now seamlessly access all of our luxury services to book tables, reserve rooms, and order food straight to your door."
             
@@ -225,13 +272,12 @@ def signup():
                     <li style="margin-bottom: 0;">🚚 Order fresh food to your door</li>
                 </ul>
             </div>
-            <div style="text-align: center; margin-top: 35px; margin-bottom: 10px;">
-                <a href="https://yourwebsite.com" style="background-color: #095B19; color: #ffffff; text-decoration: none; padding: 16px 35px; border-radius: 40px; font-weight: bold; font-size: 16px; display: inline-block; box-shadow: 0 4px 10px rgba(9,91,25,0.3);">Explore Now</a>
-            </div>
             """
             
             body_html = get_html_email_template(title, html_content)
-            send_email_notification(Email, Customer_Name, subject, body_text, body_html=body_html)
+            
+            email_thread = threading.Thread(target=send_email_notification, args=(Email, Customer_Name, subject, body_text, body_html))
+            email_thread.start()
             
             return render_template('login.html', flash_message="✅ Account created successfully! Please log in.")
 
@@ -246,32 +292,43 @@ def forget_password():
         if Email and Mobile_No:
             with sqlite3.connect('table.db') as conn:
                 cursor = conn.cursor()
-                cursor.execute("SELECT Customer_Name, Password FROM Login WHERE Email = ? AND Mobile_No = ?", (Email, Mobile_No))
+                cursor.execute("SELECT Customer_Name FROM Login WHERE Email = ? AND Mobile_No = ?", (Email, Mobile_No))
                 result = cursor.fetchone()
 
                 if result:
-                    customer_name, password = result
+                    customer_name = result[0]
                     
-                    subject = "Password Recovery - S.K. Hotels Group"
+                    # SECURITY FIX: Generate a random temporary password
+                    temp_password = ''.join(random.choices(string.ascii_letters + string.digits, k=8))
+                    hashed_temp_password = generate_password_hash(temp_password)
+                    
+                    # Update database with the new hashed temporary password
+                    cursor.execute("UPDATE Login SET Password = ? WHERE Email = ?", (hashed_temp_password, Email))
+                    conn.commit()
+
+                    time_now = datetime.now().strftime('%d %b %Y, %I:%M:%S %p')
+                    subject = f"Password Recovery - S.K. Hotels Group ({time_now})"
                     title = "🛡️ Password Recovery"
-                    body_text = f"Hello {customer_name},\n\nWe received a request to recover your password.\n\nYour Password: {password}\n\nIf you did not request this, please contact us immediately."
+                    body_text = f"Hello {customer_name},\n\nWe received a request to recover your password. Your password has been reset.\n\nYour Temporary Password: {temp_password}\n\nPlease log in and change this password immediately from your profile dashboard."
                     
                     html_content = f"""
                     <p>Hello <strong>{customer_name}</strong>,</p>
-                    <p>We received a request to recover your password. Your secure details are below:</p>
+                    <p>We received a request to recover your password. Your password has been securely reset. Your temporary details are below:</p>
                     
                     <div style="background-color: #f8f9fa; padding: 30px; border-radius: 40px; text-align: center; margin: 30px 0; border: 2px solid #eeeeee;">
-                        <p style="margin: 0; font-size: 14px; color: #666; text-transform: uppercase; letter-spacing: 1px;">🔑 Your Password</p>
-                        <h3 style="margin: 10px 0 0 0; color: #095B19; letter-spacing: 4px; font-size: 28px;">{password}</h3>
+                        <p style="margin: 0; font-size: 14px; color: #666; text-transform: uppercase; letter-spacing: 1px;">🔑 Temporary Password</p>
+                        <h3 style="margin: 10px 0 0 0; color: #095B19; letter-spacing: 4px; font-size: 28px;">{temp_password}</h3>
                     </div>
                     
-                    <p style="font-size: 13px; color: #888; text-align: center;">📞 If you did not request this password recovery, please contact our support desk immediately.</p>
+                    <p style="font-size: 13px; color: #888; text-align: center;">🚨 Please log in and navigate to "Change Password" to update this immediately.</p>
                     """
                     
                     body_html = get_html_email_template(title, html_content)
-                    send_email_notification(Email, customer_name, subject, body_text, body_html=body_html)
                     
-                    return render_template('login.html', flash_message="✅ Password sent to your email.")
+                    email_thread = threading.Thread(target=send_email_notification, args=(Email, customer_name, subject, body_text, body_html))
+                    email_thread.start()
+                    
+                    return render_template('login.html', flash_message="✅ A temporary password has been sent to your email.")
                 else:
                     return render_template('signup.html', flash_message="⚠️ No account found. Please sign up first.")
 
@@ -282,7 +339,6 @@ def forget_password():
 # ==========================================
 @app.route('/logout')
 def logout():
-    # Clear the session data securely
     session.pop('user', None)
     session.pop('email', None)
     session.clear()
@@ -308,19 +364,19 @@ def change_password():
 
         with sqlite3.connect('table.db') as conn:
             cursor = conn.cursor()
-            # Check if the current password is correct
             cursor.execute("SELECT Password, Customer_Name FROM Login WHERE Email = ?", (email,))
             result = cursor.fetchone()
 
-            if result and result[0] == current_password:
+            # SECURITY FIX: Check current hash, save new hash
+            if result and check_password_hash(result[0], current_password):
                 customer_name = result[1]
                 
-                # Update the database with the new password
-                cursor.execute("UPDATE Login SET Password = ? WHERE Email = ?", (new_password, email))
+                hashed_new_password = generate_password_hash(new_password)
+                cursor.execute("UPDATE Login SET Password = ? WHERE Email = ?", (hashed_new_password, email))
                 conn.commit()
 
-                # Send Security Alert Email
-                subject = "Security Alert: Password Changed - S.K. Hotels"
+                time_now = datetime.now().strftime('%d %b %Y, %I:%M:%S %p')
+                subject = f"Security Alert: Password Changed - S.K. Hotels ({time_now})"
                 title = "🔒 Password Updated"
                 body_text = f"Hello {customer_name},\n\nYour password has been successfully updated.\n\nIf you did not make this change, please contact us immediately."
                 
@@ -333,9 +389,10 @@ def change_password():
                 </div>
                 """
                 body_html = get_html_email_template(title, html_content)
-                send_email_notification(email, customer_name, subject, body_text, body_html=body_html)
+                
+                email_thread = threading.Thread(target=send_email_notification, args=(email, customer_name, subject, body_text, body_html))
+                email_thread.start()
 
-                # Log the user out so they have to sign in with the new password
                 session.clear()
                 return render_template('login.html', flash_message="✅ Password updated successfully! Please login with your new password.")
             else:
@@ -367,7 +424,7 @@ def delivery():
 
 
 # ==========================================
-# THE FIX: ROOM BOOKING ROUTE
+# ROOM BOOKING ROUTE
 # ==========================================
 @app.route('/room', methods=['GET', 'POST'])
 @login_required
@@ -396,8 +453,8 @@ def room_booking():
             with sqlite3.connect('table.db') as conn:
                 cursor = conn.cursor()
 
-                cursor.execute('SELECT * FROM Login WHERE Customer_Name = ? AND Email = ? AND Mobile_No = ?', 
-                               (Customer_Name, Email, MO_Number))
+                cursor.execute('SELECT * FROM Login WHERE Customer_Name = ? AND Email = ?', 
+                               (Customer_Name, Email))
                 if not cursor.fetchone():
                    return render_template('login.html', flash_message="⚠️ Please login first (you are not registered).")
 
@@ -415,10 +472,6 @@ def room_booking():
                 if room not in valid_ranges:
                     return render_template('room.html', flash_message="⚠️ Room number must be between 101-130, 201-230, 301-330, 401-440")
 
-                cursor.execute('''CREATE TABLE IF NOT EXISTS RoomBooking (
-                    Customer_Name TEXT, Email TEXT, Mobile_No TEXT,
-                    Room_No INTEGER, Member INTEGER, Entry_Time TEXT, Exit_Time TEXT);''')
-
                 cursor.execute('''SELECT * FROM RoomBooking WHERE Room_No = ? AND Exit_Time > ?''', (room_no, entry_time))
                 if cursor.fetchone():
                     return render_template('room.html', flash_message="⚠️ This room is already booked for the selected time.")
@@ -426,12 +479,11 @@ def room_booking():
                 cursor.execute("INSERT INTO RoomBooking VALUES (?, ?, ?, ?, ?, ?, ?)",
                                (Customer_Name, Email, MO_Number, room_no, Member, entry_time, exit_time))
 
-            # FIX: Format dates beautifully to prevent Spam Filters flagging raw "T" formats
             formatted_entry = entry.strftime("%d %b %Y, %I:%M %p")
             formatted_exit = exit.strftime("%d %b %Y, %I:%M %p")
 
-            # --- HTML EMAIL SETUP ---
-            subject = "Room Booking Confirmation - S.K. Hotels"
+            time_now = datetime.now().strftime('%d %b %Y, %I:%M:%S %p')
+            subject = f"Room Booking Confirmation - S.K. Hotels ({time_now})"
             title = "🛏️ Room Booking Confirmed"
             body_text = f"Hello {Customer_Name},\n\nYour stay has been successfully reserved. We can't wait to host you!\n\nRoom No: {room_no}\nGuests: {Member}\nCheck-in: {formatted_entry}\nCheck-out: {formatted_exit}\n\nIf you need any assistance prior to your arrival, feel free to contact the front desk."
             
@@ -461,7 +513,9 @@ def room_booking():
             """
             
             body_html = get_html_email_template(title, html_content)
-            send_email_notification(Email, Customer_Name, subject, body_text, body_html=body_html)
+            
+            email_thread = threading.Thread(target=send_email_notification, args=(Email, Customer_Name, subject, body_text, body_html))
+            email_thread.start()
             
             return render_template('Kathiyawad.html', flash_message="✅ Room booked successfully!")
 
@@ -474,8 +528,8 @@ def room_booking():
 @app.route('/submit', methods=['POST'])
 @login_required
 def submit():
-    Customer_Name = request.form.get('Customer_Name')
-    Email = request.form.get('Email')
+    Customer_Name = session.get('user')
+    Email = session.get('email')
     MO_Number = request.form.get('MO_Number')
 
     try:
@@ -483,15 +537,10 @@ def submit():
             cursor = conn.cursor()
 
             # --- TABLE BOOKING ---
-            if Email and MO_Number and request.form.get('Table_No') and request.form.get('Date_Time'):
+            if MO_Number and request.form.get('Table_No') and request.form.get('Date_Time'):
                 Table_No = request.form.get('Table_No')
                 Member = request.form.get('Member')
                 Date_Time = request.form.get('Date_Time')
-
-                cursor.execute('SELECT * FROM Login WHERE Customer_Name = ? AND Email = ? AND Mobile_No = ?', 
-                               (Customer_Name, Email, MO_Number))
-                if not cursor.fetchone():
-                    return render_template('login.html', flash_message="⚠️ Please login first (you are not registered).")
 
                 try:
                     booking_time = datetime.strptime(Date_Time, '%Y-%m-%dT%H:%M')
@@ -500,10 +549,6 @@ def submit():
                 except ValueError:
                      return render_template('booking.html', flash_message="⚠️ Invalid date/time format. Please select a valid date.")
     
-                cursor.execute('''CREATE TABLE IF NOT EXISTS Booking (
-                    Customer_Name TEXT, Email TEXT, MO_Number INTEGER,
-                    Table_No INTEGER, Member INTEGER, Date_Time TEXT);''')
-                
                 cursor.execute("SELECT * FROM Booking WHERE Table_No = ? AND Date_Time = ?", (Table_No, Date_Time))
                 if cursor.fetchone():
                     return render_template('booking.html', flash_message="⚠️ Table already booked at that time.")
@@ -511,10 +556,10 @@ def submit():
                     cursor.execute('INSERT INTO Booking VALUES (?, ?, ?, ?, ?, ?)', 
                                    (Customer_Name, Email, MO_Number, Table_No, Member, Date_Time))
 
-                    # FIX: Format date
                     formatted_date = booking_time.strftime("%d %b %Y, %I:%M %p")
+                    time_now = datetime.now().strftime('%d %b %Y, %I:%M:%S %p')
 
-                    subject = "Table Booking Confirmation - S.K. Hotels"
+                    subject = f"Table Booking Confirmation - S.K. Hotels ({time_now})"
                     title = "🪑 Table Reservation Confirmed"
                     body_text = f"Hello {Customer_Name},\n\nYour dining experience at S.K. Hotels is confirmed!\n\nTable No: {Table_No}\nGuests: {Member}\nDate & Time: {formatted_date}\n\nFor your convenience, we have attached our menus to this email."
                     
@@ -545,7 +590,8 @@ def submit():
                     """
                     body_html = get_html_email_template(title, html_content)
                     
-                    send_email_notification(Email, Customer_Name, subject, body_text, body_html=body_html, attach_pdf=True, attach_pdf1=True)
+                    email_thread = threading.Thread(target=send_email_notification, args=(Email, Customer_Name, subject, body_text, body_html, True, True))
+                    email_thread.start()
 
                     return render_template('Kathiyawad.html', flash_message="✅ Booking successful!")
 
@@ -553,78 +599,66 @@ def submit():
             elif request.form.get('Table_No') and request.form.get('Order'):
                 Table_No = request.form.get('Table_No')
                 Order = request.form.get('Order')
-
-                cursor.execute('SELECT * FROM Login WHERE Customer_Name = ?', (Customer_Name,))
-                if not cursor.fetchone():
-                    return render_template('login.html', flash_message="⚠️ Please login first.")
-
-                cursor.execute('''CREATE TABLE IF NOT EXISTS Orders_Details (
-                    Customer_Name TEXT,Email TEXT NOT NULL, Table_No INTEGER, "Order" TEXT);''')
                 
-                cursor.execute('SELECT * FROM Orders_Details WHERE Table_No = ? AND "Order" = ?', (Table_No, Order))
-                if cursor.fetchone():
-                    return render_template('order.html', flash_message="⚠️ You gave this order already!")
-                else:
-                    cursor.execute('INSERT INTO Orders_Details VALUES (?, ?, ?, ?)', (Customer_Name, Email, Table_No, Order))
+                Order_Time = datetime.now().strftime("%Y-%m-%d %I:%M:%S %p")
+                
+                cursor.execute('INSERT INTO Orders_Details VALUES (?, ?, ?, ?, ?)', (Customer_Name, Email, Table_No, Order, Order_Time))
 
-                    subject = "Order Confirmation - S.K. Hotels"
-                    title = "👨‍🍳 Kitchen Received Your Order"
-                    body_text = f"Hello {Customer_Name},\n\nYour order has been placed and is currently being prepared by our chefs!\n\nTable: {Table_No}\nOrder: {Order}\n\nPlease wait a while, your food will arrive shortly!"
-                    
-                    html_content = f"""
-                    <p>Hello <strong>{Customer_Name}</strong>,</p>
-                    <p>✅ Your order has been placed and is currently being prepared by our expert chefs!</p>
-                    
-                    <div style="background-color: #f8f9fa; padding: 25px 30px; border-radius: 25px; margin: 25px 0;">
-                        <p style="margin: 0 0 15px 0; font-size: 15px;"><strong>🪑 Table Number:</strong> <span style="color: #095B19; font-weight: bold;">{Table_No}</span></p>
-                        <p style="margin: 0; font-size: 15px; line-height: 1.6; border-top: 1px dashed #ccc; padding-top: 15px;"><strong>📝 Your Order:</strong><br>{Order}</p>
-                    </div>
-                    
-                    <p style="text-align: center;">⏳ Please wait a short while, your hot food will arrive at your table shortly!</p>
-                    """
-                    body_html = get_html_email_template(title, html_content)
-                    send_email_notification(Email, Customer_Name, subject, body_text, body_html=body_html)
-                    
-                    return render_template('Kathiyawad.html', flash_message="✅ Your order has been placed successfully.")
+                subject = f"Order Confirmation - S.K. Hotels ({Order_Time})"
+                title = "👨‍🍳 Kitchen Received Your Order"
+                body_text = f"Hello {Customer_Name},\n\nYour order has been placed and is currently being prepared by our chefs!\n\nTable: {Table_No}\nOrder: {Order}\nTime: {Order_Time}\n\nPlease wait a while, your food will arrive shortly!"
+                
+                html_content = f"""
+                <p>Hello <strong>{Customer_Name}</strong>,</p>
+                <p>✅ Your order has been placed and is currently being prepared by our expert chefs!</p>
+                
+                <div style="background-color: #f8f9fa; padding: 25px 30px; border-radius: 25px; margin: 25px 0;">
+                    <p style="margin: 0 0 15px 0; font-size: 15px;"><strong>🪑 Table Number:</strong> <span style="color: #095B19; font-weight: bold;">{Table_No}</span></p>
+                    <p style="margin: 0 0 15px 0; font-size: 15px;"><strong>🕰️ Order Time:</strong> <span style="color: #095B19; font-weight: bold;">{Order_Time}</span></p>
+                    <p style="margin: 0; font-size: 15px; line-height: 1.6; border-top: 1px dashed #ccc; padding-top: 15px;"><strong>📝 Your Order:</strong><br>{Order}</p>
+                </div>
+                
+                <p style="text-align: center;">⏳ Please wait a short while, your hot food will arrive at your table shortly!</p>
+                """
+                body_html = get_html_email_template(title, html_content)
+                
+                email_thread = threading.Thread(target=send_email_notification, args=(Email, Customer_Name, subject, body_text, body_html))
+                email_thread.start()
+                
+                return render_template('Kathiyawad.html', flash_message="✅ Your order has been placed successfully.")
     
             # --- HOME DELIVERY ---
-            elif request.form.get('Address'):
+            elif request.form.get('Address') and request.form.get('Mobile_Number'):
                 Mobile_Number = request.form.get('Mobile_Number')
                 Order = request.form.get('Order')
                 Address = request.form.get('Address')
-
-                cursor.execute('SELECT * FROM Login WHERE Customer_Name = ? AND Mobile_No = ?', (Customer_Name, Mobile_Number))
-                if not cursor.fetchone():
-                    return render_template('login.html', flash_message="⚠️ Please login first (you are not registered).")
-
-                cursor.execute('''CREATE TABLE IF NOT EXISTS Delivery (
-                    Customer_Name TEXT, Mobile_Number INTEGER, "Order" TEXT, Address TEXT);''')
                 
-                cursor.execute('SELECT * FROM Delivery WHERE Mobile_Number = ? AND "Order" = ?', (Mobile_Number, Order))
-                if cursor.fetchone():
-                    return render_template('order.html', flash_message="⚠️ You gave this order already!")
-                else:
-                    cursor.execute('INSERT INTO Delivery VALUES (?, ?, ?, ?)', (Customer_Name, Mobile_Number, Order, Address))
+                Order_Time = datetime.now().strftime("%Y-%m-%d %I:%M:%S %p")
+                
+                cursor.execute('INSERT INTO Delivery VALUES (?, ?, ?, ?, ?)', (Customer_Name, Mobile_Number, Order, Address, Order_Time))
 
-                    subject = "Delivery Order Confirmation - S.K. Hotels"
-                    title = "🚚 Your Delivery is Confirmed"
-                    body_text = f"Hello {Customer_Name},\n\nYour delivery order is in the kitchen and will be dispatched soon.\n\nItems: {Order}\nDestination: {Address}\n\nOur delivery partner will contact you at {Mobile_Number} if needed."
-                    
-                    html_content = f"""
-                    <p>Hello <strong>{Customer_Name}</strong>,</p>
-                    <p>✅ Your delivery order is currently in the kitchen and will be dispatched to you very soon.</p>
-                    
-                    <div style="background-color: #f8f9fa; padding: 25px 30px; border-radius: 30px; margin: 25px 0;">
-                        <p style="margin: 0 0 15px 0; font-size: 15px; line-height: 1.6; border-bottom: 1px dashed #ccc; padding-bottom: 15px;"><strong>📦 Items Ordered:</strong><br>{Order}</p>
-                        <p style="margin: 0; font-size: 15px; line-height: 1.6;"><strong>📍 Delivery Destination:</strong><br>{Address}</p>
-                    </div>
-                    
-                    <p style="text-align: center;">📞 Our delivery partner will contact you at <strong>{Mobile_Number}</strong> upon arrival.</p>
-                    """
-                    body_html = get_html_email_template(title, html_content)
-                    send_email_notification(Email, Customer_Name, subject, body_text, body_html=body_html)
-                    
-                    return render_template('Kathiyawad.html', flash_message="✅ Your delivery order is confirmed.")
+                subject = f"Delivery Order Confirmation - S.K. Hotels ({Order_Time})"
+                title = "🚚 Your Delivery is Confirmed"
+                body_text = f"Hello {Customer_Name},\n\nYour delivery order is in the kitchen and will be dispatched soon.\n\nItems: {Order}\nDestination: {Address}\nTime: {Order_Time}\n\nOur delivery partner will contact you at {Mobile_Number} if needed."
+                
+                html_content = f"""
+                <p>Hello <strong>{Customer_Name}</strong>,</p>
+                <p>✅ Your delivery order is currently in the kitchen and will be dispatched to you very soon.</p>
+                
+                <div style="background-color: #f8f9fa; padding: 25px 30px; border-radius: 30px; margin: 25px 0;">
+                    <p style="margin: 0 0 15px 0; font-size: 15px; line-height: 1.6; border-bottom: 1px dashed #ccc; padding-bottom: 15px;"><strong>📦 Items Ordered:</strong><br>{Order}</p>
+                    <p style="margin: 0 0 15px 0; font-size: 15px; line-height: 1.6; border-bottom: 1px dashed #ccc; padding-bottom: 15px;"><strong>📍 Delivery Destination:</strong><br>{Address}</p>
+                    <p style="margin: 0; font-size: 15px; line-height: 1.6;"><strong>🕰️ Order Time:</strong><br>{Order_Time}</p>
+                </div>
+                
+                <p style="text-align: center;">📞 Our delivery partner will contact you at <strong>{Mobile_Number}</strong> upon arrival.</p>
+                """
+                body_html = get_html_email_template(title, html_content)
+                
+                email_thread = threading.Thread(target=send_email_notification, args=(Email, Customer_Name, subject, body_text, body_html))
+                email_thread.start()
+                
+                return render_template('Kathiyawad.html', flash_message="✅ Your delivery order is confirmed.")
 
     except sqlite3.OperationalError as e:
         return render_template('Kathiyawad.html', flash_message=f"⚠️ Database Error: {str(e)}")
