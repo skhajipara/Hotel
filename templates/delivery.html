@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home Delivery - S.K. Hotels</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="auth-page" data-flash-message="{{ flash_message }}">
+
+    <script src="{{ url_for('static', filename='alert.js') }}"></script>
+
+    <div class="auth-container" style="max-width: 650px;">
+        
+        <a href="{{ url_for('home') }}" class="auth-logo-link">
+            <img src="../static/Logo.png" class="auth-logo" alt="S.K. Restaurant">
+        </a>
+
+        <div class="auth-card">
+            <h2>Order Delivery</h2>
+            <p class="auth-subtitle">Enjoy authentic Kathiyawadi flavors delivered right to your doorstep.</p>
+
+            <div class="delivery-name">
+                <form action="/submit" method="POST">
+                    
+                    <div class="form-grid">
+                        <div class="form-group">
+                            <label for="name"><i class="fas fa-user"></i> Full Name</label>
+                            <input type="text" id="name" name="Customer_Name" placeholder="Enter your name" required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="mobile"><i class="fas fa-phone"></i> Mobile Number</label>
+                            <input type="tel" id="mobile" name="Mobile_Number" pattern="[0-9]{10}" maxlength="10" placeholder="10-digit number" title="Please enter exactly 10 digits" oninvalid="this.setCustomValidity('Please enter a valid 10-digit mobile number')" oninput="this.setCustomValidity('')" required>
+                        </div>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> Email Address</label>
+                        <input type="email" id="email" name="Email" placeholder="Enter your registered email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="order"><i class="fas fa-concierge-bell"></i> Food Order</label>
+                        <textarea id="order" name="Order" placeholder="E.g., 2 Kathiyawadi Thali, 1 Buttermilk..." required></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="address"><i class="fas fa-map-marker-alt"></i> Complete Address</label>
+                        <textarea id="address" name="Address" placeholder="House/Flat No., Street, Landmark, City..." style="min-height: 80px;" required></textarea>
+                    </div>
+
+                    <div style="margin-top: 25px;">
+                        <button type="submit" class="btn-submit">Confirm Delivery</button>
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

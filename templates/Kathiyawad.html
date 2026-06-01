@@ -1,0 +1,189 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <title>S.K. Restaurant & Hotel</title>
+        <link rel="stylesheet" href="../static/style.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    </head>
+
+    <body data-flash-message="{{ flash_message }}">
+        <script src="{{ url_for('static', filename='alert.js') }}"></script>
+
+        <nav class="navbar">
+            <img src="../static/Logo.png" class="logo" alt="S.K. Restaurant">
+            <div class="login-container">
+                {% if session.get('user') %}
+                <div class="user-dropdown">
+                    <button onclick="toggleDropdown()" class="btn-user-profile">
+                        <div class="avatar-circle">
+                            <i class="fas fa-user"></i>
+                        </div>
+                        <span class="user-name">{{ session.get('user') | upper }}</span>
+                        <i class="fas fa-caret-down drop-icon"></i>
+                    </button>
+            
+                    <div id="profileDropdown" class="dropdown-content">
+                        <a href="/change-password"><i class="fas fa-lock"></i> CHANGE PASSWORD</a>
+                        <div class="dropdown-divider"></div>
+                        <a href="/logout" class="logout-text"><i class="fas fa-sign-out-alt"></i> SECURE LOGOUT</a>
+                    </div>
+                </div>
+                {% else %}
+                <form action="/login">
+                    <button type="submit" class="btn-login"><i class="fas fa-user"></i> Login</button>
+                </form>
+                {% endif %}
+            </div>
+        </nav>
+
+        <section class="hero-slider">
+            <img id="slider" src="../static/Hotel outside.png" alt="Slideshow">
+            <div class="overlay">
+                <h1 class="slider-text">Welcome to S.K. Hotels Group</h1>
+            </div>
+
+            <script>
+                const images = [
+                    "../static/Hotel outside.png",
+                    "../static/reception.png",
+                    "../static/Dining.png",
+                    "../static/room outside.png",
+                    "../static/room 1.png",
+                    "../static/room 2.png",
+                    "../static/D room.png",
+                    "../static/D dining.png"
+                ];
+                let currentIndex = 0;
+                const imgElement = document.getElementById("slider");
+                
+                function changeImage() {
+                    imgElement.style.opacity = 0; // Fade out
+                    setTimeout(() => {
+                        currentIndex = (currentIndex + 1) % images.length; 
+                        imgElement.src = images[currentIndex];
+                        imgElement.style.opacity = 1; // Fade in
+                    }, 500); // Wait half a second for the fade out before changing
+                }
+                setInterval(changeImage, 4000); // Change every 4 seconds
+            </script>
+        </section>
+
+        <section class="actions-section">
+            <a href="/menu" class="action-card">
+                <i class="fas fa-book-open"></i>
+                <h3>Menu</h3>
+            </a>
+            <a href="/booking" class="action-card">
+                <i class="fas fa-chair"></i>
+                <h3>Table Booking</h3>
+            </a>
+            <a href="/order" class="action-card">
+                <i class="fas fa-utensils"></i>
+                <h3>Order Food</h3>
+            </a>
+            <a href="/delivery" class="action-card">
+                <i class="fas fa-motorcycle"></i>
+                <h3>Home Delivery</h3>
+            </a>
+            <a href="/room" class="action-card">
+                <i class="fas fa-bed"></i>
+                <h3>Room Booking</h3>
+            </a>
+        </section>
+
+        <section class="gallery-section">
+            <h2 class="section-title">A Taste of Tradition</h2>
+            <div class="photo-grid">
+                <img src="../static/Photo 01.png" alt="Food Photo 1">
+                <img src="../static/Photo 02.png" alt="Food Photo 2">
+                <img src="../static/Photo 03.png" alt="Food Photo 3">
+                <img src="../static/Photo 04.png" alt="Food Photo 4">
+            </div>
+        </section>
+
+        <section class="uniqueness-section">
+            <h2 class="section-title">* Our Uniqueness</h2>
+            <div class="uniqueness-grid">
+                
+                <div class="unique-box">
+                    <h3>~ In Food</h3>
+                    <ul>
+                        <li>Our restaurant uses directly farmed vegetables.</li>
+                        <li>We use pure peanut oil, extracted directly from farmers' peanuts.</li>
+                        <li>Pulses and agricultural items are supplied directly from farmers.</li>
+                        <li>Dairy products like ghee and milk are provided by our own buffalo stable.</li>
+                    </ul>
+                </div>
+
+                <div class="unique-box">
+                    <h3>~ Serving Style <br><span>(Only Available in Village Vibe)</span></h3>
+                    <ul>
+                        <li>We use brass utensils to serve food, just like in the past.</li>
+                        <li>We embrace traditional ways of serving to honor our heritage.</li>
+                        <li>All signature dishes are prepared perfectly in clay pots.</li>
+                    </ul>
+                </div>
+
+                <div class="unique-box">
+                    <h3>~ Dining Arrangements</h3>
+                    <ul>
+                        <li>Traditional dining area with a seating capacity of 550 people.</li>
+                        <li>Separate private dining areas for special occasions and events.</li>
+                        <li>A dedicated, fun dining area for children.</li>
+                        <li>Authentic floor seating in perfect Kathiawadi style.</li>
+                        <li>Fully accessible separate dining areas for people with disabilities.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer-quote">
+                <h2>Thank You 🙏 Visit again</h2>
+                <p>રાધા વીના કાન નહીં,<br>એસ.કે. વીના જમવા નુ નહીં.....</p>
+            </div>
+            
+            <div class="footer-links">
+                <div class="footer-column">
+                    <h4>Quick Links</h4>
+                    <a href="/menu" target="_blank">~ Menu</a>
+                    <a href="/booking">~ Table Booking</a>
+                    <a href="/order">~ Order Food</a>
+                    <a href="/delivery">~ Home Delivery</a>
+                    <a href="/room">~ Room Booking</a>
+                </div>
+                <div class="footer-column">
+                    <h4>Discover</h4>
+                    <span>~ Food Quality</span>
+                    <span>~ Serving Speciality</span>
+                    <span>~ Dining Arrangements</span>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <h3>S.K. Hotels Group</h3>
+            </div>
+        </footer>
+    </body>
+    <script>
+    // 1. Toggle the dropdown when the profile button is clicked
+    function toggleDropdown() {
+        document.getElementById("profileDropdown").classList.toggle("show");
+    }
+
+    // 2. Close the dropdown if the user clicks anywhere outside of it
+    window.onclick = function(event) {
+        if (!event.target.closest('.btn-user-profile')) {
+            let dropdowns = document.getElementsByClassName("dropdown-content");
+            for (let i = 0; i < dropdowns.length; i++) {
+                let openDropdown = dropdowns[i];
+                if (openDropdown.classList.contains('show')) {
+                    openDropdown.classList.remove('show');
+                }
+            }
+        }
+    }
+</script>
+</html>

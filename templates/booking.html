@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book a Table - S.K. Hotels</title>
+    <link rel="stylesheet" href="../static/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body class="auth-page" data-flash-message="{{ flash_message }}">
+    
+    <script src="{{ url_for('static', filename='alert.js') }}"></script>
+    
+    <div class="auth-container" style="max-width: 650px;">
+        
+        <a href="{{ url_for('home') }}" class="auth-logo-link">
+            <img src="../static/Logo.png" class="auth-logo" alt="S.K. Restaurant">
+        </a>
+        
+        <div class="auth-card">
+            <h2>Book Your Table</h2>
+            <p class="auth-subtitle">Reserve your spot for an authentic dining experience.</p>
+
+            <form action="/submit" method="POST">
+                
+                <div class="form-grid">
+                    
+                    <div class="form-group">
+                        <label for="name"><i class="fas fa-user"></i> Full Name</label>
+                        <input type="text" id="name" name="Customer_Name" placeholder="Enter your name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email"><i class="fas fa-envelope"></i> Email</label>
+                        <input type="email" id="email" name="Email" placeholder="Enter your email" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="mobile"><i class="fas fa-phone"></i> Mobile Number</label>
+                        <input type="tel" id="mobile" name="MO_Number" pattern="[0-9]{10}" maxlength="10" placeholder="10-digit number" title="Please enter exactly 10 digits" oninvalid="this.setCustomValidity('Please enter a valid 10-digit mobile number')" oninput="this.setCustomValidity('')" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="members"><i class="fas fa-users"></i> Number of Guests</label>
+                        <input type="number" id="members" name="Member" min="1" max="20" placeholder="How many people?" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="table"><i class="fas fa-chair"></i> Table Number</label>
+                        <input type="number" id="table" name="Table_No" min="1" max="100" placeholder="Table 1 to 100" title="We have tables from 1 to 100" required>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="datetime"><i class="fas fa-calendar-alt"></i> Date & Time</label>
+                        <input type="datetime-local" id="datetime" name="Date_Time" required>
+                    </div>
+
+                </div>
+
+                <div style="margin-top: 15px;">
+                    <button type="submit" class="btn-submit">Confirm Booking</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+</body>
+</html>

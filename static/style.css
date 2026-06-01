@@ -1,0 +1,670 @@
+/* --- Global Reset & Fonts --- */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Poppins:wght@300;400;600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: #FDFBF7; /* Off-white luxury background */
+    color: #333;
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Playfair Display', serif;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* --- Navbar --- */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 5%;
+    background-color: rgba(25, 32, 36, 0.95);
+    backdrop-filter: blur(10px);
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+}
+
+.logo {
+    height: 60px;
+    width: auto;
+}
+
+.btn-login {
+    background-color: #D4AF37; /* Metallic Gold */
+    color: #111;
+    border: none;
+    padding: 10px 25px;
+    border-radius: 25px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.btn-login:hover {
+    background-color: #F3E5AB;
+    transform: translateY(-2px);
+}
+
+/* --- Hero Slider --- */
+.hero-slider {
+    position: relative;
+    height: 100vh;
+    width: 100%;
+    background-color: #000;
+}
+
+#slider {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: opacity 0.5s ease-in-out;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0,0,0,0.4), rgba(0,0,0,0.7));
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.slider-text {
+    color: #fff;
+    font-size: 4rem;
+    text-align: center;
+    text-shadow: 2px 2px 10px rgba(0,0,0,0.8);
+    animation: fadeIn 1.5s ease-in;
+}
+
+/* --- Action Cards Grid --- */
+.actions-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+    gap: 20px;
+    padding: 40px 5%;
+    background-color: #192024;
+    margin-top: -10px;
+}
+
+.action-card {
+    background-color: rgba(255, 255, 255, 0.05);
+    border: 1px solid rgba(212, 175, 55, 0.3);
+    border-radius: 10px;
+    padding: 30px 10px;
+    text-align: center;
+    color: #D4AF37;
+    transition: all 0.4s ease;
+}
+
+.action-card i {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+.action-card h3 {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    color: #fff;
+}
+
+.action-card:hover {
+    background-color: #D4AF37;
+    color: #192024;
+    transform: translateY(-5px);
+}
+.action-card:hover h3 {
+    color: #192024;
+}
+
+/* --- Photo Gallery --- */
+.gallery-section {
+    padding: 60px 5%;
+    text-align: center;
+}
+
+.section-title {
+    font-size: 2.5rem;
+    color: #192024;
+    margin-bottom: 40px;
+    text-align: center;
+}
+
+.photo-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.photo-grid img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+    transition: transform 0.4s ease;
+}
+
+.photo-grid img:hover {
+    transform: scale(1.03);
+}
+
+/* --- Uniqueness Section --- */
+.uniqueness-section {
+    padding: 60px 5%;
+    background-color: #fff;
+}
+
+.uniqueness-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 30px;
+}
+
+.unique-box {
+    background: #FDFBF7;
+    padding: 30px;
+    border-radius: 10px;
+    border-top: 4px solid #D4AF37;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+.unique-box h3 {
+    color: #192024;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+}
+
+.unique-box h3 span {
+    font-size: 1rem;
+    font-family: 'Poppins', sans-serif;
+    color: #666;
+    font-weight: 400;
+}
+
+.unique-box ul {
+    list-style: none;
+}
+
+.unique-box ul li {
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 25px;
+}
+
+.unique-box ul li::before {
+    content: '✦';
+    position: absolute;
+    left: 0;
+    color: #D4AF37;
+}
+
+/* --- Footer --- */
+.footer {
+    background-color: #192024;
+    color: #fff;
+    padding: 60px 5% 20px;
+}
+
+.footer-quote {
+    text-align: center;
+    margin-bottom: 40px;
+    padding-bottom: 30px;
+    border-bottom: 1px solid rgba(255,255,255,0.1);
+}
+
+.footer-quote h2 {
+    color: #D4AF37;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.footer-quote p {
+    font-size: 1.2rem;
+    font-style: italic;
+    line-height: 1.8;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+    gap: 30px;
+}
+
+.footer-column h4 {
+    color: #D4AF37;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.footer-column a, .footer-column span {
+    display: block;
+    color: #bbb;
+    margin-bottom: 10px;
+    transition: color 0.3s;
+}
+
+.footer-column a:hover {
+    color: #D4AF37;
+}
+
+.footer-bottom {
+    text-align: center;
+    color: #666;
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+}
+
+/* --- Keyframes --- */
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* =========================================
+   Authentication Pages (Login, Signup, Forget)
+   ========================================= */
+
+/* Creates a beautiful dark overlay over your hotel image for the background */
+.auth-page {
+    background: linear-gradient(rgba(25, 32, 36, 0.85), rgba(25, 32, 36, 0.95)), url('../static/Hotel outside.png') center/cover fixed;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    padding: 20px;
+}
+
+.auth-container {
+    width: 100%;
+    max-width: 450px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    animation: fadeIn 0.8s ease-out;
+}
+
+.auth-logo {
+    height: 80px;
+    margin-bottom: 25px;
+    filter: drop-shadow(0 4px 10px rgba(0,0,0,0.5));
+    transition: transform 0.3s ease;
+}
+
+.auth-logo:hover {
+    transform: scale(1.05);
+}
+
+.auth-card {
+    background-color: #FDFBF7;
+    width: 100%;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.4);
+    border-top: 5px solid #D4AF37;
+    text-align: center;
+}
+
+.auth-card h2 {
+    color: #192024;
+    font-size: 2.2rem;
+    margin-bottom: 5px;
+}
+
+.auth-subtitle {
+    color: #666;
+    margin-bottom: 30px;
+    font-size: 0.95rem;
+    font-family: 'Poppins', sans-serif;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: #192024;
+    margin-bottom: 8px;
+}
+
+.form-group label i {
+    color: #D4AF37;
+    margin-right: 8px;
+}
+
+.form-group input {
+    width: 100%;
+    padding: 14px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    background-color: #fff;
+    transition: all 0.3s ease;
+}
+
+.form-group input:focus {
+    outline: none;
+    border-color: #D4AF37;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+}
+
+.auth-actions {
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 25px;
+}
+
+.auth-link {
+    font-size: 0.9rem;
+    color: #666;
+    transition: color 0.3s;
+    text-decoration: none;
+}
+
+.auth-link:hover {
+    color: #D4AF37;
+}
+
+.gold-link {
+    color: #D4AF37;
+    font-weight: 600;
+}
+
+.gold-link:hover {
+    color: #b5952f;
+}
+
+.btn-submit {
+    width: 100%;
+    background-color: #D4AF37;
+    color: #192024;
+    padding: 15px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 0.5px;
+}
+
+.btn-submit:hover {
+    background-color: #F3E5AB;
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(212, 175, 55, 0.3);
+}
+
+.auth-footer {
+    margin-top: 30px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+    font-size: 0.95rem;
+    color: #555;
+}
+
+/* =========================================
+   Menu Selection Page
+   ========================================= */
+   .menu-selection-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.menu-option-card {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 35px 20px;
+    border-radius: 15px;
+    text-decoration: none;
+    transition: all 0.4s ease;
+    border: 2px solid transparent;
+}
+
+.menu-option-card i {
+    font-size: 3rem;
+    margin-bottom: 20px;
+    color: #D4AF37;
+    transition: transform 0.4s ease;
+}
+
+.menu-option-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    color: #192024;
+    margin-bottom: 8px;
+}
+
+.menu-option-card p {
+    font-size: 0.9rem;
+    color: #666;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Kathiyawadi Styling (Gold Theme) */
+.menu-option-card.traditional {
+    background-color: rgba(212, 175, 55, 0.08);
+    border-color: rgba(212, 175, 55, 0.3);
+}
+
+.menu-option-card.traditional:hover {
+    background-color: #D4AF37;
+    transform: translateY(-8px);
+    box-shadow: 0 15px 25px rgba(212, 175, 55, 0.3);
+}
+
+.menu-option-card.traditional:hover h3,
+.menu-option-card.traditional:hover p,
+.menu-option-card.traditional:hover i {
+    color: #192024;
+}
+
+.menu-option-card.traditional:hover i {
+    transform: scale(1.1);
+}
+
+/* Standard Menu Styling (Dark Theme on Hover) */
+.menu-option-card.modern {
+    background-color: #f8f9fa;
+    border-color: #e2e2e2;
+}
+
+.menu-option-card.modern:hover {
+    background-color: #192024;
+    border-color: #192024;
+    transform: translateY(-8px);
+    box-shadow: 0 15px 25px rgba(25, 32, 36, 0.3);
+}
+
+.menu-option-card.modern:hover h3,
+.menu-option-card.modern:hover p {
+    color: #fff;
+}
+
+/* =========================================
+   Service Forms (Booking, Room, Order) Grid
+   ========================================= */
+   .form-grid {
+    display: grid;
+    /* This automatically creates 2 columns on desktop, and 1 column on mobile */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 0 20px;
+    text-align: left;
+}
+
+.menu-option-card.modern:hover i {
+    color: #D4AF37;
+    transform: scale(1.1);
+}
+
+/* =========================================
+   Textarea Styling (For Order & Delivery)
+   ========================================= */
+   .form-group textarea {
+    width: 100%;
+    padding: 14px 15px;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1rem;
+    background-color: #fff;
+    transition: all 0.3s ease;
+    min-height: 120px; /* Gives it a nice default height */
+    resize: vertical; /* Allows the user to drag it taller if they want, but not wider */
+}
+
+.form-group textarea:focus {
+    outline: none;
+    border-color: #D4AF37;
+    box-shadow: 0 0 0 3px rgba(212, 175, 55, 0.2);
+}
+
+/* =========================================
+   USER DROPDOWN MENU (Click & Color Integration)
+   ========================================= */
+.user-dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+/* Profile Button */
+.btn-user-profile {
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 5px 10px;
+}
+
+/* Sage Green Avatar Circle (From Image) */
+.avatar-circle {
+    background-color: #9fb5a2; 
+    color: #111;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+}
+
+.user-name {
+    color: #ffffff;
+    font-size: 14px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+}
+
+.drop-icon {
+    color: #888888;
+    font-size: 12px;
+}
+
+/* Dropdown Content - Hidden by default */
+.dropdown-content {
+    display: none; /* Hidden until clicked */
+    position: absolute;
+    right: 0;
+    top: 110%;
+    background-color: #141414; /* Deep dark background */
+    min-width: 240px;
+    border-radius: 6px;
+    border: 1px solid #2a2a2a;
+    box-shadow: 0px 10px 25px rgba(0,0,0,0.7);
+    z-index: 1000;
+    overflow: hidden;
+}
+
+/* The .show class is added by JavaScript */
+.dropdown-content.show {
+    display: block;
+    animation: slideDown 0.2s ease-out;
+}
+
+@keyframes slideDown {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+    color: #eeeeee;
+    padding: 16px 20px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.5px;
+    transition: background-color 0.2s;
+}
+
+.dropdown-content a:hover {
+    background-color: #222222;
+}
+
+.dropdown-content a i {
+    font-size: 16px;
+    width: 20px;
+    text-align: center;
+}
+
+/* Divider Line */
+.dropdown-divider {
+    height: 1px;
+    background-color: #2a2a2a;
+    margin: 0;
+}
+
+/* Red Secure Logout Styling */
+.logout-text, .logout-text i {
+    color: #e55353 !important; 
+}
+
+/* --- Media Queries --- */
+@media (max-width: 768px) {
+    .slider-text { font-size: 2.5rem; padding: 0 15px; }
+    .actions-section { grid-template-columns: repeat(2, 1fr); }
+    .logo { height: 45px; }
+    .footer-links { flex-direction: column; text-align: center; }
+}
+
+@media (max-width: 480px) {
+    .slider-text { font-size: 2rem; }
+    .actions-section { grid-template-columns: 1fr; }
+    .unique-box { padding: 20px; }
+}
